@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação - Dietas e Treinos</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+        <div class="cross"></div>
+    </div>
+    <div class="menu">
+        <ul>
+            <li>
+                <a href="#" class="tooltip">
+                    <i class="bx bx-home"></i>
+                    <span class="link hide">Página Inicial</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="tooltip">
+                    <i class="bx bx-line-chart"></i>
+                    <span class="link hide">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="tooltip">
+                    <i class="bx bx-file"></i>
+                    <span class="link hide">Registros</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="switch">
+        <i class="fas fa-sun"></i>
+        <span class="switch__track"></span>
+        <i class="fas fa-moon"></i>
+    </div>
+    </div>
+
+    <div class="content">
+        <div class="buttons-container">
+            <button class="button" onclick="showContent('dietas')">Dietas</button>
+            <button class="button" onclick="showContent('treinos')">Treinos</button>
+        </div>
+
+        <div id="dietas" class="sub-content" style="display: none;">
+            <h3>Dietas</h3>
+            <button class="button" onclick="showSubContent('perdaPeso')">Perda de Peso</button>
+            <button class="button" onclick="showSubContent('ganhoPeso')">Ganho de Peso</button>
+            <div id="perdaPeso" class="sub-content" style="display: none;">Conteúdo sobre perda de peso...</div>
+            <div id="ganhoPeso" class="sub-content" style="display: none;">Conteúdo sobre ganho de peso...</div>
+        </div>
+
+        <div id="treinos" class="sub-content" style="display: none;">
+            <h3>Treinos</h3>
+            <button class="button" onclick="showSubContent('forca')">Força</button>
+            <button class="button" onclick="showSubContent('resistencia')">Resistência</button>
+            <div id="forca" class="sub-content" style="display: none;">Conteúdo sobre treinos de força...</div>
+            <div id="resistencia" class="sub-content" style="display: none;">Conteúdo sobre treinos de resistência...</div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(section) {
+            document.getElementById('dietas').style.display = 'none';
+            document.getElementById('treinos').style.display = 'none';
+            document.getElementById(section).style.display = 'block';
+        }
+
+        function showSubContent(subSection) {
+            let sections = ['perdaPeso', 'ganhoPeso', 'forca', 'resistencia'];
+            sections.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            document.getElementById(subSection).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
