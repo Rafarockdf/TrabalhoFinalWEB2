@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="modern">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros de Atividades Físicas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="cross"></div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="#" class="tooltip">
+                        <i class="bx bx-home"></i>
+                        <span class="link hide">Página Inicial</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tooltip">
+                        <i class="fa fa-dumbbell"></i>
+                        <span class="link hide">Atividades Físicas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tooltip">
+                        <i class="fa fa-utensils"></i>
+                        <span class="link hide">Alimentação Diária</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="switch">
+            <i class="fas fa-sun"></i>
+            <span class="switch__track"></span>
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <form class="form-atividade">
+                <label for="data-hora">Data e Horário da Atividade:</label>
+                <input type="datetime-local" id="data-hora" name="data-hora">
+                
+                <label for="tipo-atividade">Tipo de Atividade:</label>
+                <select id="tipo-atividade" name="tipo-atividade">
+                    <option value="corrida">Corrida</option>
+                    <option value="musculacao">Musculação</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="natação">Natação</option>
+                </select>
+                
+                <button type="submit" class="action">Registrar Atividade</button>
+            </form>
+        </div>
+        <table class="registro-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Atividade</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Registros fictícios de atividades -->
+                <tr>
+                    <td>Academia</td>
+                    <td>2025-03-12</td>
+                    <td>08:00</td>
+                    <td><button class="status-button red">Não Feito</button></td>
+                </tr>
+                <tr>
+                    <td>Corrida</td>
+                    <td>2025-03-11</td>
+                    <td>07:30</td>
+                    <td><button class="status-button green">Feito</button></td>
+                </tr>
+                <tr>
+                    <td>Yoga</td>
+                    <td>2025-03-10</td>
+                    <td>09:00</td>
+                    <td><button class="status-button red">Não Feito</button></td>
+                </tr>
+                <!-- Mais registros podem ser adicionados aqui -->
+            </tbody>
+        </table>
+        <!-- Div para mostrar os registros -->
+        
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+</html>

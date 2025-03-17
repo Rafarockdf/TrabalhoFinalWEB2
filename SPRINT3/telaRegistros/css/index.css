@@ -1,0 +1,415 @@
+[data-theme="modern"] {
+    --clr-background: #F0F0F0; /* Fundo principal cinza-claro */
+    --clr-font: #222222; /* Texto principal preto */
+    /* --clr-card: #FFFFFF; Fundo dos cards branco */
+    --clr-sidebar: #0099CC; /* Azul para a sidebar */
+    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
+    --clr-navbar: #FFFFFF; /* Branco para o topo */
+    --clr-navbar-text: #0099CC; /* Texto azul no topo */
+    --clr-button: #33CC66; /* Botões verdes */
+    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
+    --clr-highlight: #0099CC; /* Elementos de destaque em azul */
+    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
+    --clr-graph-points: #0099CC; /* Pontos dos gráficos em azul */
+    --clr-shadow: rgba(0, 0, 0, 0.3);/* Sombra suave */
+    --clr-link:#3333FF;
+
+    --clr-card: #FFFFFF; /* Fundo dos cards branco */
+    --clr-card-border: #E0E0E0; /* Cor da borda do card - cinza claro */
+    --clr-card-shadow: rgba(0, 0, 0, 0.1); /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #F9F9F9; /* Cor de fundo dos cards ao passar o mouse */
+
+
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.3s ease-in-out;
+    --shadow-card: 6px 6px 24px var(--clr-shadow);
+}
+
+/**********************************/
+/* Tema Escuro
+/**********************************/
+
+[data-theme="dark"] {
+    --clr-background: #121212; /* Fundo principal escuro */
+    --clr-font: #E0E0E0; /* Texto principal claro */
+    /* --clr-card: #1E1E1E; Fundo dos cards escuro */
+    --clr-sidebar: #005577; /* Azul escuro para a sidebar */
+    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
+    --clr-navbar: #1E1E1E; /* Escuro para o topo */
+    --clr-navbar-text: #33CC66; /* Texto verde no topo */
+    --clr-button: #33CC66; /* Botões verdes */
+    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
+    --clr-highlight: #33CC66; /* Elementos de destaque em verde */
+    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
+    --clr-graph-points: #33CC66; /* Pontos dos gráficos em verde */
+    --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
+    --clr-link:#C2C2FF;
+
+    --clr-card: #1E1E1E; /* Fundo dos cards escuro */
+    --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
+    --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.3s ease-in-out;
+    --shadow-card: 4px 4px 20px var(--clr-shadow);
+}
+/*Configurações Gerais
+*/
+
+
+html{
+    font-size: 62.5%;
+    font-family: var(--ff);
+    color: var(--clr-font);
+    transition: var(--transition);
+}
+
+body{
+    background-color: var(--clr-background);
+    transition: var(--transition);
+    
+}
+
+/*
+2. Sidebar
+*/
+
+
+.sidebar {
+    background-color: var(--clr-sidebar);
+    transition: var(--transition);
+    position: fixed; left: 0; top: 0;
+    padding: 1.3rem;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    flex-shrink: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 20px;
+    z-index: 2;
+}
+
+.switch {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    top: 1.4rem;
+    left: 15rem;
+}
+
+.switch__track {
+    background-color: var(--clr-button);
+    display: block;
+    height: 2rem;
+    width: 4rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 0 .2rem;
+}
+
+.switch__track::before {
+    content: "";
+    background-color: var(--clr-font);
+    transition: var(--transition);
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    left: 0rem;
+}
+
+.switch__track--dark::before {
+    left: 2rem;
+}
+
+.logo {
+    position: absolute;
+    top: 1rem; /* Distância do topo */
+    left: 1rem; /* Distância da lateral */
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, #0099CC, #33CC66);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.cross {
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    position: absolute;
+    border-radius: 20rem;
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 1rem 0;
+    width: 18rem;
+    
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    top: 1rem;
+    color: var(--clr-font);
+    background-color: var(--clr-sidebar);
+    border: 2px solid var(--clr-font);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+    
+}
+
+.menu a:hover {
+    background-color: var(--clr-sidebar-hover);
+    color: var(--clr-button-text);
+    
+}
+
+.menu i {
+    margin-right: 0.8rem;
+}
+
+.tooltip {
+    background-color: var(--clr-sidebar); /* Mesma cor da sidebar */
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    width: 90%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.tooltip:hover {
+    background-color: #007BA7; /* Um tom mais escuro para efeito hover */
+    transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
+}
+
+.tooltip i { /* Ícones dentro do botão */
+    font-size: 18px;
+}
+/*
+parte telaRegistros
+*/
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 30px;
+    margin: 3rem 1.6rem;
+    margin-left: 30rem;
+}
+.box {
+    min-width: 15rem;
+    min-height: 15rem;
+    background-color:  var(--clr-card);
+    margin: 0.625rem 0;
+    text-align: center;
+    line-height: 20.375rem;
+    font-weight: bold;
+    border-radius: 3rem;
+    position: relative;
+    
+}
+.button {
+    padding: 0.75rem 1.5rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+.button:hover {
+    background-color: darkred;
+}
+
+
+
+/* Estilos gerais para o formulário de atividade física */
+.form-atividade {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Menor espaçamento entre os elementos */
+    padding: 1.5rem;
+    background-color: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+    max-width: 400px; /* Limita a largura do formulário */
+    margin: 2rem auto; /* Centraliza o formulário */
+}
+
+/* Estilo para os labels */
+.form-atividade label {
+    font-size: 1.4rem; /* Tamanho menor */
+    font-weight: 600;
+    color: var(--clr-font);
+    margin-bottom: 0.3rem;
+}
+
+/* Estilo para os inputs de data e hora */
+.form-atividade input[type="datetime-local"] {
+    padding: 0.7rem;
+    font-size: 1.4rem;
+    border: 2px solid var(--clr-card-border);
+    border-radius: 0.5rem;
+    background-color: var(--clr-background);
+    color: var(--clr-font);
+    outline: none;
+    transition: border 0.3s ease, background-color 0.3s ease;
+    width: 100%; /* Input ocupa toda a largura disponível */
+}
+
+/* Efeito ao focar no input de data e hora */
+.form-atividade input[type="datetime-local"]:focus {
+    border-color: var(--clr-highlight);
+    background-color: var(--clr-card-hover);
+}
+
+/* Estilo para o campo de seleção de tipo de atividade */
+.form-atividade select {
+    padding: 0.7rem;
+    font-size: 1.4rem;
+    border: 2px solid var(--clr-card-border);
+    border-radius: 0.5rem;
+    background-color: var(--clr-background);
+    color: var(--clr-font);
+    transition: border 0.3s ease, background-color 0.3s ease;
+    width: 100%; /* Seleção ocupa toda a largura disponível */
+}
+
+/* Efeito ao focar no campo de seleção */
+.form-atividade select:focus {
+    border-color: var(--clr-highlight);
+    background-color: var(--clr-card-hover);
+}
+
+/* Estilo para os botões */
+.form-atividade button {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Botões ocupam toda a largura disponível */
+    margin-top: 10px;
+}
+
+/* Estilo do botão de ação */
+.form-atividade button.action {
+    background-color: var(--clr-button);
+    color: var(--clr-button-text);
+    border: none;
+}
+
+/* Efeito de hover no botão de ação */
+.form-atividade button.action:hover {
+    background-color: #28a745;
+}
+
+/* Estilo do botão de cancelamento */
+.form-atividade button.cancel {
+    background-color: #f44336; /* Vermelho para cancelar */
+    color: white;
+    border: none;
+}
+
+/* Efeito de hover no botão de cancelamento */
+.form-atividade button.cancel:hover {
+    background-color: #d32f2f; /* Tom mais escuro de vermelho */
+}
+/* Estilos para a tabela */
+.registro-table {
+    width: 150rem;
+    height: 50rem;
+    border-collapse: collapse;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 5rem;
+}
+
+.registro-table th, .registro-table td {
+    font: var(--ff);
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    border: 1px solid var(--clr-card-border);
+}
+
+.registro-table th {
+    background-color: var(--clr-sidebar);
+    color: var(--clr-button-text);
+    font-weight: bold;
+    font: var(--ff);
+    
+    font-size: var(--ts-normal-text);
+}
+.registro-table tr{
+    text-align: center;
+}
+
+.registro-table td {
+    margin-top: 10rem;
+    background-color: var(--clr-card);
+    color: var(--clr-font);
+}
+
+
+
+/* Estilos para os botões de status */
+.status-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    border: none;
+}
+
+.status-button.red {
+    background-color: red;
+}
+
+.status-button.green {
+    background-color: green;
+}
+
+.status-button:hover {
+    opacity: 0.8;
+}
