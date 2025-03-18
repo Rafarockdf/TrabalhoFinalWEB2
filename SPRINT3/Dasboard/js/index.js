@@ -27,7 +27,7 @@ const menuToggle = document.querySelector('.menu-toggle');
             sidebar.classList.toggle('collapsed');
             menuToggle.classList.toggle('collapsed');
             container.classList.toggle('collapsed');
-        });
+});
 
 
 

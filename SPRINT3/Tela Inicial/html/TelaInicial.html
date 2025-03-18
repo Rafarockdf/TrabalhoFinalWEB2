@@ -8,40 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/teste.css">
+    <link rel="stylesheet" href="../css/TelaInicial.css">
 </head>
 <body>
+    <div class="loading loading--hide">
+        <i class="fa fa-spinner loading__spinner"></i>
+    </div>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
     <div class="sidebar">
         <div class="logo">
-        <div class="cross"></div>
-    </div>
-    <div class="menu">
-        <ul>
-            <li>
-                <a href="#" class="tooltip">
-                    <i class="bx bx-home"></i>
-                    <span class="link hide">Página Inicial</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="tooltip">
-                    <i class="bx bx-line-chart"></i>
-                    <span class="link hide">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="tooltip">
-                    <i class="bx bx-file"></i>
-                    <span class="link hide">Registros</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="switch">
-        <i class="fas fa-sun"></i>
-        <span class="switch__track"></span>
-        <i class="fas fa-moon"></i>
-    </div>
+            <div class="cross"></div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
+                <li><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></li>
+                <li><i class="fas fa-clipboard"></i> <span class="menu-text">Registros</span></li>
+                <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
+                <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
+            </ul>
+        </div>
+        <div class="switch">
+            <i class="fas fa-sun"></i>
+            <span class="switch__track"></span>
+            <i class="fas fa-moon"></i>
+        </div>
     </div>
     <div class="container">
         <div class="imagem">
@@ -79,5 +72,6 @@
             
         </div>
     </div>
+    <script src="../js/script.js"></script>
 </body>
 </html>

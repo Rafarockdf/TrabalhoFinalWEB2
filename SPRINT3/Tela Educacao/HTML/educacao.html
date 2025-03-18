@@ -34,27 +34,22 @@
         </div>
     </div>
 
-    <main class="main-content">
-        <h1>Educação Alimentar e Exercícios Físicos</h1>
-        <section class="cards">
-            <div class="card">
-                <h2>Perda de Peso</h2>
-                <p>Dicas de alimentação para redução de peso de forma saudável.</p>
-            </div>
-            <div class="card">
-                <h2>Ganho de Peso</h2>
-                <p>Estratégias nutricionais para ganho de massa muscular.</p>
+    <div class="container">
+        <h1 class="title">Educação Alimentar e Exercícios Físicos</h1>
+        <section class="food">
+            <div class="info">
+                <h2 class="info__label">Perda de Peso</h2>
+                <p class="content">Dicas de alimentação para redução de peso de forma saudável.</p>
             </div>
         </section>
-    </main>
+        <section class="physical">
+            <div class="info">
+                <h2 class="info__label">Ganho de Peso</h2>
+                <p class="content">Estratégias nutricionais para ganho de massa muscular.</p>
+            </div>
+        </section>
+    </div>
 
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const sidebar = document.querySelector('.sidebar');
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            menuToggle.classList.toggle('collapsed')
-        });
-    </script>
+    <script src="../JS/script.js"></script>
 </body>
 </html>
