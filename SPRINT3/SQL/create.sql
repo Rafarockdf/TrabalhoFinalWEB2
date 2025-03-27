@@ -1,15 +1,34 @@
-CREATE TABLE usuarios (
+CREATE TABLE usuarios ( 
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(100),
-  email VARCHAR(100) UNIQUE,
-  senha_hash VARCHAR(255),
-  data_nascimento DATE,
-  genero ENUM('Masculino','Feminino','Outro','Prefiro não dizer'),
-  altura DECIMAL(5,2),
-  peso DECIMAL(5,2),
-  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  IMC DECIMAL(4,2)
+  nome VARCHAR(100) NOT NULL, 
+  email VARCHAR(100) UNIQUE NOT NULL, 
+  senha_hash VARCHAR(255) NOT NULL, 
+  data_nascimento DATE NOT NULL, 
+  idade INT, genero VARCHAR(30) NOT NULL, 
+  altura DECIMAL(5,2) NOT NULL, 
+  peso DECIMAL(5,2) NOT NULL, 
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+  IMC DECIMAL(4,2) 
+
 );
+
+/* Criar nova coluna de 
+A classificação do Índice de Massa Corporal (IMC) é feita de acordo com os seguintes valores: 
+Abaixo do peso: IMC menor que 18,5
+Eutrófico: IMC entre 18,5 e 24,9
+Sobrepeso: IMC entre 25 e 29,9
+Obesidade grau I: IMC entre 30 e 34,9
+Obesidade grau II: IMC entre 35 e 39,9
+Obesidade grau III: IMC maior que 40
+*/
+ALTER TABLE usuarios 
+MODIFY COLUMN senha_hash VARCHAR(256) NOT NULL;
+
+ALTER TABLE usuarios ADD COLUMN sexo ENUM('M', 'F', 'Outro') NOT NULL;
+
+ALTER TABLE usuarios 
+MODIFY COLUMN IMC DECIMAL(5,2);
+
 
 CREATE TABLE hidratacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
