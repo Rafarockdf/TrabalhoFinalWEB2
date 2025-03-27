@@ -255,3 +255,35 @@ section {
 .collapsed .menu ul li .menu-text {
     display: none;
 }
+
+/**********************************/
+/* Container
+/**********************************/
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 30px;
+    margin: 3rem 1.6rem;
+    margin-left: 30rem;
+    transition: var(--transition);
+}
+.container.collapsed{
+    margin-left: 17rem;
+    transition: var(--transition);
+}
+
+@media screen and (min-width:960px){
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+   
+}
+
+@media screen and (min-width: 1170px){
+    .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+   
+
+}
