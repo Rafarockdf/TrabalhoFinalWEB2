@@ -48,14 +48,38 @@ CREATE TABLE atividades_fisicas (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
 );
 
+CREATE TABLE tipos_atividades_fisicas(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividadesfisiscas registradas
+);
+
+CREATE TABLE alimentos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ds_alimento VARCHAR(100) NOT NULL,
+  calorias_por_100g FLOAT,        -- valor preenchido com a API
+  origem_api VARCHAR(100),        -- ex: 'USDA', 'FatSecret'
+  codigo_externo VARCHAR(50)      -- ID do alimento na API externa (facilita atualizações futuras)
+);
+
+-- Tabela alimentação
 CREATE TABLE alimentacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  usuario_id INT,
+  usuario_id INT NOT NULL,
   descricao VARCHAR(255),
-  calorias INT,
   registrado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
+
+CREATE TABLE alimentacao_alimentos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  alimentacao_id INT NOT NULL,
+  alimento_id INT NOT NULL,
+  quantidade_g FLOAT NOT NULL,     -- peso em gramas informado pelo usuário
+  FOREIGN KEY (alimentacao_id) REFERENCES alimentacao(id),
+  FOREIGN KEY (alimento_id) REFERENCES alimentos(id)
+);
+
+
 
 CREATE TABLE sentimentos (
   id INT AUTO_INCREMENT PRIMARY KEY,
