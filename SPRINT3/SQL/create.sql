@@ -61,6 +61,7 @@ CREATE TABLE alimentos (
   codigo_externo VARCHAR(50)      -- ID do alimento na API externa (facilita atualizações futuras)
 );
 
+-- Tabela alimentação
 CREATE TABLE alimentacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT NOT NULL,
