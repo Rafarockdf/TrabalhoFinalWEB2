@@ -1,16 +1,6 @@
 <?php
 
-$servername = "localhost";
-$usuario = "rafael2";
-$senha = "1234";
-$database = "healthpal";
-
-$conexao = new mysqli($servername, $usuario, $senha, $database);
-
-// Verificar se houve erro na conexão
-if ($conexao->connect_error) {
-    die("Falha na conexão: " . $conexao->connect_error);
-}
+include '../../Conexao/php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
