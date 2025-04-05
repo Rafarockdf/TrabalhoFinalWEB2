@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="modern">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  
+  <!-- Reset e fontes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  
+  <!-- CSS integrado (merge dos dois códigos) -->
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+  <!-- Loading (mantido do segundo código) -->
+  <div class="loading loading--hide">
+    <i class="fa fa-spinner loading__spinner"></i>
+  </div>
+
+  <!-- Sidebar integrada (estrutura do segundo código) -->
+  <div class="sidebar">
+    <div class="logo">
+      <div class="cross"></div>
+    </div>
+    <div class="menu">
+      <ul>
+        <li>
+          <a href="../html/index.html" class="tooltip">
+            <i class="bx bx-home"></i>
+            <span class="link hide">Página Inicial</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="tooltip">
+            <i class="bx bx-line-chart"></i>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="tooltip">
+            <i class="bx bx-file"></i>
+            <span class="link hide">Registros</span>
+          </a>
+          <li>
+            <a href="../sidebar/perfil.html" class="tooltip">
+                <i class="bx bx-user"></i>
+                <span class="link hide">Perfil</span>
+            </a>
+        </li>        
+      </ul>
+    </div>
+    <div class="switch">
+      <i class="fas fa-sun"></i>
+      <span class="switch__track"></span>
+      <i class="fas fa-moon"></i>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal do primeiro código -->
+  <div class="container">
+    <div class="header">
+      <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/health-logo-design-template-413edd6c579e1c7ac61e14ffdd75eec5_screen.jpg?ts=1604410182" 
+           alt="Logo do Site">
+    </div>
+
+    <div class="summary">
+      <p>
+        Bem-vindo ao nosso site! Aqui você encontrará conteúdos exclusivos sobre saúde, bem-estar e educação. 
+        Nossa missão é oferecer informações confiáveis e recursos úteis para o seu dia a dia.
+      </p>
+    </div>
+
+    <div class="cards-container">
+        <div class="cards-container">
+            <a href="sobre-graficos.html" class="card">📊 Gráficos</a>
+            <a href="sobre-esporte.html" class="card">🏃‍♂️ Esporte</a>
+            <a href="sobre-educacao.html" class="card">📖 Educação</a>
+            <a href="sobre-loja.html" class="card">🛒 Loja</a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Scripts (se necessário) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.27.3/apexcharts.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/apexcharts-pt-br.js"></script>
+</body>
+</html>
