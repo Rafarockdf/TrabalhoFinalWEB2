@@ -113,19 +113,23 @@ CREATE TABLE alertas (
 
 CREATE TABLE conteudos (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  titulo VARCHAR(255),
-  tipo ENUM('Artigo','Vídeo'),
+  titulo VARCHAR(255) NOT NULL,
+  tipo ENUM('Artigo', 'Vídeo', 'Plano de Treino', 'Plano Alimentar') NOT NULL,
   url TEXT,
   descricao TEXT,
-  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  administrador_id INT NOT NULL,
+  FOREIGN KEY (administrador_id) REFERENCES usuarios(id)
 );
 
 CREATE TABLE interacoes_conteudo (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  usuario_id INT,
-  conteudo_id INT,
-  tipo ENUM('Visualizado','Curtido'),
+  usuario_id INT NOT NULL,
+  conteudo_id INT NOT NULL,
+  tipo ENUM('Visualizado', 'Curtido', 'Favoritado') NOT NULL,
   registrado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
-  FOREIGN KEY (conteudo_id) REFERENCES conteudos (id)
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+  FOREIGN KEY (conteudo_id) REFERENCES conteudos(id)
 );
+
+-- Possível evolução é na aba de edução caso o usuário goste de alguma dieta ele pode adiciona-la em seu plano alimentar e todos os registros seriam feitos automaticamente ele só precisaria conclui-los.
