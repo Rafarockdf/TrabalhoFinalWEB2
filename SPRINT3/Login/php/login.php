@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conexao.php';
+include '../../Conexao/php/conexao.php';
 
 $email = $_POST['email'] ?? '';
 $senha_digitada = $_POST['senha'] ?? '';
@@ -21,7 +21,7 @@ if ($resultado->num_rows === 1) {
     if (password_verify($senha_digitada, $usuario['senha_hash'])) {
         $_SESSION['usuario'] = $usuario['nome'];
         $_SESSION['email'] = $usuario['email'];
-        header("Location: dashboard.php");
+        header("Location: ../../Dashboard/html/dashboard.html");
         exit;
     } else {
         echo "Senha incorreta.";

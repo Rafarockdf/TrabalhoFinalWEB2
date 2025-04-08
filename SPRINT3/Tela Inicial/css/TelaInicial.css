@@ -54,7 +54,7 @@
     --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
     --clr-link:#C2C2FF;
 
-    --clr-card: #1E1E1E; /* Fundo dos cards escuro */
+    --clr-card: #121212; /* Fundo dos cards escuro */
     --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
     --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
     --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
@@ -94,6 +94,8 @@ section {
     padding: 1.6;
     border-radius: 1rem;
 }
+
+
 
 /**********************************/
 /* Sidebar
@@ -275,7 +277,7 @@ section {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: var(--clr-shadow);
+    box-shadow: 4px 4px 30px var(--clr-shadow);
     width: 100%;
     max-width: 350px;
     height: 200px;
@@ -290,6 +292,7 @@ section {
     height: 100%;
     object-fit: contain;
     border-radius: 10px;
+
     transition: var(--transition);
 }
 
@@ -310,7 +313,7 @@ section {
     padding: 40px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: var(--clr-shadow);
+    box-shadow: 4px 4px 30px var(--clr-shadow);
     font-size: 18px;
     line-height: 1.8;
     max-width: 900px;
@@ -412,4 +415,8 @@ section {
         grid-column: 1 / -1;
     }
 }
+
+
+
+
 

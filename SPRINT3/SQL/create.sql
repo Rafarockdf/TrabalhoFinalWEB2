@@ -132,4 +132,6 @@ CREATE TABLE interacoes_conteudo (
   FOREIGN KEY (conteudo_id) REFERENCES conteudos(id)
 );
 
+
+
 -- Possível evolução é na aba de edução caso o usuário goste de alguma dieta ele pode adiciona-la em seu plano alimentar e todos os registros seriam feitos automaticamente ele só precisaria conclui-los.
