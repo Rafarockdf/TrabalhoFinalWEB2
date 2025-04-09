@@ -128,6 +128,7 @@ section {
     cursor: pointer;
     color: var(--clr-card);
     font-size: 20px;
+    transition: transform 0.2s ease;
     z-index: 10;
 }
 
@@ -412,4 +413,20 @@ section {
         grid-column: 1 / -1;
     }
 }
+
+.profile-icon {
+    position: absolute;
+    bottom: 5rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: var(--clr-background);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+    color: var(--clr-button);
+}
+
 

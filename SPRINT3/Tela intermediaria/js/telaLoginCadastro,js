@@ -1,0 +1,18 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const switchTrack = document.querySelector('.switch__track');
+
+    switchTrack.addEventListener('click', () => {
+        const isDark = switchTrack.classList.toggle('switch__track--dark');
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'modern');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('fade-in');
+
+    const switchTrack = document.querySelector('.switch__track');
+    switchTrack.addEventListener('click', () => {
+        const isDark = switchTrack.classList.toggle('switch__track--dark');
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'modern');
+    });
+});
