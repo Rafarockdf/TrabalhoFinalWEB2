@@ -44,86 +44,61 @@
 
     <div class="container">
         <div class="box">
-            <h2 class="title">Registro de Atividade</h2>
+            <h2 class="title">Registro de Metas de Atividade</h2>
 
             <form action="../php/telaRegistros.php" method="POST" class="form">
 
                 <div class="form-group input__tipo_atividade">
-                    <i class="fas fa-venus-mars"></i>
+                    <i class="fas fa-dumbbell"></i>
                     <select name="tipo-atividade" id="tipo-atividade" required>
                         <option value="">Carregando...</option>
                     </select>
                 </div>
-                <div class="form-group input__height">
+                
+                <div class="form-group input__duration">
                     <i class="fas fa-ruler-vertical"></i>
                     <input type="number" name="tempo" placeholder="Duração (minutos) *" required>
                 </div>
-                <div class="form-group input__weight">
-                    <i class="fas fa-weight"></i>
-                    <input type="number" name="calorias" placeholder="Calorias Queimadas (cal) *" required>
+                <div class="form-group input__date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="date" name="data" required>
                 </div>
+                <div class="form-group input__time">
+                    <i class="fas fa-clock"></i>
+                    <input type="time" name="horario" required>
+                </div>
+                
                 <input type="submit" value="Adicionar Atividade" class="btn" onclick="mostrarCalculadora(event)">
-                <div id="calculadoraSentimentos" style="display: none;">
-                    <div class="container_calc">
-                        <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
-                        <div class="buttons_calc">
-                            <button class="button_calc negative" onclick="submitEmotion('Estressado')">Estressado</button>
-                            <button class="button_calc negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
-                            <button class="button_calc negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
-                            <button class="button_calc neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
-                            <button class="button_calc neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2
-                                vezes</button>
-                            <button class="button_calc positive" onclick="submitEmotion('Feliz')">Feliz</button>
-                            <button class="button_calc positive" onclick="submitEmotion('Bem')">Bem</button>
-                            <button class="button_calc positive" onclick="submitEmotion('Superação')">Superação</button>
-                            <button class="button_calc positive"
-                                onclick="submitEmotion('Determinação')">Determinação</button>
-                        </div>
-                    </div>
-    
-                    <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
-                        <input type="hidden" name="emocao" id="emocaoInput">
-                    </form>
-                </div>
             </form>
-
-
-            
-
+        
         </div>
-        <!--<table class="registro-table"> 
-            <thead>
-                <tr>
-                    <th>Tipo de Atividade</th>
-                    <th>Data</th>
-                    <th>Horário</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody> -->
-        <!-- Registros fictícios de atividades -->
-        <!--<tr>
-                    <td>Academia</td>
-                    <td>2025-03-12</td>
-                    <td>08:00</td>
-                    <td><button class="status-button red">Não Feito</button></td>
-                </tr>
-                <tr>
-                    <td>Corrida</td>
-                    <td>2025-03-11</td>
-                    <td>07:30</td>
-                    <td><button class="status-button green">Feito</button></td>
-                </tr>
-                <tr>
-                    <td>Yoga</td>
-                    <td>2025-03-10</td>
-                    <td>09:00</td>
-                    <td><button class="status-button red">Não Feito</button></td>
-                </tr> -->
-        <!-- Mais registros podem ser adicionados aqui -->
-        <!-- </tbody>
-        </table> -->
-        <!-- Div para mostrar os registros -->
+        <div class="lista_resgistros">
+            <ul>
+                <li>Registro 1</li>
+            </ul>
+        </div>
+        <div id="calculadoraSentimentos" style="display: none;" class="calculadoraSentimentos">
+            <div class="container_calc">
+                <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
+                <div class="buttons_calc">
+                    <button class="button_calc negative" onclick="submitEmotion('Estressado')">Estressado</button>
+                    <button class="button_calc negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
+                    <button class="button_calc negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
+                    <button class="button_calc neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
+                    <button class="button_calc neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2
+                        vezes</button>
+                    <button class="button_calc positive" onclick="submitEmotion('Feliz')">Feliz</button>
+                    <button class="button_calc positive" onclick="submitEmotion('Bem')">Bem</button>
+                    <button class="button_calc positive" onclick="submitEmotion('Superação')">Superação</button>
+                    <button class="button_calc positive"
+                        onclick="submitEmotion('Determinação')">Determinação</button>
+                </div>
+            </div>
+
+            <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
+                <input type="hidden" name="emocao" id="emocaoInput">
+            </form>
+        </div>
 
     </div>
 

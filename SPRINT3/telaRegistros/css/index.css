@@ -117,6 +117,11 @@ html {
 body {
     background-color: var(--clr-background);
     transition: var(--transition);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section {
@@ -410,16 +415,18 @@ body {
         grid-column: span 1;
     }
 
-    .form-group.input__height {
+    .form-group.input__duration{
         grid-column: span 1;
     }
-
-    .form-group.input__weight {
-        grid-column: span 1;
+    .form-group.input__time{
+        grid-column: span 1; 
     }
-
     .btn {
         grid-column: 1/-1;
+    }
+    .calculadoraSentimentos{
+        margin-left: 15rem;
+        
     }
 }
 
@@ -434,33 +441,17 @@ body {
         grid-column: 1/-1;
         grid-template-columns: repeat(4, 1fr);
     }
-
-    .form-group.input__name {
-        grid-column: 1/-1;
-    }
-
-    .form-group.input__email {
-        grid-column: span 2;
-    }
-
-    .form-group.input__password {
-        grid-column: span 2;
-    }
-
-    .form-group.input__date {
-        grid-column: 1/-1;
-    }
-
     .form-group.input__tipo_atividade {
         grid-column: span 2;
     }
-
-    .form-group.input__height {
+    .form-group.input__duration{
         grid-column: span 2;
     }
-
-    .form-group.input__weight {
+    .form-group.input__date {
         grid-column: span 2;
+    }
+    .form-group.input__time{
+        grid-column: span 2; 
     }
 
     .btn {
@@ -729,6 +720,7 @@ select {
     /* Escondido por padrão */
     flex-direction: column;
     align-items: center;
+    transition: var(--transition);
 }
 
 .container_calc {
@@ -743,8 +735,10 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: var(--transition);
 
 }
+
 
 .header_calc {
     background-color: #ffeb3b;
@@ -769,6 +763,11 @@ select {
     font-size: 14px;
     transition: transform 0.2s, background-color 0.2s;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.calculadoraSentimentos.collapsed{
+    left: 10rem;
 }
 
 .negative {
@@ -798,4 +797,31 @@ select {
     background: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 999;
+}
+/**********************************/
+/* Lista Registros
+/**********************************/
+
+
+
+.lista_registros {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid var(--clr-card-border);
+    background-color: var(--clr-card-hover);
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    font: var(--ts-normal-text);
+    color: var(--clr-font);
+}
+
+.lista_registros::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista_registros::-webkit-scrollbar-thumb {
+    background-color: var(--clr-sidebar);
+    border-radius: 4px;
 }

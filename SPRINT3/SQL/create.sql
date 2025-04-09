@@ -1,3 +1,14 @@
+DROP TABLE IF EXISTS humor;
+DROP TABLE IF EXISTS sentimentos;
+DROP TABLE IF EXISTS atividades_fisicas;
+DROP TABLE IF EXISTS tipos_atividades_fisicas;
+
+DROP TABLE IF EXISTS alimentacao;
+
+
+
+
+
 CREATE TABLE usuarios ( 
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL, 
@@ -51,6 +62,7 @@ CREATE TABLE atividades_fisicas (
   duracao_min INT,
   calorias_queimadas INT,
   dt_plano_treino DATE NOT NULL,
+  hr_plano_treino TIME,
   registrado_executado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   registrado_plano_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id),

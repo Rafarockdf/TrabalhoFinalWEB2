@@ -4,7 +4,8 @@ const _elements = {
     container: document.querySelector('.container'),
     menuToggle: document.querySelector('.menu-toggle'),
     sidebar: document.querySelector('.sidebar'),
-    postagens: document.querySelector('.postagens')
+    postagens: document.querySelector('.postagens'),
+    calculadoraEmocional: document.querySelector('.calculadoraSentimentos')
 }
 
 
@@ -12,6 +13,7 @@ _elements.menuToggle.addEventListener('click', () => {
     _elements.sidebar.classList.toggle('collapsed');
     _elements.menuToggle.classList.toggle('collapsed');
     _elements.container.classList.toggle('collapsed');
+    _elements.calculadoraEmocional.classList.toggle('collapsed')
 });
 
 _elements.switch.addEventListener("click", () => {
@@ -38,3 +40,5 @@ function submitEmotion(emocao) {
 menuToggle.addEventListener('click', () => {
     sidebar.classList.toggle('active');
 });
+
+
