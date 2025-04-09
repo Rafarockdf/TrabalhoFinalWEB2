@@ -50,8 +50,10 @@ CREATE TABLE atividades_fisicas (
   id_tipo_atividade INT NOT NULL,
   duracao_min INT,
   calorias_queimadas INT,
-  registrado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+  dt_plano_treino DATE NOT NULL,
+  registrado_executado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  registrado_plano_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
   FOREIGN KEY (id_tipo_atividade) REFERENCES tipos_atividades_fisicas(id)
 );
 
@@ -133,7 +135,5 @@ CREATE TABLE interacoes_conteudo (
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
   FOREIGN KEY (conteudo_id) REFERENCES conteudos(id)
 );
-
-
 
 -- Possível evolução é na aba de edução caso o usuário goste de alguma dieta ele pode adiciona-la em seu plano alimentar e todos os registros seriam feitos automaticamente ele só precisaria conclui-los.
