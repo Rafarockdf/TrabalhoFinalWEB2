@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="modern">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros de Atividades Físicas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
+
 <body>
     <div class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -38,22 +44,60 @@
 
     <div class="container">
         <div class="box">
-            <form class="form-atividade">
-                <label for="data-hora">Data e Horário da Atividade:</label>
-                <input type="datetime-local" id="data-hora" name="data-hora">
-                
-                <label for="tipo-atividade">Tipo de Atividade:</label>
-                <select id="tipo-atividade" name="tipo-atividade">
-                    <option value="corrida">Corrida</option>
-                    <option value="musculacao">Musculação</option>
-                    <option value="yoga">Yoga</option>
-                    <option value="natação">Natação</option>
-                </select>
-                
-                <button type="submit" class="action">Registrar Atividade</button>
+            <h2 class="title">Registro de Atividade</h2>
+
+            <form action="../php/telaRegistros.php" method="POST" class="form">
+
+                <div class="form-group input__tipo_atividade">
+                    <i class="fas fa-venus-mars"></i>
+                    <select name="tipo-atividade" required>
+                        <option value="corrida">Corrida</option>
+                        <option value="corrida">Caminhada</option>
+                        <option value="musculacao">Musculação</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="natacao">Natação</option>
+                    </select>
+                </div>
+
+                <div class="form-group input__height">
+                    <i class="fas fa-ruler-vertical"></i>
+                    <input type="number" name="tempo" placeholder="Duração (minutos) *" required>
+                </div>
+
+                <div class="form-group input__weight">
+                    <i class="fas fa-weight"></i>
+                    <input type="number" name="calorias" placeholder="Calorias Queimadas (cal) *" required>
+                </div>
+
+                <input type="submit" value="Adicionar Atividade" class="btn" onclick="mostrarCalculadora(event)">
             </form>
+
+
+            <div id="calculadoraSentimentos" style="display: none;">
+                <div class="container_calc">
+                    <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
+                    <div class="buttons_calc">
+                        <button class="button_calc negative" onclick="submitEmotion('Estressado')">Estressado</button>
+                        <button class="button_calc negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
+                        <button class="button_calc negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
+                        <button class="button_calc neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
+                        <button class="button_calc neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2
+                            vezes</button>
+                        <button class="button_calc positive" onclick="submitEmotion('Feliz')">Feliz</button>
+                        <button class="button_calc positive" onclick="submitEmotion('Bem')">Bem</button>
+                        <button class="button_calc positive" onclick="submitEmotion('Superação')">Superação</button>
+                        <button class="button_calc positive"
+                            onclick="submitEmotion('Determinação')">Determinação</button>
+                    </div>
+                </div>
+
+                <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
+                    <input type="hidden" name="emocao" id="emocaoInput">
+                </form>
+            </div>
+
         </div>
-        <table class="registro-table">
+        <!--<table class="registro-table"> 
             <thead>
                 <tr>
                     <th>Tipo de Atividade</th>
@@ -62,9 +106,9 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Registros fictícios de atividades -->
-                <tr>
+            <tbody> -->
+        <!-- Registros fictícios de atividades -->
+        <!--<tr>
                     <td>Academia</td>
                     <td>2025-03-12</td>
                     <td>08:00</td>
@@ -81,14 +125,15 @@
                     <td>2025-03-10</td>
                     <td>09:00</td>
                     <td><button class="status-button red">Não Feito</button></td>
-                </tr>
-                <!-- Mais registros podem ser adicionados aqui -->
-            </tbody>
-        </table>
+                </tr> -->
+        <!-- Mais registros podem ser adicionados aqui -->
+        <!-- </tbody>
+        </table> -->
         <!-- Div para mostrar os registros -->
-        
+
     </div>
 
     <script src="../js/script.js"></script>
 </body>
+
 </html>
