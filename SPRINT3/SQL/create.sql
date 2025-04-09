@@ -38,19 +38,21 @@ CREATE TABLE hidratacao (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
 );
 
+
+CREATE TABLE tipos_atividades_fisicas(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ds_atividade VARCHAR(100) NOT NULL 
+);
+
 CREATE TABLE atividades_fisicas (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  usuario_id INT,
-  tipo VARCHAR(100),
+  usuario_id INT NOT NULL,
+  id_tipo_atividade INT NOT NULL,
   duracao_min INT,
   calorias_queimadas INT,
   registrado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
-);
-
-CREATE TABLE tipos_atividades_fisicas(
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividadesfisiscas registradas
+  FOREIGN KEY (id_tipo_atividade) REFERENCES tipos_atividades_fisicas(id)
 );
 
 CREATE TABLE alimentos (
