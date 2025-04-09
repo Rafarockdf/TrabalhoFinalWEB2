@@ -50,51 +50,45 @@
 
                 <div class="form-group input__tipo_atividade">
                     <i class="fas fa-venus-mars"></i>
-                    <select name="tipo-atividade" required>
-                        <option value="corrida">Corrida</option>
-                        <option value="corrida">Caminhada</option>
-                        <option value="musculacao">Musculação</option>
-                        <option value="yoga">Yoga</option>
-                        <option value="natacao">Natação</option>
+                    <select name="tipo-atividade" id="tipo-atividade" required>
+                        <option value="">Carregando...</option>
                     </select>
                 </div>
-
                 <div class="form-group input__height">
                     <i class="fas fa-ruler-vertical"></i>
                     <input type="number" name="tempo" placeholder="Duração (minutos) *" required>
                 </div>
-
                 <div class="form-group input__weight">
                     <i class="fas fa-weight"></i>
                     <input type="number" name="calorias" placeholder="Calorias Queimadas (cal) *" required>
                 </div>
-
                 <input type="submit" value="Adicionar Atividade" class="btn" onclick="mostrarCalculadora(event)">
+                <div id="calculadoraSentimentos" style="display: none;">
+                    <div class="container_calc">
+                        <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
+                        <div class="buttons_calc">
+                            <button class="button_calc negative" onclick="submitEmotion('Estressado')">Estressado</button>
+                            <button class="button_calc negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
+                            <button class="button_calc negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
+                            <button class="button_calc neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
+                            <button class="button_calc neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2
+                                vezes</button>
+                            <button class="button_calc positive" onclick="submitEmotion('Feliz')">Feliz</button>
+                            <button class="button_calc positive" onclick="submitEmotion('Bem')">Bem</button>
+                            <button class="button_calc positive" onclick="submitEmotion('Superação')">Superação</button>
+                            <button class="button_calc positive"
+                                onclick="submitEmotion('Determinação')">Determinação</button>
+                        </div>
+                    </div>
+    
+                    <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
+                        <input type="hidden" name="emocao" id="emocaoInput">
+                    </form>
+                </div>
             </form>
 
 
-            <div id="calculadoraSentimentos" style="display: none;">
-                <div class="container_calc">
-                    <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
-                    <div class="buttons_calc">
-                        <button class="button_calc negative" onclick="submitEmotion('Estressado')">Estressado</button>
-                        <button class="button_calc negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
-                        <button class="button_calc negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
-                        <button class="button_calc neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
-                        <button class="button_calc neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2
-                            vezes</button>
-                        <button class="button_calc positive" onclick="submitEmotion('Feliz')">Feliz</button>
-                        <button class="button_calc positive" onclick="submitEmotion('Bem')">Bem</button>
-                        <button class="button_calc positive" onclick="submitEmotion('Superação')">Superação</button>
-                        <button class="button_calc positive"
-                            onclick="submitEmotion('Determinação')">Determinação</button>
-                    </div>
-                </div>
-
-                <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
-                    <input type="hidden" name="emocao" id="emocaoInput">
-                </form>
-            </div>
+            
 
         </div>
         <!--<table class="registro-table"> 
@@ -134,6 +128,19 @@
     </div>
 
     <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../php/get_tipos_atividade.php")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("tipo-atividade").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar atividades:", error);
+                    document.getElementById("tipo-atividade").innerHTML = "<option>Erro ao carregar</option>";
+                });
+        });
+        </script>
 </body>
 
 
