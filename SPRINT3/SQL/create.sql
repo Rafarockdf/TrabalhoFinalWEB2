@@ -2,10 +2,18 @@ DROP TABLE IF EXISTS humor;
 DROP TABLE IF EXISTS sentimentos;
 DROP TABLE IF EXISTS atividades_fisicas;
 DROP TABLE IF EXISTS tipos_atividades_fisicas;
-
+DROP TABLE IF EXISTS usuarios;
 DROP TABLE IF EXISTS alimentacao;
 
-
+/* Criar nova coluna de 
+A classificação do Índice de Massa Corporal (IMC) é feita de acordo com os seguintes valores: 
+Abaixo do peso: IMC menor que 18,5
+Eutrófico: IMC entre 18,5 e 24,9
+Sobrepeso: IMC entre 25 e 29,9
+Obesidade grau I: IMC entre 30 e 34,9
+Obesidade grau II: IMC entre 35 e 39,9
+Obesidade grau III: IMC maior que 40
+*/
 
 
 
@@ -23,15 +31,6 @@ CREATE TABLE usuarios (
 
 );
 
-/* Criar nova coluna de 
-A classificação do Índice de Massa Corporal (IMC) é feita de acordo com os seguintes valores: 
-Abaixo do peso: IMC menor que 18,5
-Eutrófico: IMC entre 18,5 e 24,9
-Sobrepeso: IMC entre 25 e 29,9
-Obesidade grau I: IMC entre 30 e 34,9
-Obesidade grau II: IMC entre 35 e 39,9
-Obesidade grau III: IMC maior que 40
-*/
 ALTER TABLE usuarios 
 MODIFY COLUMN senha_hash VARCHAR(256) NOT NULL;
 
@@ -68,6 +67,11 @@ CREATE TABLE atividades_fisicas (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
   FOREIGN KEY (id_tipo_atividade) REFERENCES tipos_atividades_fisicas(id)
 );
+ALTER TABLE atividades_fisicas
+ADD concluida BOOLEAN DEFAULT FALSE;
+ALTER TABLE atividades_fisicas
+MODIFY registrado_executado_em TIMESTAMP NULL;
+
 
 CREATE TABLE alimentos (
   id INT AUTO_INCREMENT PRIMARY KEY,

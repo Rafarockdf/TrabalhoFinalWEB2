@@ -11,5 +11,6 @@ while ($row = $result->fetch_assoc()) {
     $options .= "<option value='{$atividade}'>{$atividade}</option>";
 }
 
+$conn->close();
 echo $options;
 ?>
