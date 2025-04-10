@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="modern">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -21,19 +21,25 @@
         </div>
         <div class="menu">
             <ul>
-                <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
-                <li><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></li>
-                <li><i class="fas fa-clipboard"></i> <span class="menu-text">Registros</span></li>
-                <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
-                <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
+                <li onclick="location.href='../../../Tela Inicial/html/TelaInicial.html'">
+                    <i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span>
+                </li>
+                <li onclick="location.href='#'">
+                    <i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span>
+                </li>
+                <li onclick="location.href='#'">
+                    <i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span>
+                </li>
             </ul>
         </div>
         <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
-        </div>
+          <i class="fas fa-sun"></i>
+          <span class="switch__track"></span>
+          <i class="fas fa-moon"></i>
+      </div>
+      
     </div>
+
     <div class="container">
         <div class="registration_area">
             <h2 class="title">Login</h2>
@@ -50,6 +56,7 @@
             </form>
         </div>
     </div>
+
     <script src="../js/login.js"></script>
 </body>
 </html>

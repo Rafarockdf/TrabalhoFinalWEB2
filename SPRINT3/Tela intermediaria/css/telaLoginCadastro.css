@@ -257,79 +257,7 @@ section {
     display: none;
 }
 
-
-/**********************************/
-/* Layout da Página
-/**********************************/
-
-.container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 30px;
-    margin: 3rem 1.6rem;
-    margin-left: 30rem;
-    transition: var(--transition);
-}
-.container.collapsed{
-    margin-left: 17rem;
-    transition: var(--transition);
-}
-
-@media screen and (min-width:960px){
-    .container{
-        grid-template-columns: repeat(2, 1fr);
-    }
-   
-}
-
-@media screen and (min-width: 1170px){
-    .container{
-        grid-template-columns: repeat(4, 1fr);
-    }
-   
-
-}
-
-
-
-
-
-
-/**********************************/
-/* Loading
-/**********************************/
-
-.loading{
-    position: fixed;
-    background-color: var(--clr-background);
-    transition: var(--transition);
-    width: 100vw;
-    height: 100vh;
-    font-size: 4.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-.loading__spinner{
-    animation: spin 2s infinite linear;
-}
-
-@keyframes spin {
-    to{
-        transform: rotate(360deg);
-    }
-}
-
-.loading--hide{
-    visibility: hidden;
-    opacity: 0;
-}
-
-/**********************************/
-/* Container Login
-/**********************************/
-
+/* Conteúdo */
 .container {
     margin-left: 200px;
     width: calc(100% - 200px);
@@ -340,203 +268,30 @@ section {
 }
 .registration_area {
     background-color: var(--clr-card);
-    padding: 3rem;
+    padding: 4rem;
     border-radius: 1rem;
     box-shadow: 0 0 15px var(--clr-shadow);
     width: 100%;
-    max-width: 400px;
-}
-.title {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
+    max-width: 500px;
     text-align: center;
 }
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.form-group {
-    display: flex;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 1rem;
-    border-radius: 0.5rem;
-}
-.form-group i {
-    margin-right: 1rem;
-    color: #888;
-}
-input[type="email"],
-input[type="password"] {
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 1.6rem;
-    flex: 1;
-}
-input::placeholder {
-    color: #999;
+.registration_area h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
 }
 .btn {
-    padding: 1rem;
     background-color: var(--clr-button);
     color: var(--clr-button-text);
-    font-size: 1.8rem;
     border: none;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.8rem;
     border-radius: 0.8rem;
+    margin: 1rem;
     cursor: pointer;
     transition: var(--transition);
+    display: inline-block;
 }
 .btn:hover {
     background-color: var(--clr-highlight);
-    color: white;
+    color: #fff;
 }
-
-
-/* Cadastro
-/**********************************/
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.registration_area {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 10px;
-    background: var(--clr-card);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-width: 25rem;
-    height: 48rem;
-    text-align: center;
-    transition: var(--transition);
-}
-.form-group {
-    display: flex;
-    align-items: center;
-    background: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    transition: var(--transition);
-}
-.form-group i {
-    margin-right: 10px;
-    transition: var(--transition);
-}
-input, select {
-    border: none;
-    background: transparent;
-    outline: none;
-    flex: 1;
-    transition: var(--transition);
-    
-}
-.btn {
-    width: 100%;
-    background: #28a745;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: var(--transition);
-}
-
-.title{
-    font: var(--ts-normal-semibold);
-}
-@media screen and (min-width:500px) and (max-width:690px){
-    .registration_area{
-        left: 0%;
-        right: 2rem;
-    }
-   
-}
-
-@media screen and (min-width:750px){
-    .registration_area{
-        width: 50rem;
-        grid-column: 1/-1;
-        
-    }
-    
-   
-}
-.form {
-    display: grid;
-    gap: 10px; /* Espaço entre os inputs */
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
-}
-
-
-@media screen and (min-width:960px){
-    .registration_area{
-        width: 75rem;
-        grid-column: 1/-1;
-        height: 45rem;
-
-    }
-
-    .form{
-        grid-column: 1/-1;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .form-group.input__email{
-        grid-column: 1/-1;
-    }
-    .form-group.input__password{
-        grid-column: 1/-1;
-    }
-    .btn{
-        grid-column: 1/-1;
-    }
-   
-}
-
-
-@media screen and (min-width:1170px){
-    .registration_area{
-        width: 75rem;
-        grid-column: 1/-1;
-        height: 45rem;
-    }
-
-    .form{
-        grid-column: 1/-1;
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .form-group.input__email{
-        grid-column: 1/-1;
-    }
-    .form-group.input__password{
-        grid-column: 1/-1;
-    }
-    .btn{
-        grid-column: 1/-1;
-    }
-   
-}
-
-@media screen and (min-width:960px){
-    .container{
-        grid-template-columns: repeat(2, 1fr);
-    }
-   
-}
-
-@media screen and (min-width: 1170px){
-    .container{
-        grid-template-columns: repeat(4, 1fr);
-    }
-   
-}
-

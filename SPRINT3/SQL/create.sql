@@ -1,3 +1,22 @@
+DROP TABLE IF EXISTS humor;
+DROP TABLE IF EXISTS sentimentos;
+DROP TABLE IF EXISTS atividades_fisicas;
+DROP TABLE IF EXISTS tipos_atividades_fisicas;
+DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS alimentacao;
+
+/* Criar nova coluna de 
+A classificação do Índice de Massa Corporal (IMC) é feita de acordo com os seguintes valores: 
+Abaixo do peso: IMC menor que 18,5
+Eutrófico: IMC entre 18,5 e 24,9
+Sobrepeso: IMC entre 25 e 29,9
+Obesidade grau I: IMC entre 30 e 34,9
+Obesidade grau II: IMC entre 35 e 39,9
+Obesidade grau III: IMC maior que 40
+*/
+
+
+
 CREATE TABLE usuarios ( 
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL, 
@@ -12,15 +31,6 @@ CREATE TABLE usuarios (
 
 );
 
-/* Criar nova coluna de 
-A classificação do Índice de Massa Corporal (IMC) é feita de acordo com os seguintes valores: 
-Abaixo do peso: IMC menor que 18,5
-Eutrófico: IMC entre 18,5 e 24,9
-Sobrepeso: IMC entre 25 e 29,9
-Obesidade grau I: IMC entre 30 e 34,9
-Obesidade grau II: IMC entre 35 e 39,9
-Obesidade grau III: IMC maior que 40
-*/
 ALTER TABLE usuarios 
 MODIFY COLUMN senha_hash VARCHAR(256) NOT NULL;
 
@@ -38,20 +48,35 @@ CREATE TABLE hidratacao (
   FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
 );
 
+
+CREATE TABLE tipos_atividades_fisicas(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ds_atividade VARCHAR(100) NOT NULL 
+);
+
 CREATE TABLE atividades_fisicas (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  usuario_id INT,
-  tipo VARCHAR(100),
+  usuario_id INT NOT NULL,
+  id_tipo_atividade INT NOT NULL,
   duracao_min INT,
   calorias_queimadas INT,
-  registrado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+  dt_plano_treino DATE NOT NULL,
+  hr_plano_treino TIME,
+  registrado_executado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  registrado_plano_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
+  FOREIGN KEY (id_tipo_atividade) REFERENCES tipos_atividades_fisicas(id)
 );
+ALTER TABLE atividades_fisicas
+ADD concluida BOOLEAN DEFAULT FALSE;
+ALTER TABLE atividades_fisicas
+MODIFY registrado_executado_em TIMESTAMP NULL;
 
 CREATE TABLE tipos_atividades_fisicas(
   id INT AUTO_INCREMENT PRIMARY KEY,
   ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividades fisicas registradas
 );
+
 
 CREATE TABLE alimentos (
   id INT AUTO_INCREMENT PRIMARY KEY,

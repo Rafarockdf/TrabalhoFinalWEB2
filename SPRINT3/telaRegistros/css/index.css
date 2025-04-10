@@ -117,7 +117,13 @@ html {
 body {
     background-color: var(--clr-background);
     transition: var(--transition);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 section {
 
@@ -126,8 +132,9 @@ section {
     transition: var(--transition);
     border: 1px solid var(--clr-card-border);
     box-shadow: 0 4px 12px var(--clr-card-shadow);
-    padding: 1.6;
+    padding: 1.6rem;
     border-radius: 1rem;
+    
 }
 
 
@@ -313,6 +320,7 @@ section {
     margin: 3rem 1.6rem;
     margin-left: 30rem;
     transition: var(--transition);
+    overflow: hidden;
 }
 
 .container.collapsed {
@@ -358,6 +366,9 @@ body {
     height: 48rem;
     text-align: center;
     transition: var(--transition);
+    overflow: hidden;
+    margin-top: 25rem;
+
 }
 
 @media screen and (min-width:500px) and (max-width:690px) {
@@ -384,7 +395,9 @@ body {
         height: 45rem;
 
     }
-
+    .tabela-atividades{
+        width: 75rem;
+    }
     .form {
         grid-column: 1/-1;
         grid-template-columns: repeat(2, 1fr);
@@ -410,16 +423,18 @@ body {
         grid-column: span 1;
     }
 
-    .form-group.input__height {
+    .form-group.input__duration{
         grid-column: span 1;
     }
-
-    .form-group.input__weight {
-        grid-column: span 1;
+    .form-group.input__time{
+        grid-column: span 1; 
     }
-
     .btn {
         grid-column: 1/-1;
+    }
+    .calculadoraSentimentos{
+        margin-left: 15rem;
+        
     }
 }
 
@@ -429,45 +444,35 @@ body {
         grid-column: 1/-1;
         height: 45rem;
     }
-
+    .tabela-atividades{
+        width: 75rem;
+        grid-column: 1/-1;
+    }
     .form {
         grid-column: 1/-1;
         grid-template-columns: repeat(4, 1fr);
     }
-
-    .form-group.input__name {
-        grid-column: 1/-1;
-    }
-
-    .form-group.input__email {
-        grid-column: span 2;
-    }
-
-    .form-group.input__password {
-        grid-column: span 2;
-    }
-
-    .form-group.input__date {
-        grid-column: 1/-1;
-    }
-
     .form-group.input__tipo_atividade {
         grid-column: span 2;
     }
-
-    .form-group.input__height {
+    .form-group.input__duration{
+        grid-column: span 2;
+    }
+    .form-group.input__date {
         grid-column: span 2;
     }
 
-    .form-group.input__weight {
-        grid-column: 1/-1;
+    .form-group.input__time{
+        grid-column: span 2; 
     }
 
     .btn {
         grid-column: 1/-1;
     }
 }
-
+.form{
+    transition: var(--transition);
+}
 .form-group {
     display: flex;
     align-items: center;
@@ -476,6 +481,7 @@ body {
     border-radius: 5px;
     margin-bottom: 15px;
     transition: var(--transition);
+    overflow: hidden;
 }
 
 .form-group i {
@@ -729,6 +735,7 @@ select {
     /* Escondido por padrão */
     flex-direction: column;
     align-items: center;
+    transition: var(--transition);
 }
 
 .container_calc {
@@ -743,8 +750,10 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: var(--transition);
 
 }
+
 
 .header_calc {
     background-color: #ffeb3b;
@@ -769,6 +778,11 @@ select {
     font-size: 14px;
     transition: transform 0.2s, background-color 0.2s;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.calculadoraSentimentos.collapsed{
+    left: 10rem;
 }
 
 .negative {
@@ -799,3 +813,65 @@ select {
     display: none;
     z-index: 999;
 }
+/**********************************/
+/* Lista Registros
+/**********************************/
+
+
+
+.lista_registros {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid var(--clr-card-border);
+    background-color: var(--clr-card);
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    font: var(--ts-normal-text);
+    color: var(--clr-font);
+}
+
+.lista_registros::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista_registros::-webkit-scrollbar-thumb {
+    background-color: var(--clr-sidebar);
+    border-radius: 4px;
+}
+
+.tabela-atividades {
+    min-width: 25rem;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Cairo', sans-serif;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 2rem;
+    margin-bottom: 10rem;
+}
+
+.tabela-atividades thead {
+    background-color: #3e8ed0; /* cor do topo */
+    color: white;
+}
+
+.tabela-atividades th,
+.tabela-atividades td {
+    border: 1px solid #ddd;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.tabela-atividades tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela-atividades tbody:hover {
+    background-color: #eef6ff;
+}
+
+

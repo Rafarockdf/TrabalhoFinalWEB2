@@ -1,6 +1,7 @@
 <?php
 
-include '../../Conexao/php';
+include '../../Conexao/php/conexao.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
@@ -18,13 +19,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $IMC = 0; 
     }
 
-    $sql = $conexao->prepare("INSERT INTO usuarios (nome, email, senha_hash, data_nascimento, sexo, altura, peso, IMC) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+    // Verificar o valor do IMC (com debug)
+    echo "Valor do IMC: " . $IMC . "<br>";  // Verifique o valor calculado do IMC
+
+
+    $sql = $conn->prepare("INSERT INTO usuarios (nome, email, senha_hash, data_nascimento, sexo, altura, peso, IMC) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
 
     $sql->bind_param("ssssssdd", $nome, $email, $senha, $data, $sexo, $altura, $peso, $IMC);  
 
     if ($sql->execute()) {
         echo "Sucesso ao inserir no banco!";
+        header("Location: ../../Login/html/login.html");
     } else {
         echo "<script>console.log('Erro ao inserir no banco: " . $sql->error . "');</script>";
     }
@@ -32,5 +39,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql->close();
 }
 
-$conexao->close();
+$conn->close();
 ?>
