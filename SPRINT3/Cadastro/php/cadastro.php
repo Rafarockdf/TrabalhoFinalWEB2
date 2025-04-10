@@ -2,6 +2,7 @@
 
 include '../../Conexao/php/conexao.php';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -17,6 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $IMC = 0; 
     }
+
+
+    // Verificar o valor do IMC (com debug)
+    echo "Valor do IMC: " . $IMC . "<br>";  // Verifique o valor calculado do IMC
+
 
     $sql = $conn->prepare("INSERT INTO usuarios (nome, email, senha_hash, data_nascimento, sexo, altura, peso, IMC) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     

@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include '../../Conexao/php/conexao.php';
 
 $email = $_POST['email'] ?? '';
@@ -25,7 +26,6 @@ if ($resultado->num_rows === 1) {
         exit;
     } else {
         echo "Senha incorreta.";
-        
     }
 } else {
     echo "Usuário não encontrado.";

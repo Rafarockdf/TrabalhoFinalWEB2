@@ -259,7 +259,7 @@ section {
 
 
 /**********************************/
-/* Container
+/* Layout da Página
 /**********************************/
 
 .container {
@@ -292,7 +292,108 @@ section {
 
 
 
+
+
+
 /**********************************/
+/* Loading
+/**********************************/
+
+.loading{
+    position: fixed;
+    background-color: var(--clr-background);
+    transition: var(--transition);
+    width: 100vw;
+    height: 100vh;
+    font-size: 4.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.loading__spinner{
+    animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.loading--hide{
+    visibility: hidden;
+    opacity: 0;
+}
+
+/**********************************/
+/* Container Login
+/**********************************/
+
+.container {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.registration_area {
+    background-color: var(--clr-card);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px var(--clr-shadow);
+    width: 100%;
+    max-width: 400px;
+}
+.title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.form-group i {
+    margin-right: 1rem;
+    color: #888;
+}
+input[type="email"],
+input[type="password"] {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1.6rem;
+    flex: 1;
+}
+input::placeholder {
+    color: #999;
+}
+.btn {
+    padding: 1rem;
+    background-color: var(--clr-button);
+    color: var(--clr-button-text);
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn:hover {
+    background-color: var(--clr-highlight);
+    color: white;
+}
+
+
 /* Cadastro
 /**********************************/
 body {
@@ -438,3 +539,4 @@ input, select {
     }
    
 }
+
