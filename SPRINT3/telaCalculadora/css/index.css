@@ -3,31 +3,47 @@
 /**********************************/
 
 [data-theme="modern"] {
-    --clr-background: #F0F0F0; /* Fundo principal cinza-claro */
-    --clr-font: #222222; /* Texto principal preto */
+    --clr-background: #F0F0F0;
+    /* Fundo principal cinza-claro */
+    --clr-font: #222222;
+    /* Texto principal preto */
     /* --clr-card: #FFFFFF; Fundo dos cards branco */
-    --clr-sidebar: #0099CC; /* Azul para a sidebar */
-    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
-    --clr-navbar: #FFFFFF; /* Branco para o topo */
-    --clr-navbar-text: #0099CC; /* Texto azul no topo */
-    --clr-button: #33CC66; /* Botões verdes */
-    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
-    --clr-highlight: #0099CC; /* Elementos de destaque em azul */
-    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
-    --clr-graph-points: #0099CC; /* Pontos dos gráficos em azul */
-    --clr-shadow: rgba(0, 0, 0, 0.3);/* Sombra suave */
-    --clr-link:#3333FF;
+    --clr-sidebar: #0099CC;
+    /* Azul para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #FFFFFF;
+    /* Branco para o topo */
+    --clr-navbar-text: #0099CC;
+    /* Texto azul no topo */
+    --clr-button: #33CC66;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #0099CC;
+    /* Elementos de destaque em azul */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #0099CC;
+    /* Pontos dos gráficos em azul */
+    --clr-shadow: rgba(0, 0, 0, 0.3);
+    /* Sombra suave */
+    --clr-link: #3333FF;
 
 
-    --clr-negative:#ff9999;
-    --clr-neutral:#ffff99;
+    --clr-negative: #ff9999;
+    --clr-neutral: #ffff99;
     --clr-positive: #99ff99;
 
 
-    --clr-card: #FFFFFF; /* Fundo dos cards branco */
-    --clr-card-border: #E0E0E0; /* Cor da borda do card - cinza claro */
-    --clr-card-shadow: rgba(0, 0, 0, 0.1); /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #F9F9F9; /* Cor de fundo dos cards ao passar o mouse */
+    --clr-card: #FFFFFF;
+    /* Fundo dos cards branco */
+    --clr-card-border: #E0E0E0;
+    /* Cor da borda do card - cinza claro */
+    --clr-card-shadow: rgba(0, 0, 0, 0.1);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #F9F9F9;
+    /* Cor de fundo dos cards ao passar o mouse */
 
 
 
@@ -45,31 +61,47 @@
 /**********************************/
 
 [data-theme="dark"] {
-    --clr-background: #121212; /* Fundo principal escuro */
-    --clr-font: #E0E0E0; /* Texto principal claro */
+    --clr-background: #121212;
+    /* Fundo principal escuro */
+    --clr-font: #E0E0E0;
+    /* Texto principal claro */
     /* --clr-card: #1E1E1E; Fundo dos cards escuro */
-    --clr-sidebar: #005577; /* Azul escuro para a sidebar */
-    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
-    --clr-navbar: #1E1E1E; /* Escuro para o topo */
-    --clr-navbar-text: #33CC66; /* Texto verde no topo */
-    --clr-button: #33CC66; /* Botões verdes */
-    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
-    --clr-highlight: #33CC66; /* Elementos de destaque em verde */
-    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
-    --clr-graph-points: #33CC66; /* Pontos dos gráficos em verde */
-    --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
-    --clr-link:#C2C2FF;
+    --clr-sidebar: #005577;
+    /* Azul escuro para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #1E1E1E;
+    /* Escuro para o topo */
+    --clr-navbar-text: #33CC66;
+    /* Texto verde no topo */
+    --clr-button: #33CC66;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #33CC66;
+    /* Elementos de destaque em verde */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #33CC66;
+    /* Pontos dos gráficos em verde */
+    --clr-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra mais forte */
+    --clr-link: #C2C2FF;
 
 
-    --clr-negative:#ff9999;
-    --clr-neutral:#ffff99;
+    --clr-negative: #ff9999;
+    --clr-neutral: #ffff99;
     --clr-positive: #99ff99;
 
 
-    --clr-card: #1E1E1E; /* Fundo dos cards escuro */
-    --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
-    --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
+    --clr-card: #1E1E1E;
+    /* Fundo dos cards escuro */
+    --clr-card-border: #333333;
+    /* Cor da borda do card - cinza escuro */
+    --clr-card-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #333333;
+    /* Cor de fundo dos cards ao passar o mouse */
 
     --ff: "Cairo", sans-serif;
     --ts-caption: 600 1.8rem/1 var(--ff);
@@ -92,11 +124,12 @@ body {
     margin: 0;
     overflow: hidden;
 }
-.container {
+
+.container_calc {
     background-color: var(--clr-sidebar);
     padding: 20px;
-    border-color: black;
-    border:1rem;
+    border-color: var(--clr-font);
+    border: 1rem;
     border-radius: 10px;
     text-align: center;
     width: 350px;
@@ -104,22 +137,25 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
-.header {
+
+.header_calc {
     background-color: #ffeb3b;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 15px;
     font-weight: bold;
 }
-.buttons {
+
+.buttons_calc {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
-.button {
+
+.button_calc {
     padding: 8px 15px;
     border: none;
     border-radius: 10px;
@@ -128,11 +164,20 @@ body {
     transition: transform 0.2s, background-color 0.2s;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
-.negative { background-color: var(--clr-negative); }
-.neutral { background-color: var(--clr-neutral); }
-.positive { background-color: var(--clr-positive); }
+
+.negative {
+    background-color: var(--clr-negative);
+}
+
+.neutral {
+    background-color: var(--clr-neutral);
+}
+
+.positive {
+    background-color: var(--clr-positive);
+}
 
 .button:hover {
     transform: scale(1.1);
-    background-color: #cccccc;
+    background-color: var(--clr-background);
 }

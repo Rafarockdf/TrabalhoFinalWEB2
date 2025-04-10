@@ -50,7 +50,7 @@ CREATE TABLE atividades_fisicas (
 
 CREATE TABLE tipos_atividades_fisicas(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividadesfisiscas registradas
+  ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividades fisicas registradas
 );
 
 CREATE TABLE alimentos (
