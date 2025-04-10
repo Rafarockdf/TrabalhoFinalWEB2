@@ -3,26 +3,45 @@
 /**********************************/
 
 [data-theme="modern"] {
-    --clr-background: #F0F0F0; /* Fundo principal cinza-claro */
-    --clr-font: #222222; /* Texto principal preto */
+    --clr-background: #F0F0F0;
+    /* Fundo principal cinza-claro */
+    --clr-font: #222222;
+    /* Texto principal preto */
     /* --clr-card: #FFFFFF; Fundo dos cards branco */
-    --clr-sidebar: #0099CC; /* Azul para a sidebar */
-    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
-    --clr-navbar: #FFFFFF; /* Branco para o topo */
-    --clr-navbar-text: #0099CC; /* Texto azul no topo */
-    --clr-button: #33CC66; /* Botões verdes */
-    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
-    --clr-highlight: #0099CC; /* Elementos de destaque em azul */
-    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
-    --clr-graph-points: #0099CC; /* Pontos dos gráficos em azul */
-    --clr-shadow: rgba(0, 0, 0, 0.3);/* Sombra suave */
-    --clr-link:#3333FF;
+    --clr-sidebar: #0099CC;
+    /* Azul para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #FFFFFF;
+    /* Branco para o topo */
+    --clr-navbar-text: #0099CC;
+    /* Texto azul no topo */
+    --clr-button: #33CC66;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #0099CC;
+    /* Elementos de destaque em azul */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #0099CC;
+    /* Pontos dos gráficos em azul */
+    --clr-shadow: rgba(0, 0, 0, 0.3);
+    /* Sombra suave */
+    --clr-link: #3333FF;
 
-    --clr-card: #FFFFFF; /* Fundo dos cards branco */
-    --clr-card-border: #E0E0E0; /* Cor da borda do card - cinza claro */
-    --clr-card-shadow: rgba(0, 0, 0, 0.1); /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #F9F9F9; /* Cor de fundo dos cards ao passar o mouse */
+    --clr-card: #FFFFFF;
+    /* Fundo dos cards branco */
+    --clr-card-border: #E0E0E0;
+    /* Cor da borda do card - cinza claro */
+    --clr-card-shadow: rgba(0, 0, 0, 0.1);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #F9F9F9;
+    /* Cor de fundo dos cards ao passar o mouse */
 
+    --clr-negative: #ff9999;
+    --clr-neutral: #ffff99;
+    --clr-positive: #99ff99;
 
 
     --ff: "Cairo", sans-serif;
@@ -39,25 +58,41 @@
 /**********************************/
 
 [data-theme="dark"] {
-    --clr-background: #121212; /* Fundo principal escuro */
-    --clr-font: #E0E0E0; /* Texto principal claro */
+    --clr-background: #121212;
+    /* Fundo principal escuro */
+    --clr-font: #E0E0E0;
+    /* Texto principal claro */
     /* --clr-card: #1E1E1E; Fundo dos cards escuro */
-    --clr-sidebar: #005577; /* Azul escuro para a sidebar */
-    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
-    --clr-navbar: #1E1E1E; /* Escuro para o topo */
-    --clr-navbar-text: #33CC66; /* Texto verde no topo */
-    --clr-button: #33CC66; /* Botões verdes */
-    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
-    --clr-highlight: #33CC66; /* Elementos de destaque em verde */
-    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
-    --clr-graph-points: #33CC66; /* Pontos dos gráficos em verde */
-    --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
-    --clr-link:#C2C2FF;
+    --clr-sidebar: #005577;
+    /* Azul escuro para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #1E1E1E;
+    /* Escuro para o topo */
+    --clr-navbar-text: #33CC66;
+    /* Texto verde no topo */
+    --clr-button: #33CC66;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #33CC66;
+    /* Elementos de destaque em verde */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #33CC66;
+    /* Pontos dos gráficos em verde */
+    --clr-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra mais forte */
+    --clr-link: #C2C2FF;
 
-    --clr-card: #1E1E1E; /* Fundo dos cards escuro */
-    --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
-    --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
+    --clr-card: #1E1E1E;
+    /* Fundo dos cards escuro */
+    --clr-card-border: #333333;
+    /* Cor da borda do card - cinza escuro */
+    --clr-card-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #333333;
+    /* Cor de fundo dos cards ao passar o mouse */
 
     --ff: "Cairo", sans-serif;
     --ts-caption: 600 1.8rem/1 var(--ff);
@@ -82,10 +117,15 @@ html {
 body {
     background-color: var(--clr-background);
     transition: var(--transition);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section {
-    
+
     /*background-color: var(--clr-sidebar);*/
     background-color: var(--clr-card-shadow);
     transition: var(--transition);
@@ -105,7 +145,9 @@ section {
 .sidebar {
     background-color: var(--clr-sidebar);
     transition: var(--transition);
-    position: fixed; left: 0; top: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
     padding: 1.3rem;
     box-shadow: var(--shadow-card);
     display: flex;
@@ -117,13 +159,13 @@ section {
     width: 200px;
     height: 100vh;
     padding: 20px;
-    z-index: 10;
 }
 
 
 .sidebar.collapsed {
     width: 80px;
 }
+
 .menu-toggle {
     position: fixed;
     top: 10px;
@@ -131,15 +173,16 @@ section {
     cursor: pointer;
     color: var(--clr-card);
     font-size: 20px;
-    z-index: 20;
+    z-index: 10;
+    transition: var(--transition);
 }
 
 
-.sidebar.collapsed + .menu-toggle {
+.sidebar.collapsed+.menu-toggle {
     left: 90px;
 }
 
-.menu-toggle.collapsed{
+.menu-toggle.collapsed {
     left: 90px;
 }
 
@@ -169,15 +212,16 @@ section {
     color: var(--clr-background);
 }
 
-.sidebar ul li:hover{
+.sidebar ul li:hover {
     background-color: var(--clr-button);
     border-radius: 1rem;
     border-color: var(--clr-font);
-    gap:10px;
+    gap: 10px;
 }
 
 .switch {
-    position: fixed; bottom: 1.8rem;
+    position: fixed;
+    bottom: 1.8rem;
     display: flex;
     align-items: center;
     font-size: 1.8rem;
@@ -213,8 +257,10 @@ section {
 
 .logo {
     position: absolute;
-    top: 1rem; /* Distância do topo */
-    left: 1rem; /* Distância da lateral */
+    top: 1rem;
+    /* Distância do topo */
+    left: 1rem;
+    /* Distância da lateral */
     width: 4rem;
     height: 4rem;
     background: linear-gradient(135deg, #0099CC, #33CC66);
@@ -241,6 +287,7 @@ section {
     padding: 0;
     margin: 50px 0;
 }
+
 .menu ul li {
     display: flex;
     align-items: center;
@@ -248,40 +295,227 @@ section {
     transition: all 0.3s;
     cursor: pointer;
 }
+
 .menu ul li i {
     font-size: 24px;
     margin-right: 15px;
     color: var(--clr-background);
 }
+
 .collapsed .menu ul li .menu-text {
     display: none;
 }
-/*
-parte telaRegistros
-*/
+
+
+/**********************************/
+/* Container
+/**********************************/
+
 .container {
     display: grid;
     grid-template-columns: auto;
     grid-gap: 30px;
     margin: 3rem 1.6rem;
     margin-left: 30rem;
+    transition: var(--transition);
 }
+
+.container.collapsed {
+    margin-left: 17rem;
+    transition: var(--transition);
+}
+
+@media screen and (min-width:960px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (min-width: 1170px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+}
+
+/**********************************/
+/* Tela de Registros
+/**********************************/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .box {
-    min-width: 20rem;
-    min-height: 20rem;
-    background-color:  var(--clr-card);
-    margin: 0.625rem 0;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    background: var(--clr-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 25rem;
+    height: 48rem;
     text-align: center;
-    line-height: 20.375rem;
-    font-weight: bold;
-    border-radius: 3rem;
-    position: relative;
-    
+    transition: var(--transition);
 }
+
+@media screen and (min-width:500px) and (max-width:690px) {
+    .box {
+        left: 0%;
+        right: 2rem;
+    }
+
+}
+
+@media screen and (min-width:750px) {
+    .box {
+        width: 50rem;
+        grid-column: 1/-1;
+
+    }
+
+}
+
+@media screen and (min-width:960px) {
+    .box {
+        width: 75rem;
+        grid-column: 1/-1;
+        height: 45rem;
+
+    }
+
+    .form {
+        grid-column: 1/-1;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-group.input__name {
+        grid-column: 1/-1;
+    }
+
+    .form-group.input__email {
+        grid-column: span 1;
+    }
+
+    .form-group.input__password {
+        grid-column: span 1;
+    }
+
+    .form-group.input__date {
+        grid-column: span 1;
+    }
+
+    .form-group.input__tipo_atividade {
+        grid-column: span 1;
+    }
+
+    .form-group.input__duration{
+        grid-column: span 1;
+    }
+    .form-group.input__time{
+        grid-column: span 1; 
+    }
+    .btn {
+        grid-column: 1/-1;
+    }
+    .calculadoraSentimentos{
+        margin-left: 15rem;
+        
+    }
+}
+
+@media screen and (min-width:1170px) {
+    .box {
+        width: 75rem;
+        grid-column: 1/-1;
+        height: 45rem;
+    }
+
+    .form {
+        grid-column: 1/-1;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .form-group.input__tipo_atividade {
+        grid-column: span 2;
+    }
+    .form-group.input__duration{
+        grid-column: span 2;
+    }
+    .form-group.input__date {
+        grid-column: span 2;
+    }
+    .form-group.input__time{
+        grid-column: span 2; 
+    }
+
+    .btn {
+        grid-column: 1/-1;
+    }
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.form-group i {
+    margin-right: 10px;
+    transition: var(--transition);
+}
+
+input,
+select {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    transition: var(--transition);
+
+}
+
+.btn {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.title {
+    font: var(--ts-normal-semibold);
+}
+
+.form {
+    display: grid;
+    gap: 10px;
+    /* Espaço entre os inputs */
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/*************************/
+/*************************/
+
 .button {
     padding: 0.75rem 1.5rem;
     background-color: red;
-    color: white;
+    color: var(--clr-navbar);
     border: none;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -290,6 +524,7 @@ parte telaRegistros
     top: 50px;
     right: 50px;
 }
+
 .button:hover {
     background-color: darkred;
 }
@@ -300,18 +535,22 @@ parte telaRegistros
 .form-atividade {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Menor espaçamento entre os elementos */
+    gap: 15px;
+    /* Menor espaçamento entre os elementos */
     padding: 1rem;
     background-color: var(--clr-card);
     border-radius: 1rem;
     box-shadow: var(--shadow-card);
-    max-width: 55rem; /* Limita a largura do formulário */
-    margin: 2rem auto; /* Centraliza o formulário */
+    max-width: 55rem;
+    /* Limita a largura do formulário */
+    margin: 2rem auto;
+    /* Centraliza o formulário */
 }
 
 /* Estilo para os labels */
 .form-atividade label {
-    font-size: 1.4rem; /* Tamanho menor */
+    font-size: 1.4rem;
+    /* Tamanho menor */
     font-weight: 600;
     color: var(--clr-font);
     margin-bottom: 0.3rem;
@@ -327,7 +566,8 @@ parte telaRegistros
     color: var(--clr-font);
     outline: none;
     transition: var(--transition);
-    width: 97%; /* Input ocupa toda a largura disponível */
+    width: 97%;
+    /* Input ocupa toda a largura disponível */
 }
 
 /* Efeito ao focar no input de data e hora */
@@ -345,7 +585,8 @@ parte telaRegistros
     background-color: var(--clr-background);
     color: var(--clr-font);
     transition: var(--transition);
-    width: 100%; /* Seleção ocupa toda a largura disponível */
+    width: 100%;
+    /* Seleção ocupa toda a largura disponível */
 }
 
 /* Efeito ao focar no campo de seleção */
@@ -361,7 +602,8 @@ parte telaRegistros
     border-radius: 0.5rem;
     cursor: pointer;
     transition: var(--transition);
-    width: 100%; /* Botões ocupam toda a largura disponível */
+    width: 100%;
+    /* Botões ocupam toda a largura disponível */
     margin-top: 10px;
 }
 
@@ -379,15 +621,18 @@ parte telaRegistros
 
 /* Estilo do botão de cancelamento */
 .form-atividade button.cancel {
-    background-color: #f44336; /* Vermelho para cancelar */
+    background-color: #f44336;
+    /* Vermelho para cancelar */
     color: white;
     border: none;
 }
 
 /* Efeito de hover no botão de cancelamento */
 .form-atividade button.cancel:hover {
-    background-color: #d32f2f; /* Tom mais escuro de vermelho */
+    background-color: #d32f2f;
+    /* Tom mais escuro de vermelho */
 }
+
 /* Estilos para a tabela */
 .registro-table {
     width: 150rem;
@@ -398,14 +643,15 @@ parte telaRegistros
     margin-bottom: 5rem;
     border-radius: 8px;
     box-shadow: var(--clr-shadow);
-    
+
 }
 
-.registro-table tbody{
+.registro-table tbody {
     border-radius: 8px;
 }
 
-.registro-table th, .registro-table td {
+.registro-table th,
+.registro-table td {
     font: var(--ff);
     padding: 1rem;
     font-size: 2rem;
@@ -418,10 +664,11 @@ parte telaRegistros
     color: var(--clr-button-text);
     font-weight: bold;
     font: var(--ff);
-    
+
     font-size: var(--ts-normal-text);
 }
-.registro-table tr{
+
+.registro-table tr {
     text-align: center;
 }
 
@@ -453,4 +700,128 @@ parte telaRegistros
 
 .status-button:hover {
     opacity: 0.8;
+}
+
+/**********************************/
+/* Tela Calculadora
+/**********************************/
+
+#calculadoraSentimentos {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--clr-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    /* Escondido por padrão */
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.container_calc {
+    background-color: var(--clr-sidebar);
+    padding: 20px;
+    border-color: var(--clr-font);
+    border: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 350px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition);
+
+}
+
+
+.header_calc {
+    background-color: #ffeb3b;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.buttons_calc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button_calc {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.calculadoraSentimentos.collapsed{
+    left: 10rem;
+}
+
+.negative {
+    background-color: var(--clr-negative);
+}
+
+.neutral {
+    background-color: var(--clr-neutral);
+}
+
+.positive {
+    background-color: var(--clr-positive);
+}
+
+.button_calc:hover {
+    transform: scale(1.1);
+    background-color: var(--clr-background);
+}
+
+/* Fundo escuro para destacar a calculadora */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+/**********************************/
+/* Lista Registros
+/**********************************/
+
+
+
+.lista_registros {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid var(--clr-card-border);
+    background-color: var(--clr-card-hover);
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    font: var(--ts-normal-text);
+    color: var(--clr-font);
+}
+
+.lista_registros::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista_registros::-webkit-scrollbar-thumb {
+    background-color: var(--clr-sidebar);
+    border-radius: 4px;
 }

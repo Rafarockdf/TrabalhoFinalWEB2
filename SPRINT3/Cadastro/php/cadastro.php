@@ -1,6 +1,7 @@
 <?php
 
-include __DIR__ . '/../../conexao/conexao.php';
+include '../../Conexao/php/conexao.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
@@ -11,24 +12,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $altura = floatval($_POST['altura']);
     $peso = floatval($_POST['peso']);
 
-    // Calcular IMC corretamente
+  
     if ($altura > 0) {
-        $IMC = round($peso / ($altura * $altura), 2); // Arredondar para 2 casas decimais
+        $IMC = round($peso / ($altura * $altura), 2);
     } else {
-        $IMC = 0; // Evita divisão por zero
+        $IMC = 0; 
     }
+
 
     // Verificar o valor do IMC (com debug)
     echo "Valor do IMC: " . $IMC . "<br>";  // Verifique o valor calculado do IMC
 
-    // Preparar a query para evitar SQL Injection
+
     $sql = $conn->prepare("INSERT INTO usuarios (nome, email, senha_hash, data_nascimento, sexo, altura, peso, IMC) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
-    // Corrigir o tipo para 'd' (decimal) no bind_param para o IMC
+
     $sql->bind_param("ssssssdd", $nome, $email, $senha, $data, $sexo, $altura, $peso, $IMC);  
 
     if ($sql->execute()) {
         echo "Sucesso ao inserir no banco!";
+        header("Location: ../../Login/html/login.html");
     } else {
         echo "<script>console.log('Erro ao inserir no banco: " . $sql->error . "');</script>";
     }
