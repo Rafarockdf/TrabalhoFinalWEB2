@@ -72,6 +72,11 @@ ADD concluida BOOLEAN DEFAULT FALSE;
 ALTER TABLE atividades_fisicas
 MODIFY registrado_executado_em TIMESTAMP NULL;
 
+CREATE TABLE tipos_atividades_fisicas(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividades fisicas registradas
+);
+
 
 CREATE TABLE alimentos (
   id INT AUTO_INCREMENT PRIMARY KEY,

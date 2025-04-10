@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="modern">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="../css/cadastro.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -37,7 +39,7 @@
     <div class="container">
         <div class="registration_area">
             <h2 class="title">Cadastro</h2>
-            <form action="../php/cadastro.php" method="POST" class="form" >
+            <form action="../php/cadastro.php" method="POST" class="form">
                 <div class="form-group input__name">
                     <i class="fas fa-user"></i>
                     <input type="text" name="nome" placeholder="Nome *" required>
@@ -56,7 +58,7 @@
                 </div>
                 <div class="form-group input__gender">
                     <i class="fas fa-venus-mars"></i>
-                    <select name="sexo"required>
+                    <select name="sexo" required>
                         <option value="">Gênero *</option>
                         <option value="masculino">Masculino</option>
                         <option value="feminino">Feminino</option>
@@ -66,17 +68,19 @@
                 </div>
                 <div class="form-group input__height">
                     <i class="fas fa-ruler-vertical"></i>
-                    <input type="number" name="altura" placeholder="Altura (m) *" step="0.01" min="0.50" max="2.50" required>
+                    <input type="number" name="altura" placeholder="Altura (m) *" step="0.01" min="0.50" max="2.50"
+                        required>
                 </div>
-                
+
                 <div class="form-group input__weight">
                     <i class="fas fa-weight"></i>
-                    <input type="number" name="peso"placeholder="Peso (kg) *" required>
+                    <input type="number" name="peso" placeholder="Peso (kg) *" required>
                 </div>
-                <input type="submit",value="Cadastrar" class="btn">
+                <input type="submit" ,value="Cadastrar" class="btn">
             </form>
         </div>
     </div>
     <script src="../js/cadastro.js"></script>
 </body>
+
 </html>
