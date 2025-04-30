@@ -3,41 +3,25 @@
 /**********************************/
 
 [data-theme="modern"] {
-    --clr-background: #F0F0F0;
-    /* Fundo principal cinza-claro */
-    --clr-font: #222222;
-    /* Texto principal preto */
+    --clr-background: #F0F0F0; /* Fundo principal cinza-claro */
+    --clr-font: #222222; /* Texto principal preto */
     /* --clr-card: #FFFFFF; Fundo dos cards branco */
-    --clr-sidebar: #0099CC;
-    /* Azul para a sidebar */
-    --clr-sidebar-hover: #33CC66;
-    /* Verde ao passar o mouse */
-    --clr-navbar: #FFFFFF;
-    /* Branco para o topo */
-    --clr-navbar-text: #0099CC;
-    /* Texto azul no topo */
-    --clr-button: #33CC66;
-    /* Botões verdes */
-    --clr-button-text: #FFFFFF;
-    /* Texto dos botões em branco */
-    --clr-highlight: #0099CC;
-    /* Elementos de destaque em azul */
-    --clr-graph-lines: #33CC66;
-    /* Linhas de gráficos em verde */
-    --clr-graph-points: #0099CC;
-    /* Pontos dos gráficos em azul */
-    --clr-shadow: rgba(0, 0, 0, 0.3);
-    /* Sombra suave */
-    --clr-link: #3333FF;
+    --clr-sidebar: #0099CC; /* Azul para a sidebar */
+    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
+    --clr-navbar: #FFFFFF; /* Branco para o topo */
+    --clr-navbar-text: #0099CC; /* Texto azul no topo */
+    --clr-button: #33CC66; /* Botões verdes */
+    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
+    --clr-highlight: #0099CC; /* Elementos de destaque em azul */
+    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
+    --clr-graph-points: #0099CC; /* Pontos dos gráficos em azul */
+    --clr-shadow: rgba(0, 0, 0, 0.3);/* Sombra suave */
+    --clr-link:#3333FF;
 
-    --clr-card: #FFFFFF;
-    /* Fundo dos cards branco */
-    --clr-card-border: #E0E0E0;
-    /* Cor da borda do card - cinza claro */
-    --clr-card-shadow: rgba(0, 0, 0, 0.1);
-    /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #F9F9F9;
-    /* Cor de fundo dos cards ao passar o mouse */
+    --clr-card: #FFFFFF; /* Fundo dos cards branco */
+    --clr-card-border: #E0E0E0; /* Cor da borda do card - cinza claro */
+    --clr-card-shadow: rgba(0, 0, 0, 0.1); /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #F9F9F9; /* Cor de fundo dos cards ao passar o mouse */
 
 
 
@@ -55,43 +39,9 @@
 /**********************************/
 
 [data-theme="dark"] {
-    --clr-background: #121212;
-    /* Fundo principal escuro */
-    --clr-font: #E0E0E0;
-    /* Texto principal claro */
+    --clr-background: #121212; /* Fundo principal escuro */
+    --clr-font: #E0E0E0; /* Texto principal claro */
     /* --clr-card: #1E1E1E; Fundo dos cards escuro */
-
-    --clr-sidebar: #005577;
-    /* Azul escuro para a sidebar */
-    --clr-sidebar-hover: #33CC66;
-    /* Verde ao passar o mouse */
-    --clr-navbar: #1E1E1E;
-    /* Escuro para o topo */
-    --clr-navbar-text: #33CC66;
-    /* Texto verde no topo */
-    --clr-button: #33CC66;
-    /* Botões verdes */
-    --clr-button-text: #FFFFFF;
-    /* Texto dos botões em branco */
-    --clr-highlight: #33CC66;
-    /* Elementos de destaque em verde */
-    --clr-graph-lines: #33CC66;
-    /* Linhas de gráficos em verde */
-    --clr-graph-points: #33CC66;
-    /* Pontos dos gráficos em verde */
-    --clr-shadow: rgba(255, 255, 255, 0.2);
-    /* Sombra mais forte */
-    --clr-link: #C2C2FF;
-
-    --clr-card: #1E1E1E;
-    /* Fundo dos cards escuro */
-    --clr-card-border: #333333;
-    /* Cor da borda do card - cinza escuro */
-    --clr-card-shadow: rgba(255, 255, 255, 0.2);
-    /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #333333;
-    /* Cor de fundo dos cards ao passar o mouse */
-
     --clr-sidebar: #005577; /* Azul escuro para a sidebar */
     --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
     --clr-navbar: #1E1E1E; /* Escuro para o topo */
@@ -104,11 +54,10 @@
     --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
     --clr-link:#C2C2FF;
 
-    --clr-card: #121212; /* Fundo dos cards escuro */
+    --clr-card: #1E1E1E; /* Fundo dos cards escuro */
     --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
     --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
     --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
-
 
     --ff: "Cairo", sans-serif;
     --ts-caption: 600 1.8rem/1 var(--ff);
@@ -136,7 +85,7 @@ body {
 }
 
 section {
-
+    
     /*background-color: var(--clr-sidebar);*/
     background-color: var(--clr-card-shadow);
     transition: var(--transition);
@@ -156,9 +105,7 @@ section {
 .sidebar {
     background-color: var(--clr-sidebar);
     transition: var(--transition);
-    position: fixed;
-    left: 0;
-    top: 0;
+    position: fixed; left: 0; top: 0;
     padding: 1.3rem;
     box-shadow: var(--shadow-card);
     display: flex;
@@ -176,8 +123,6 @@ section {
 .sidebar.collapsed {
     width: 80px;
 }
-
-
 .menu-toggle {
     position: fixed;
     top: 10px;
@@ -185,18 +130,17 @@ section {
     cursor: pointer;
     color: var(--clr-card);
     font-size: 20px;
-    transition: var(--transition);
     z-index: 10;
-}
-
-
-.sidebar.collapsed+.menu-toggle {
-    left: 90px;
-}
-
-.menu-toggle.collapsed {
-    left: 90px;
     transition: var(--transition);
+}
+
+
+.sidebar.collapsed + .menu-toggle {
+    left: 90px;
+}
+
+.menu-toggle.collapsed{
+    left: 90px;
 }
 
 .collapsed .menu ul li .menu-text {
@@ -225,21 +169,15 @@ section {
     color: var(--clr-background);
 }
 
-
-
-.sidebar ul li:hover {
+.sidebar ul li:hover{
     background-color: var(--clr-button);
     border-radius: 1rem;
     border-color: var(--clr-font);
-    gap: 10px;
+    gap:10px;
 }
 
-
-
-
 .switch {
-    position: fixed;
-    bottom: 1.8rem;
+    position: fixed; bottom: 1.8rem;
     display: flex;
     align-items: center;
     font-size: 1.8rem;
@@ -275,10 +213,8 @@ section {
 
 .logo {
     position: absolute;
-    top: 1rem;
-    /* Distância do topo */
-    left: 1rem;
-    /* Distância da lateral */
+    top: 1rem; /* Distância do topo */
+    left: 1rem; /* Distância da lateral */
     width: 4rem;
     height: 4rem;
     background: linear-gradient(135deg, #0099CC, #33CC66);
@@ -305,7 +241,6 @@ section {
     padding: 0;
     margin: 50px 0;
 }
-
 .menu ul li {
     display: flex;
     align-items: center;
@@ -313,215 +248,206 @@ section {
     transition: all 0.3s;
     cursor: pointer;
 }
-
 .menu ul li i {
     font-size: 24px;
     margin-right: 15px;
     color: var(--clr-background);
 }
-
 .collapsed .menu ul li .menu-text {
-    transition: var(--transition);
     display: none;
 }
 
-/***************************/
-
-.imagem {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.header {
-    background: var(--clr-card);
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 4px 4px 30px var(--clr-shadow);
-    width: 100%;
-    max-width: 350px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.header img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-
-    transition: var(--transition);
-}
-
-.header:hover {
-    box-shadow: 4px 4px 30px var(--clr-shadow);
-    transform: scale(1.02);
-    transition: var(--transition);
-}
-
-.text {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.summary {
-    background: var(--clr-card);
-    padding: 40px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 4px 4px 30px var(--clr-shadow);
-    font-size: 18px;
-    line-height: 1.8;
-    max-width: 900px;
-    transition: var(--transition);
-}
-
-.summary:hover {
-    box-shadow: 4px 4px 30px var(--clr-shadow);
-    transform: scale(1.02);
-    transition: var(--transition);
-}
-
-.status {
-    min-height: 12rem;
-    display: flex;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.cards-container {
-    display: flex;
-    gap: 40px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    color: var(--clr-highlight);
-    transition: var(--transition);
-}
-
-.card {
-    background: var(--clr-card);
-    flex: 1;
-    height: 19rem;
-    border-radius: 10px;
-    box-shadow: var(--clr-shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    font-weight: bold;
-    transition: var(--transition);
-    text-align: center;
-    min-width: 200px;
-    transition: var(--transition);
-
-}
-
-
-.card:hover {
-    transform: translateY(-5px);
-    transition: var(--transition);
-    box-shadow: 4px 4px 20px var(--clr-shadow);
-    background-color: var(--clr-highlight);
-    color: var(--clr-card);
-}
+/**********************************/
+/* Container
+/**********************************/
 
 .container {
     display: grid;
-    left: 30rem;
     grid-template-columns: auto;
     grid-gap: 30px;
     margin: 3rem 1.6rem;
     margin-left: 30rem;
     transition: var(--transition);
-    z-index: 10;
 }
-
-.container.collapsed {
+.container.collapsed{
     margin-left: 17rem;
     transition: var(--transition);
 }
 
-@media screen and (min-width:500px) and (max-width:690px) {
-    .box {
+@media screen and (min-width:960px){
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+   
+}
+
+@media screen and (min-width: 1170px){
+    .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+   
+
+}
+
+
+/**********************************/
+/* Cadastro
+/**********************************/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.registration_area {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    background: var(--clr-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 25rem;
+    height: 48rem;
+    text-align: center;
+    transition: var(--transition);
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+.form-group i {
+    margin-right: 10px;
+    transition: var(--transition);
+}
+input, select {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    transition: var(--transition);
+    
+}
+.btn {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.title{
+    font: var(--ts-normal-semibold);
+}
+@media screen and (min-width:500px) and (max-width:690px){
+    .registration_area{
         left: 0%;
         right: 2rem;
     }
-
+   
 }
 
-@media screen and (min-width:750px) {
-    .box {
+@media screen and (min-width:750px){
+    .registration_area{
         width: 50rem;
         grid-column: 1/-1;
+        
+    }
+    
+   
+}
+.form {
+    display: grid;
+    gap: 10px; /* Espaço entre os inputs */
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+@media screen and (min-width:960px){
+    .registration_area{
+        width: 75rem;
+        grid-column: 1/-1;
+        height: 45rem;
 
     }
 
-}
-
-@media screen and (min-width:960px) {
-    .container {
+    .form{
+        grid-column: 1/-1;
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .imagem {
-        grid-column: 1 / -1;
+    .form-group.input__name{
+        grid-column: 1/-1;
     }
-
-    .text {
-        grid-column: 1 / -1;
+    .form-group.input__email{
+        grid-column: span 1;
     }
-
-    .cards-container {
-        grid-column: 1 / -1;
+    .form-group.input__password{
+        grid-column: span 1;
     }
+    .form-group.input__date{
+        grid-column: span 1;
+    }
+    .form-group.input__gender{
+        grid-column: span 1;
+    }
+    .form-group.input__height{
+        grid-column: span 1;
+    }
+    .form-group.input__weight{
+        grid-column: span 1;
+    }
+    .btn{
+        grid-column: 1/-1;
+    }
+   
 }
 
-@media screen and (min-width: 1170px) {
-    .container {
 
+@media screen and (min-width:1170px){
+    .registration_area{
+        width: 75rem;
+        grid-column: 1/-1;
+        height: 45rem;
+    }
+
+    .form{
+        grid-column: 1/-1;
         grid-template-columns: repeat(4, 1fr);
     }
-
-    .imagem {
-        grid-column: 1 / -1;
+    .form-group.input__name{
+        grid-column: 1/-1;
     }
-
-    .text {
-        grid-column: 1 / -1;
+    .form-group.input__email{
+        grid-column: span 2;
     }
-
-    .cards-container {
-        grid-column: 1 / -1;
+    .form-group.input__password{
+        grid-column: span 2;
     }
-
-
-
+    .form-group.input__date{
+        grid-column: 1/-1;
+    }
+    .form-group.input__gender{
+        grid-column: span 2;
+    }
+    .form-group.input__height{
+        grid-column: span 2;
+    }
+    .form-group.input__weight{
+        grid-column: 1/-1;
+    }
+    .btn{
+        grid-column: 1/-1;
+    }
+   
 }
-
-
-.profile-icon {
-    position: absolute;
-    bottom: 5rem;
-    right: 2rem;
-    font-size: 3rem;
-    color: var(--clr-background);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.profile-icon:hover {
-    transform: scale(1.1);
-    color: var(--clr-button);
-}
-
-

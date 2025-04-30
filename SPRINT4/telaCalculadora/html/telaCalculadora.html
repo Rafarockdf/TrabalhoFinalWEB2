@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="modern">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback de Atividade</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">Como você se sentiu com essa atividade/alimentação?</div>
+        <div class="buttons">
+            <button class="button negative" onclick="submitEmotion('Estressado')">Estressado</button>
+            <button class="button negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
+            <button class="button negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
+            <button class="button neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
+            <button class="button neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2 vezes</button>
+            <button class="button positive" onclick="submitEmotion('Feliz')">Feliz</button>
+            <button class="button positive" onclick="submitEmotion('Bem')">Bem</button>
+            <button class="button positive" onclick="submitEmotion('Superação')">Superação</button>
+            <button class="button positive" onclick="submitEmotion('Determinação')">Determinação</button>
+        </div>
+    </div>
+
+    <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
+        <input type="hidden" name="emocao" id="emocaoInput">
+    </form>
+
+    <script>
+        // Função para enviar a emoção escolhida
+        function submitEmotion(emocao) {
+            // Definir o valor da emoção no input hidden
+            document.getElementById('emocaoInput').value = emocao;
+            
+            // Enviar o formulário via POST
+            document.getElementById('emotionForm').submit();
+        }
+    </script>
+</body>
+</html>
