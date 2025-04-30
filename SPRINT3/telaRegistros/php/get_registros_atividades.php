@@ -29,17 +29,25 @@ if ($row2 = $result2->fetch_assoc()) {
     $result = $stmt->get_result();
 
 
-        while ($row = $result->fetch_assoc()) {
-            $status = $row['concluida'] ? "Concluída" : "Pendente";
-            $html .= "<tr>
-                        <td>{$row['Atividade']}</td>
-                        <td>{$row['Duracao']}</td>
-                        <td>{$row['DataPlanejada']}</td>
-                        <td>{$row['HorarioPlanejado']}</td>
-                        <td>{$row['registrado_executado_em']}</td>
-                        <td>{$status}</td>
-                      </tr>";
-        }
+    while ($row = $result->fetch_assoc()) {
+    $status = $row['concluida'] 
+        ? "<button type='button' style='background-color: #4CAF50; color: white; border: none; padding: 5px 10px; border-radius: 5px;'>Concluída</button>" 
+        : "<button style='z-index: 1000; 
+background-color: #f44336;
+ position: relative;' onclick='abrirCalculadora({$row["id"]})'>Pendente</button>
+";
+
+    $html .= "<tr>
+                <td>{$row['Atividade']}</td>
+                <td>{$row['Duracao']}</td>
+                <td>{$row['DataPlanejada']}</td>
+                <td>{$row['HorarioPlanejado']}</td>
+                <td>{$row['registrado_executado_em']}</td>
+                <td>{$status}</td>
+              </tr>";
+}
+
+    
     $stmt->close();
     
 }

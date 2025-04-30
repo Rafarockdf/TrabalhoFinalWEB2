@@ -26,16 +26,43 @@ _elements.switch.addEventListener("click", () => {
 
 });
 
-function mostrarCalculadora(event) {
-    event.preventDefault(); // Impede o envio do formulário
+let atividadeSelecionada = null; // variável global para guardar qual atividade foi clicada
+
+function abrirCalculadora(atividadeId) {
+    atividadeSelecionada = atividadeId; // guarda o id da atividade
     document.getElementById('calculadoraSentimentos').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
 }
 
 function submitEmotion(emocao) {
-    document.getElementById('emocaoInput').value = emocao;
-    document.getElementById('emotionForm').submit();
+    if (!atividadeSelecionada) {
+        alert('Nenhuma atividade selecionada!');
+        return;
+    }
+
+    // Envia para o PHP
+    fetch('../php/registrar_emocao.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'atividade_id=' + atividadeSelecionada + '&emocao=' + encodeURIComponent(emocao)
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data.trim() === 'success') {
+            alert('Atividade e humor registrados com sucesso!');
+            location.reload(); // recarrega para atualizar status
+        } else {
+            console.error('Erro:', data);
+            alert('Erro ao registrar emoção!');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro na conexão com o servidor.');
+    });
 }
+
 
 menuToggle.addEventListener('click', () => {
     sidebar.classList.toggle('active');

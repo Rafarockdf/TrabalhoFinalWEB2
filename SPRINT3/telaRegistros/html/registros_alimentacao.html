@@ -29,9 +29,9 @@
         <div class="menu">
             <ul>
                 <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
-                <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color:inherit"><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></a></li>
+                <li><a href="../../Login/html/login.html" style="text-decoration: none; color:inherit"><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></a></li>
                 <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color:inherit"><i class="fas fa-clipboard"></i> <span class="menu-text">Registros Atividades</span></a></li>
-                <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color:inherit"><i class="fas fa-apple-alt"></i> <span class="menu-text">Regitros Alimentação</span></a></li>
+                <li><a href="telaRegistros.html" style="text-decoration: none; color:inherit"><i class="fas fa-apple-alt"></i> <span class="menu-text">Regitros Alimentação</span></a></li>
             </ul>
         </div>
         <div class="switch">
@@ -45,29 +45,20 @@
         <div class="box">
             <h2 class="title">Registro de Metas de Atividade</h2>
 
-            <form action="../php/telaRegistros.php" method="POST" class="form">
+            <form action="../php/api_alimentos.php" method="POST" class="form">
 
-                <div class="form-group input__tipo_atividade">
-                    <i class="fas fa-dumbbell"></i>
-                    <select name="tipo-atividade" id="tipo-atividade" required>
-                        <option value="">Carregando...</option>
+                <form action="buscar_calorias.php" method="POST">
+                    <label for="alimento">Selecione um alimento:</label>
+                    <select name="alimento" id="alimento">
+                        <option value="banana">Banana</option>
+                        <option value="arroz">Arroz</option>
+                        <option value="frango">Frango</option>
+                        <option value="maçã">Maçã</option>
+                        <option value="ovos">Ovos</option>
                     </select>
-                </div>
+                    <button type="submit">Buscar Calorias</button>
+                </form>
                 
-                <div class="form-group input__duration">
-                    <i class="fas fa-ruler-vertical"></i>
-                    <input type="number" name="tempo" placeholder="Duração (minutos) *" required>
-                </div>
-                <div class="form-group input__date">
-                    <i class="fas fa-calendar-alt"></i>
-                    <input type="date" name="data" required>
-                </div>
-                <div class="form-group input__time">
-                    <i class="fas fa-clock"></i>
-                    <input type="time" name="horario" required>
-                </div>
-                
-                <input type="submit" value="Adicionar Atividade" class="btn">
             </form>
         
         </div>

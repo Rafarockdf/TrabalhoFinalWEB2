@@ -140,6 +140,30 @@
                     tbody.innerHTML = "<tr><td colspan='6'>Erro ao carregar registros</td></tr>";
                 });
         });
+        function marcarConcluida(atividadeId) {
+            if (confirm("Tem certeza que deseja marcar esta atividade como concluída?")) {
+                fetch('../php/atualiza_atividade.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'atividade_id=' + atividadeId
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.trim() === 'success') {
+                        alert('Atividade marcada como concluída!');
+                        location.reload(); // Recarrega a página para atualizar a tabela
+                    } else {
+                        alert('Erro ao marcar atividade!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro na conexão com o servidor.');
+                });
+            }
+        }
         
         </script>
 </body>
