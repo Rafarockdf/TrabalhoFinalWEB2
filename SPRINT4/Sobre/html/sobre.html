@@ -4,13 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre</title>
+    <title>Sobre o HealthPal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/sobre.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .checkpoint-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 80px; /* Ajuste conforme a altura do seu cabeçalho/navegação */
+            background-color: var(--clr-background); /* Para não ficar transparente ao scroll */
+            z-index: 100; /* Para ficar acima do conteúdo */
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkpoint-list li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .checkpoint-list li::before {
+            content: '\f058'; /* Checkmark icon */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--clr-highlight);
+            font-size: 1em;
+        }
+
+        .checkpoint-list li a {
+            text-decoration: none;
+            color: var(--clr-font);
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .checkpoint-list li a:hover {
+            color: var(--clr-highlight-dark);
+        }
+
+        .content-section {
+            padding: 30px;
+            margin-bottom: 40px;
+            background: var(--clr-card);
+            border-radius: 10px;
+            box-shadow: var(--clr-shadow);
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+            margin-right: 15rem;
+        }
+
+        .content-section:hover {
+            box-shadow: 4px 4px 30px var(--clr-shadow);
+            transform: scale(1.01);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: var(--clr-highlight);
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            font-size: 1.6rem;
+            color: var(--clr-font);
+            line-height: 1.7;
+        }
+
+        /* Estilo específico para o link ativo */
+        .checkpoint-list li.active::before {
+            color: var(--clr-button);
+        }
+
+        .checkpoint-list li.active a {
+            color: var(--clr-button);
+        }
+
+        /* Estilos para o container principal para permitir scroll */
+        .container {
+            position: relative; /* Para posicionar a lista sticky corretamente */
+            padding-bottom: 60px; /* Espaço extra no final para o último texto */
+        }
+
+        .summary {
+            padding: 20px;
+            margin-right: 15rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,20 +128,168 @@
 
     <div class="container">
         <div class="summary">
-            <h1>Sobre Gráficos</h1>
-            <p>Nossa plataforma utiliza gráficos interativos para visualizar dados de maneira intuitiva. Aqui, você
-                encontrará informações sobre como interpretar gráficos e utilizá-los em seus projetos.</p>
-            <h1>Sobre Esporte</h1>
-            <p>A prática esportiva é essencial para a saúde e o bem-estar. Aqui você encontra informações sobre
-                atividades físicas, dicas de treino e benefícios dos esportes.</p>
-            <h1>Sobre Educação</h1>
-            <p>A educação é a base para um futuro melhor. Descubra conteúdos sobre aprendizado, metodologias e dicas
-                para melhorar seus estudos.</p>
-            <h1>Sobre a Loja</h1>
-            <p>Nosso e-commerce oferece produtos de alta qualidade para atender às suas necessidades. Descubra nossas
-                promoções e lançamentos exclusivos.</p>
+            <h1>Conheça o HealthPal: Seu Parceiro de Bem-Estar</h1>
+            <p>O HealthPal é mais do que uma plataforma; é o seu companheiro dedicado na jornada rumo a uma vida mais saudável e equilibrada. Inspirado pela necessidade de simplificar o cuidado com a saúde, nosso projeto oferece um conjunto de ferramentas intuitivas para monitorar e melhorar seus hábitos diários.</p>
+
+            <ul class="checkpoint-list">
+                <li data-target="graficos-section" class="active"><a href="#graficos-section">Visualização com Gráficos</a></li>
+                <li data-target="esporte-section"><a href="#esporte-section">Atividades Esportivas</a></li>
+                <li data-target="educacao-section"><a href="#educacao-section">Conteúdo Educacional</a></li>
+                <li data-target="alimentacao-section"><a href="#alimentacao-section">Registro de Alimentação</a></li>
+                <li data-target="hidratacao-section"><a href="#hidratacao-section">Controle de Hidratação</a></li>
+                <li data-target="humor-section"><a href="#humor-section">Registro de Humor</a></li>
+                <li data-target="metas-section"><a href="#metas-section">Definição de Metas</a></li>
+                <li data-target="alertas-section"><a href="#alertas-section">Alertas Personalizados</a></li>
+            </ul>
         </div>
+
+        <section id="graficos-section" class="content-section">
+            <h2>Visualização com Gráficos Interativos</h2>
+            <p>Acompanhe sua evolução de forma clara e intuitiva com nossos gráficos interativos. Visualize seus registros de atividades físicas, alimentação, hidratação e humor ao longo do tempo. Identifique padrões, celebre seus progressos e ajuste suas metas com base em dados concretos. Nossos gráficos são projetados para serem fáceis de entender, transformando informações complexas em insights acionáveis para o seu bem-estar.</p>
+            <p>Explore as diferentes visualizações para entender melhor seus hábitos e tendências. Interaja com os gráficos para ver detalhes específicos e períodos de tempo. Utilize essas informações para tomar decisões mais conscientes sobre sua saúde.</p>
+        </section>
+
+        <section id="esporte-section" class="content-section">
+            <h2>Foco em Atividades Esportivas</h2>
+            <p>Incentivamos um estilo de vida ativo! Registre suas atividades físicas, desde caminhadas leves até treinos intensos. Monitore a frequência, duração e tipo de exercício. Explore dicas de treino personalizadas e descubra os inúmeros benefícios que a prática regular de esportes traz para a sua saúde física e mental. O HealthPal te ajuda a manter a motivação e a alcançar seus objetivos de fitness.</p>
+            <p>Descubra novas modalidades esportivas e encontre recursos para planejar seus treinos. Acompanhe seu gasto calórico e a intensidade de suas atividades. Celebre suas conquistas e mantenha-se motivado para superar seus limites.</p>
+        </section>
+
+        <section id="educacao-section" class="content-section">
+            <h2>Conteúdo Educacional para Saúde</h2>
+            <p>Acreditamos que o conhecimento é fundamental para tomar decisões saudáveis. Em nossa seção de educação, você encontrará artigos informativos, vídeos explicativos e dicas práticas sobre bem-estar, nutrição, exercícios físicos e saúde mental. Aprenda no seu ritmo, desmistifique conceitos e adote hábitos mais saudáveis com o apoio de conteúdo confiável e acessível.</p>
+            <p>Explore nossos artigos sobre alimentação balanceada, dicas para melhorar seu sono, estratégias para gerenciar o estresse e muito mais. Nosso objetivo é fornecer informações relevantes e baseadas em evidências para empoderar você no cuidado com a sua saúde.</p>
+        </section>
+
+        <section id="alimentacao-section" class="content-section">
+            <h2>Registro Detalhado de Alimentação</h2>
+            <p>Monitore sua dieta de forma fácil e eficiente. Registre suas refeições, incluindo os alimentos consumidos e as porções. Acompanhe sua ingestão calórica, macronutrientes e micronutrientes para garantir uma alimentação equilibrada. Receba insights sobre seus hábitos alimentares e dicas para fazer escolhas mais saudáveis.</p>
+            <p>Utilize nossa ferramenta de busca de alimentos para registrar rapidamente suas refeições. Analise seus relatórios de alimentação para identificar áreas de melhoria e alcançar seus objetivos nutricionais.</p>
+        </section>
+
+        <section id="hidratacao-section" class="content-section">
+            <h2>Controle Inteligente de Hidratação</h2>
+            <p>Mantenha-se hidratado ao longo do dia! Registre seu consumo de água e receba lembretes personalizados para garantir que você atinja suas metas de hidratação. Acompanhe seu histórico de consumo e visualize seu progresso ao longo do tempo.</p>
+            <p>Defina suas metas de ingestão de água com base em suas necessidades individuais. Receba alertas suaves para te lembrar de beber água, ajudando a criar um hábito saudável.</p>
+        </section>
+
+        <section id="humor-section" class="content-section">
+            <h2>Registro e Análise do seu Humor</h2>
+            <p>Entenda suas emoções e padrões de humor. Registre como você está se sentindo ao longo do dia e acompanhe as variações em seu humor. Identifique fatores que podem influenciar seu bem-estar emocional e obtenha insights para melhorar sua saúde mental.</p>
+            <p>Utilize nossa escala de humor intuitiva para registrar suas emoções. Visualize seu histórico de humor em gráficos para identificar tendências e padrões ao longo do tempo.</p>
+        </section>
+
+        <section id="metas-section" class="content-section">
+            <h2>Definição e Acompanhamento de Metas</h2>
+            <p>Estabeleça objetivos de bem-estar personalizados, como beber mais água, se exercitar com mais frequência ou melhorar sua alimentação. Acompanhe seu progresso em relação a essas metas e receba incentivos para se manter motivado. Visualize seu avanço e celebre suas conquistas.</p>
+            <p>Defina metas SMART (Específicas, Mensuráveis, Alcançáveis, Relevantes e com Prazos Definidos) para aumentar suas chances de sucesso. Monitore seu progresso e ajuste suas metas conforme necessário.</p>
+        </section>
+
+        <section id="alertas-section" class="content-section">
+            <h2>Alertas Personalizados para um Estilo de Vida Saudável</h2>
+            <p>Mantenha-se no caminho certo com nossos alertas inteligentes. Receba lembretes para beber água, praticar exercícios, registrar seu humor e muito mais. Personalize seus alertas de acordo com sua rotina e preferências para garantir que você não perca o foco em seus objetivos de bem-estar.</p>
+            <p>Configure a frequência e os horários dos seus alertas. Escolha os tipos de lembretes que são mais importantes para você, ajudando a criar hábitos saudáveis de forma consistente.</p>
+        </section>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkpointList = document.querySelector('.checkpoint-list');
+            const contentSections = document.querySelectorAll('.content-section');
+            const urlHash = window.location.hash;
+
+            function scrollToSection(targetId) {
+                const targetElement = document.getElementById(targetId.substring(1));
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setActiveCheckpoint(targetId);
+                }
+            }
+
+            function setActiveCheckpoint(targetId) {
+                document.querySelectorAll('.checkpoint-list li').forEach(li => {
+                    li.classList.remove('active');
+                });
+                const activeCheckpoint = document.querySelector(`.checkpoint-list li[data-target="${targetId.substring(1)}"]`);
+                if (activeCheckpoint) {
+                    activeCheckpoint.classList.add('active');
+                }
+            }
+
+            if (urlHash) {
+                scrollToSection(urlHash);
+            } else if (contentSections.length > 0) {
+                setActiveCheckpoint('#' + contentSections[0].id);
+            }
+
+            checkpointList.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                    event.preventDefault();
+                    const targetId = event.target.getAttribute('href');
+                    scrollToSection(targetId);
+                    window.location.hash = targetId;
+                }
+            });
+
+            // Simulação de links dos cards da página inicial
+            const graficoCardLink = document.querySelector('a[href="#grafico"]');
+            const esporteCardLink = document.querySelector('a[href="#esporte"]');
+            const educacaoCardLink = document.querySelector('a[href="#educacao"]');
+            const alimentacaoCardLink = document.querySelector('a[href="#alimentacao"]');
+            const hidratacaoCardLink = document.querySelector('a[href="#hidratacao"]');
+            const humorCardLink = document.querySelector('a[href="#humor"]');
+            const metasCardLink = document.querySelector('a[href="#metas"]');
+            const alertasCardLink = document.querySelector('a[href="#alertas"]');
+
+            if (graficoCardLink) {
+                graficoCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#graficos-section';
+                });
+            }
+            if (esporteCardLink) {
+                esporteCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#esporte-section';
+                });
+            }
+            if (educacaoCardLink) {
+                educacaoCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#educacao-section';
+                });
+            }
+            if (alimentacaoCardLink) {
+                alimentacaoCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#alimentacao-section';
+                });
+            }
+            if (hidratacaoCardLink) {
+                hidratacaoCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#hidratacao-section';
+                });
+            }
+            if (humorCardLink) {
+                humorCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#humor-section';
+                });
+            }
+            if (metasCardLink) {
+                metasCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#metas-section';
+                });
+            }
+            if (alertasCardLink) {
+                alertasCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'sobre.html#alertas-section';
+                });
+            }
+        });
+    </script>
     <script src="../js/sobre.js"></script>
 </body>
 

@@ -126,6 +126,7 @@ section {
   box-shadow: 0 4px 12px var(--clr-card-shadow);
   padding: 1.6;
   border-radius: 1rem;
+
 }
 
 /**********************************/
@@ -169,7 +170,9 @@ section {
   box-shadow: var(--clr-shadow);
   font-size: 18px;
   line-height: 1.8;
-  max-width: 900px;
+  min-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   transition: var(--transition);
 }
 

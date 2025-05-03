@@ -16,6 +16,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" href="../css/index.css">
+    <style>
+        .container-registro-alimentos {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box-alimentos {
+            flex: 1;
+        }
+
+        #lista-alimentos {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        #lista-alimentos li {
+            padding: 8px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+
+        #lista-alimentos li:hover {
+            background-color: #eee;
+        }
+
+        #tabela-refeicao {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #tabela-refeicao th,
+        #tabela-refeicao td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #tabela-refeicao th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,26 +90,33 @@
 
     <div class="container">
         <div class="box">
-            <h2 class="title">Registro de Metas de Atividade</h2>
-
-            <form action="../php/api_alimentos.php" method="POST" class="form">
-
-                <form action="buscar_calorias.php" method="POST">
-                    <label for="alimento">Selecione um alimento:</label>
-                    <select name="alimento" id="alimento">
-                        <option value="banana">Banana</option>
-                        <option value="arroz">Arroz</option>
-                        <option value="frango">Frango</option>
-                        <option value="maçã">Maçã</option>
-                        <option value="ovos">Ovos</option>
-                    </select>
-                    <button type="submit">Buscar Calorias</button>
-                </form>
-                
-            </form>
-        
+            <h2 class="title">Registro de Alimentação</h2>
+            <div class="container-registro-alimentos">
+                <div class="box-alimentos">
+                    <form id="form-buscar-alimento" class="form">
+                        <label for="alimento">Digite o nome de um alimento:</label><br>
+                        <input type="text" name="alimento" id="alimento" required> <br>
+                        <button type="submit">Buscar</button>
+                    </form>
+                    <ul id="lista-alimentos">
+                        </ul>
+                </div>
+                <div class="box-alimentos">
+                    <h3>Alimentos Selecionados</h3>
+                    <table id="tabela-refeicao">
+                        <thead>
+                            <tr>
+                                <th>Nome do Alimento</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                    <button id="btn-registrar-refeicao">Registrar Alimentação</button>
+                </div>
+            </div>
         </div>
-
         
         <div id="calculadoraSentimentos" style="display: none;" class="calculadoraSentimentos">
             <div class="container_calc">
@@ -87,21 +141,6 @@
             </form>
         </div>
 
-        <table class='tabela-atividades'>
-            <thead>
-            <tr>
-                <th>Atividade</th>
-                <th>Duração (min)</th>
-                <th>Data Planejada</th>
-                <th>Horário</th>
-                <th>Executado em</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
         
     </div>
 
@@ -131,7 +170,117 @@
                     tbody.innerHTML = "<tr><td colspan='6'>Erro ao carregar registros</td></tr>";
                 });
         });
+        const formBuscarAlimento = document.getElementById('form-buscar-alimento');
+        const inputAlimento = document.getElementById('alimento');
+        const listaAlimentos = document.getElementById('lista-alimentos');
+        const tabelaRefeicao = document.getElementById('tabela-refeicao').getElementsByTagName('tbody')[0];
+        const btnRegistrarRefeicao = document.getElementById('btn-registrar-refeicao');
+        const alimentosSelecionados = [];
+
+        formBuscarAlimento.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const termoBusca = inputAlimento.value.trim();
+
+            if (termoBusca) {
+                buscarAlimentos(termoBusca);
+            } else {
+                listaAlimentos.innerHTML = '<li style="color: red;">Por favor, digite um nome de alimento.</li>';
+            }
+        });
+
+        function buscarAlimentos(termo) {
+            fetch(`../php/api_alimentos2.php?alimento=${termo}`)
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => {
+                            throw new Error(err.error || 'Erro na busca de alimentos');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    listaAlimentos.innerHTML = ''; // Limpa a lista anterior
+                    if (data.length > 0) {
+                        data.forEach(alimento => {
+                            const listItem = document.createElement('li');
+                            listItem.style.display = 'flex';
+                            listItem.style.justifyContent = 'space-between';
+                            listItem.style.alignItems = 'center';
+                            listItem.style.padding = '8px';
+                            listItem.style.borderBottom = '1px solid #eee';
         
+                            const nomeAlimentoSpan = document.createElement('span');
+                            nomeAlimentoSpan.textContent = alimento.nome;
+        
+                            const selecionarButton = document.createElement('button');
+                            selecionarButton.textContent = 'Selecionar';
+                            selecionarButton.style.marginLeft = '10px';
+                            selecionarButton.addEventListener('click', function() {
+                                adicionarAlimentoSelecionado(alimento.nome); // Passa o nome para adicionar à tabela
+                            });
+        
+                            listItem.appendChild(nomeAlimentoSpan);
+                            listItem.appendChild(selecionarButton);
+                            listaAlimentos.appendChild(listItem);
+                        });
+                    } else {
+                        listaAlimentos.innerHTML = '<li style="color: gray;">Nenhum alimento encontrado.</li>';
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar alimentos:", error);
+                    listaAlimentos.innerHTML = `<li style="color: red;">${error.message}</li>`;
+                });
+        }
+
+        function adicionarListenersSelecao() {
+            const itensLista = listaAlimentos.querySelectorAll('li');
+            itensLista.forEach(item => {
+                item.addEventListener('click', function() {
+                    const nomeAlimento = this.textContent;
+                    adicionarAlimentoSelecionado(nomeAlimento);
+                });
+            });
+        }
+
+        function adicionarAlimentoSelecionado(nome) {
+            if (!alimentosSelecionados.includes(nome)) {
+                alimentosSelecionados.push(nome);
+                atualizarTabelaRefeicao();
+            }
+        }
+
+        function removerAlimentoSelecionado(index) {
+            alimentosSelecionados.splice(index, 1);
+            atualizarTabelaRefeicao();
+        }
+
+        function atualizarTabelaRefeicao() {
+            tabelaRefeicao.innerHTML = '';
+            alimentosSelecionados.forEach((alimento, index) => {
+                const newRow = tabelaRefeicao.insertRow();
+                const cellNome = newRow.insertCell();
+                const cellAcoes = newRow.insertCell();
+                cellNome.textContent = alimento;
+                const botaoRemover = document.createElement('button');
+                botaoRemover.textContent = 'Remover';
+                botaoRemover.addEventListener('click', () => removerAlimentoSelecionado(index));
+                cellAcoes.appendChild(botaoRemover);
+            });
+        }
+
+        btnRegistrarRefeicao.addEventListener('click', function() {
+            if (alimentosSelecionados.length > 0) {
+                console.log('Alimentos para registrar:', alimentosSelecionados);
+                // Aqui você fará a lógica para enviar os alimentos selecionados para o seu backend
+                // para registrar a refeição no banco de dados.
+                alert('Refeição registrada com sucesso (simulação): ' + alimentosSelecionados.join(', '));
+                alimentosSelecionados.length = 0; // Limpa a lista após o registro (simulação)
+                atualizarTabelaRefeicao();
+            } else {
+                alert('Por favor, selecione pelo menos um alimento para registrar.');
+            }
+        });
         </script>
 </body>
 
