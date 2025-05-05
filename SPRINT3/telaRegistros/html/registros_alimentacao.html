@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="modern">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros de Atividades Físicas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="cross"></div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
+                <li><a href="../../Login/html/login.html" style="text-decoration: none; color:inherit"><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></a></li>
+                <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color:inherit"><i class="fas fa-clipboard"></i> <span class="menu-text">Registros Atividades</span></a></li>
+                <li><a href="telaRegistros.html" style="text-decoration: none; color:inherit"><i class="fas fa-apple-alt"></i> <span class="menu-text">Regitros Alimentação</span></a></li>
+            </ul>
+        </div>
+        <div class="switch">
+            <i class="fas fa-sun"></i>
+            <span class="switch__track"></span>
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <h2 class="title">Registro de Metas de Atividade</h2>
+
+            <form action="../php/api_alimentos.php" method="POST" class="form">
+
+                <form action="buscar_calorias.php" method="POST">
+                    <label for="alimento">Selecione um alimento:</label>
+                    <select name="alimento" id="alimento">
+                        <option value="banana">Banana</option>
+                        <option value="arroz">Arroz</option>
+                        <option value="frango">Frango</option>
+                        <option value="maçã">Maçã</option>
+                        <option value="ovos">Ovos</option>
+                    </select>
+                    <button type="submit">Buscar Calorias</button>
+                </form>
+                
+            </form>
+        
+        </div>
+
+        
+        <div id="calculadoraSentimentos" style="display: none;" class="calculadoraSentimentos">
+            <div class="container_calc">
+                <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
+                <div class="buttons_calc">
+                    <button class="button_calc negative" onclick="submitEmotion('Estressado')">Estressado</button>
+                    <button class="button_calc negative" onclick="submitEmotion('Puto dms')">Puto dms</button>
+                    <button class="button_calc negative" onclick="submitEmotion('Ansioso')">Ansioso</button>
+                    <button class="button_calc neutral" onclick="submitEmotion('Fiz o L')">Fiz o L</button>
+                    <button class="button_calc neutral" onclick="submitEmotion('Fiz o L 2 vezes')">Fiz o L 2
+                        vezes</button>
+                    <button class="button_calc positive" onclick="submitEmotion('Feliz')">Feliz</button>
+                    <button class="button_calc positive" onclick="submitEmotion('Bem')">Bem</button>
+                    <button class="button_calc positive" onclick="submitEmotion('Superação')">Superação</button>
+                    <button class="button_calc positive"
+                        onclick="submitEmotion('Determinação')">Determinação</button>
+                </div>
+            </div>
+
+            <form id="emotionForm" action="registrar_emocao.php" method="POST" style="display: none;">
+                <input type="hidden" name="emocao" id="emocaoInput">
+            </form>
+        </div>
+
+        <table class='tabela-atividades'>
+            <thead>
+            <tr>
+                <th>Atividade</th>
+                <th>Duração (min)</th>
+                <th>Data Planejada</th>
+                <th>Horário</th>
+                <th>Executado em</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../php/get_tipos_atividade.php")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("tipo-atividade").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar atividades:", error);
+                    document.getElementById("tipo-atividade").innerHTML = "<option>Erro ao carregar</option>";
+                });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../php/get_registros_atividades.php")
+                .then(response => response.text())
+                .then(data => {
+                    const tbody = document.querySelector(".tabela-atividades tbody");
+                    tbody.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar registros:", error);
+                    const tbody = document.querySelector(".tabela-atividades tbody");
+                    tbody.innerHTML = "<tr><td colspan='6'>Erro ao carregar registros</td></tr>";
+                });
+        });
+        
+        </script>
+</body>
+
+
+
+
+
+
+
+
+</html>

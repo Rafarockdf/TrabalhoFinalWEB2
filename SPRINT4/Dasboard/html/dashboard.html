@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="modern">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+        <div class="loading loading--hide">
+            <i class="fa fa-spinner loading__spinner"></i>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="sidebar">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
+                    <li><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></li>
+                    <li><i class="fas fa-clipboard"></i> <span class="menu-text">Registros</span></li>
+                    <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
+                    <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
+                </ul>
+            </div>
+            <div class="switch">
+                <i class="fas fa-sun"></i>
+                <span class="switch__track"></span>
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    <div class="container">
+        <div class="state-select state-select-1">
+            <div class="state-select-toggle">
+                <span class="state-select-toggle__state-selected">Todos</span>
+                <i class="fas fa-chevron-down state-select-toggle__icon"></i>
+            </div>
+            <div class="state-select-list">
+                <input type="text" placeholder="Procurar Tipo Exercício"class="state-select-list__search">
+                <ul>
+                    <li class="state-select-list__item" data-id="Todos=true">Todos</li>
+                    <li class="state-select-list__item" data-id="tipo=1">Corrida</li>
+                    <li class="state-select-list__item" data-id="tipo=2">Musculação</li>
+                    <li class="state-select-list__item" data-id="tipo=3">Yoga</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Segundo seletor -->
+        <div class="state-select state-select-2">
+            <div class="state-select-toggle">
+                <span class="state-select-toggle__state-selected">Todos</span>
+                <i class="fas fa-chevron-down state-select-toggle__icon"></i>
+            </div>
+            <div class="state-select-list">
+                <input type="text" placeholder="Procurar Humor" class="state-select-list__search">
+                <ul>
+                    <li class="state-select-list__item" data-id="Todos=true">Todos</li>
+                    <li class="state-select-list__item" data-id="cat=1">Feliz</li>
+                    <li class="state-select-list__item" data-id="cat=2">Triste</li>
+                    <li class="state-select-list__item" data-id="cat=3">Raiva</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="state-select state-select-3">
+            <div class="state-select-toggle">
+                <span class="state-select-toggle__state-selected">Todos</span>
+                <i class="fas fa-chevron-down state-select-toggle__icon"></i>
+            </div>
+            <div class="state-select-list">
+                <input type="text" placeholder="Procurar Humor" class="state-select-list__search">
+                <ul>
+                    <li class="state-select-list__item" data-id="Todos=true">Todos</li>
+                    <li class="state-select-list__item" data-id="cat=1">Segunda</li>
+                    <li class="state-select-list__item" data-id="cat=2">Terça</li>
+                    <li class="state-select-list__item" data-id="cat=3">Quarta</li>
+                    <li class="state-select-list__item" data-id="cat=4">Quinta</li>
+                    <li class="state-select-list__item" data-id="cat=5">Sexta</li>
+                    <li class="state-select-list__item" data-id="cat=6">Sábado</li>
+                    <li class="state-select-list__item" data-id="cat=7">Domingo</li>
+                </ul>
+            </div>
+        </div>
+        <section class="status">
+            <div class="status__icon status__icon--Metas">
+                <i class="fa fa-dumbbell"></i>
+
+            </div>
+            <div class="info">
+                <span class="info__total info__total--Metas">123,456,789</span>
+                <h2 class="info__label">Metas de Atividade Física</h2>
+            </div>
+        </section>
+
+        <section class="status">
+            <div class="status__icon status__icon--alimentar">
+                <i class="fa fa-utensils"></i>
+
+            </div>
+            <div class="info">
+                <span class="info__total info__total--alimentar">123,456,789</span>
+                <h2 class="info__label">Consumo Alimentar</h2>
+            </div>
+        </section>
+
+        <section class="status">
+            <div class="status__icon status__icon--humor">
+                <i class="fa fa-smile"></i> <!-- Para bom humor -->
+                <!-- <i class="fa fa-frown"></i> Para mau humor -->
+
+            </div>
+            <div class="info">
+                <span class="info__total info__total--humor">123,456,789</span>
+                <h2 class="info__label">Humor e Bem-Estar</h2>
+            </div>
+        </section>
+        
+        <section class="status">
+            <div class="status__icon status__icon--atividades">
+                <i class="fa fa-list"></i>
+
+            </div>
+            <div class="info">
+                <span class="info__total info__total--atividades">123,456,789</span>
+                <h2 class="info__label">Atividades Pendentes</h2>
+            </div>
+        </section>
+        <!--
+            Analisando a possibilidade de criar um switch que alterne a visão dos gráficos de Atividades Físicas / Alimentação
+        -->
+        <section class="data-box data-box--Atividades-Date">
+            <h2 class="data-box__header">
+                Atividades por Dia Por tipo de exercicio
+            </h2>
+            <div class="data-box__body"></div>
+        </section>
+
+        <section class="data-box data-box--HumorAgrupado">
+            <h2 class="data-box__header">
+                Humor por tipo de atividade
+            </h2>
+            <div class="data-box__body"></div>
+        </section>
+
+        <section class="data-box data-box--Alimentacao">
+            <h2 class="data-box__header">
+                Atividades Executado | Plano
+                <!--
+                Existem várias APIs que podem calcular calorias de uma refeição com base nos ingredientes ou nome do prato. Aqui estão algumas opções:
+
+                1. Edamam Nutrition Analysis API
+                URL: https://developer.edamam.com/edamam-docs-nutrition-api
+                Permite enviar uma lista de ingredientes e retorna as calorias, macronutrientes e informações nutricionais detalhadas.
+                2. Nutritionix API
+                URL: https://www.nutritionix.com/business/api
+                Permite buscar alimentos por nome ou código de barras e retorna informações nutricionais detalhadas.
+                3. Spoonacular API
+                URL: https://spoonacular.com/food-api
+                Oferece várias funcionalidades, incluindo cálculo de calorias com base nos ingredientes ou nome do prato.
+                4. FatSecret API
+                URL: https://platform.fatsecret.com/
+                Possui um banco de dados de alimentos e pode ser usado para calcular calorias e nutrientes.
+                Se seu site precisa apenas calcular calorias com base em ingredientes, a Edamam ou Spoonacular são boas opções. Se quiser um banco de dados amplo de alimentos e refeições prontas, o Nutritionix e o FatSecret podem ser melhores.
+                -->
+            </h2>
+            <div class="data-box__body"></div>
+        </section>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.27.3/apexcharts.min.js" integrity="sha512-nKTh1Ik8Kzbrxo9A6xOBtEbzdNYcjI4Pr5XE88sNJQk87sY8mBlUfh61lYm0i710r5mGcIZ9tWSwORQbQ4plQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/apexcharts-pt-br.js"></script>
+</body>
+</html>
