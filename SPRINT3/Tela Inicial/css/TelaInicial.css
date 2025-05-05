@@ -92,22 +92,36 @@
     --clr-card-hover: #333333;
     /* Cor de fundo dos cards ao passar o mouse */
 
-    --clr-sidebar: #005577; /* Azul escuro para a sidebar */
-    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
-    --clr-navbar: #1E1E1E; /* Escuro para o topo */
-    --clr-navbar-text: #33CC66; /* Texto verde no topo */
-    --clr-button: #33CC66; /* Botões verdes */
-    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
-    --clr-highlight: #33CC66; /* Elementos de destaque em verde */
-    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
-    --clr-graph-points: #33CC66; /* Pontos dos gráficos em verde */
-    --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
-    --clr-link:#C2C2FF;
+    --clr-sidebar: #005577;
+    /* Azul escuro para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #1E1E1E;
+    /* Escuro para o topo */
+    --clr-navbar-text: #33CC66;
+    /* Texto verde no topo */
+    --clr-button: #33CC66;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #33CC66;
+    /* Elementos de destaque em verde */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #33CC66;
+    /* Pontos dos gráficos em verde */
+    --clr-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra mais forte */
+    --clr-link: #C2C2FF;
 
-    --clr-card: #121212; /* Fundo dos cards escuro */
-    --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
-    --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
-    --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
+    --clr-card: #121212;
+    /* Fundo dos cards escuro */
+    --clr-card-border: #333333;
+    /* Cor da borda do card - cinza escuro */
+    --clr-card-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #333333;
+    /* Cor de fundo dos cards ao passar o mouse */
 
 
     --ff: "Cairo", sans-serif;
@@ -187,6 +201,7 @@ section {
     font-size: 20px;
     transition: var(--transition);
     z-index: 10;
+    transition: var(--transition);
 }
 
 
@@ -516,12 +531,10 @@ section {
     font-size: 3rem;
     color: var(--clr-background);
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: var(--transition);
 }
 
 .profile-icon:hover {
     transform: scale(1.1);
     color: var(--clr-button);
 }
-
-
