@@ -10,46 +10,61 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/TelaInicial.css">
+    <style>
+        /* Estilos específicos para os ícones dentro dos cards */
+        .status i, .status svg {
+            font-size: 3rem; /* Tamanho dos ícones */
+            margin-bottom: 10px;
+            color: var(--clr-highlight); /* Cor dos ícones */
+        }
+    </style>
 </head>
 
 <body>
+
+    <div class="top-sidebar">
+        <div class="top-sidebar-content">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
+                    <li><a href="../../Tela Educacao/HTML/educacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></a></li>
+                    <li><a href="../../Tela Educacao/HTML/educacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></a></li>
+                </ul>
+            </div>
+            <div class="top-switch-profile">
+                <div class="switch">
+                    <i class="fas fa-sun"></i>
+                    <span class="switch__track"></span>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="profile-icon" onclick="window.location.href='../../Tela Intermediaria/html/telaLoginCadastro.html'">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="menu-toggle top-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-video-wrapper">
+        <video class="bg-video" autoplay muted loop playsinline>
+            <source src="../WhatsApp Video 2025-05-05 at 18.33.35.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo em background.
+        </video>
+    </div>
+
     <div class="loading loading--hide">
         <i class="fa fa-spinner loading__spinner"></i>
     </div>
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-    <div class="sidebar">
-        <div class="logo">
-            <div class="cross"></div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
-                <li><a href="../../Tela Educacao/HTML/educacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></a></li>
-                <li><a href="../../Tela Educacao/HTML/educacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></a></li>
-            </ul>
-        </div>
-        <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
-        </div>
 
-        <!-- Bonequinho de perfil -->
-        <div class="profile-icon" onclick="window.location.href='../../Tela Intermediaria/html/telaLoginCadastro.html'">
-            <i class="fas fa-user-circle"></i>
-        </div>
-                   
-    </div>
     <div class="container">
         <div class="imagem">
-            <div class="header">
-
-                <img src="../img01.webp" 
-                     alt="Logo do Site">
-
-            </div>
+            <img src="../2c706b55-d403-424b-b14d-dfc676cbf273-removebg-preview.png"
+                 alt="Logo do Site">
         </div>
 
         <div class="text">
@@ -61,33 +76,31 @@
                 </p>
             </div>
         </div>
+
         <div class="cards-container">
             <section class="status">
-                <a href="../../Sobre/html/sobre.html" style="text-decoration: none; color: inherit;">
-                    <div class="card card-g">📊 Gráfico</div>
-                </a>
+                <i class="fas fa-chart-bar"></i> <h2>Gráfico</h2>
+                <p>Visualize seus dados e progresso.</p>
+                <a href="../../Sobre/html/sobre.html"><button>Ver Mais</button></a>
             </section>
             <section class="status">
-                <a href="../../Sobre/html/sobre.html" style="text-decoration: none; color: inherit;">
-                    <div class="card card-e">🏃‍♂️ Esporte</div>
-                </a>
+                <i class="fas fa-running"></i> <h2>Esporte</h2>
+                <p>Encontre dicas e informações sobre atividades físicas.</p>
+                <a href="../../Sobre/html/sobre.html"><button>Descobrir</button></a>
             </section>
             <section class="status">
-                <a href="../../Sobre/html/sobre.html" style="text-decoration: none; color: inherit;">
-                    <div class="card card-ed">📖 Educação</div>
-                </a>
+                <i class="fas fa-book-open"></i> <h2>Educação</h2>
+                <p>Acesse conteúdos educativos e informativos.</p>
+                <a href="../../Sobre/html/sobre.html"><button>Aprender</button></a>
             </section>
             <section class="status">
-                <a href="../../Sobre/html/sobre.html" style="text-decoration: none; color: inherit;">
-                    <div class="card card-l">🛒 Loja</div>
-                </a>
+                <i class="fas fa-shopping-cart"></i> <h2>Loja</h2>
+                <p>Confira nossos produtos e ofertas.</p>
+                <a href="../../Sobre/html/sobre.html"><button>Comprar</button></a>
             </section>
-
         </div>
     </div>
     <script src="../js/script.js"></script>
 </body>
 
 </html>
-
-

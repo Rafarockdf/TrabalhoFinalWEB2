@@ -275,9 +275,9 @@ section {
 
 .logo {
     position: absolute;
-    top: 1rem;
+    top: 0.6rem;
     /* Distância do topo */
-    left: 1rem;
+    left: 2rem;
     /* Distância da lateral */
     width: 4rem;
     height: 4rem;
@@ -379,15 +379,9 @@ section {
     text-align: center;
     border-radius: 10px;
     box-shadow: 4px 4px 30px var(--clr-shadow);
-    font-size: 18px;
+    font-size: 25px;
     line-height: 1.8;
     max-width: 900px;
-    transition: var(--transition);
-}
-
-.summary:hover {
-    box-shadow: 4px 4px 30px var(--clr-shadow);
-    transform: scale(1.02);
     transition: var(--transition);
 }
 
@@ -397,35 +391,6 @@ section {
     align-items: center;
     transition: var(--transition);
 }
-
-.cards-container {
-    display: flex;
-    gap: 40px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    color: var(--clr-highlight);
-    transition: var(--transition);
-}
-
-.card {
-    background: var(--clr-card);
-    flex: 1;
-    height: 19rem;
-    border-radius: 10px;
-    box-shadow: var(--clr-shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    font-weight: bold;
-    transition: var(--transition);
-    text-align: center;
-    min-width: 200px;
-    transition: var(--transition);
-
-}
-
 
 .card:hover {
     transform: translateY(-5px);
@@ -511,7 +476,7 @@ section {
 
 .profile-icon {
     position: absolute;
-    bottom: 5rem;
+    bottom: 0.5rem;
     right: 2rem;
     font-size: 3rem;
     color: var(--clr-background);
@@ -524,4 +489,560 @@ section {
     color: var(--clr-button);
 }
 
+.sidebar.collapsed .profile-icon {
+    position: fixed;            /* tira do fluxo normal */
+    top: auto;                  /* cancela qualquer top anterior */
+    bottom: calc(
+      1.8rem    /* distância do switch ao bottom */
+      + 2rem    /* altura do track do switch */
+      + 0.5rem  /* gap extra entre switch e ícone */
+    );
+    left: 2rem;                 /* mesma left do switch */
+    right: auto;                /* cancela qualquer right anterior */
+    font-size: 2.5rem;          /* se quiser reduzir um pouco */
+    z-index: 11;                /* acima do switch */
+    transition: var(--transition);
+  }
+  
+/* ... (seu CSS anterior) ... */
 
+/* ==========================================================================
+   1) Banner principal (modificado para se assemelhar aos cards da imagem)
+   ========================================================================== */
+   .cards-container {
+    font-family: inter, switzer, neue-haas-unica, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.6rem; /* Ajuste o tamanho da fonte conforme necessário */
+    font-weight: 600;
+    letter-spacing: -0.084px;
+    line-height: 2.2rem; /* Ajuste a altura da linha conforme necessário */
+    color: var(--clr-font); /* Mantendo a cor do seu tema */
+
+    width: 100%;
+    max-width: 1200px; /* Largura máxima para centralizar e evitar que se estenda demais */
+    margin: 40px auto; /* Centraliza e adiciona margem superior */
+    margin-left: 15rem;
+
+    padding: 20px;
+    background-color: transparent; /* Fundo transparente para destacar os cards */
+    box-shadow: none; /* Remove a sombra grande */
+    border-radius: 0; /* Remove a borda arredondada */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+/* ==========================================================================
+   2) Cards internos
+   ========================================================================== */
+.cards-container .status {
+    font-family: inherit; /* Herda a fonte do container */
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: center;
+    
+    width: 100%;
+    max-width: 350px; /* Largura aproximada dos cards da imagem */
+    height: auto; /* Altura automática para se ajustar ao conteúdo */
+    padding: 24px 20px; /* Espaçamento interno similar */
+    background-color: var(--clr-card); /* Cor de fundo dos seus cards */
+    box-shadow: var(--clr-card-shadow); /* Mantendo a sombra dos seus cards */
+    border: 1px solid var(--clr-card-border); /* Mantendo a borda dos seus cards */
+    border-radius: 10px; /* Mantendo a borda arredondada dos seus cards */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-container .status:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Sombra um pouco maior no hover */
+}
+
+.cards-container .status h2 {
+    font-size: 2rem; /* Tamanho do título */
+    margin-bottom: 10px;
+    color: var(--clr-highlight); /* Cor do título */
+}
+
+.cards-container .status p {
+    font-size: 1.4rem; /* Tamanho do texto */
+    line-height: 1.6;
+}
+
+.cards-container .status a {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Faz o link ocupar todo o card */
+    width: 100%;
+    height: 100%;
+}
+
+.cards-container .status button {
+    background-color: var(--clr-button); /* Cor do botão */
+    color: var(--clr-button-text); /* Cor do texto do botão */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.cards-container .status button:hover {
+    background-color: var(--clr-sidebar-hover); /* Cor do hover do botão */
+}
+
+/* Oculta os cards antigos para mostrar o novo layout */
+.container > .card,
+.container > .card-g,
+.container > .card-e,
+.container > .card-ed,
+.container > .card-l {
+    display: none !important;
+}
+
+/* Ajustes no container principal para o novo layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: auto; /* Remove o posicionamento fixo */
+    margin-left: auto; /* Remove a margem esquerda */
+    margin-right: auto; /* Centraliza o container */
+    grid-template-columns: auto; /* Reseta o grid */
+    grid-gap: 0; /* Remove o gap do grid */
+    padding: 20px; /* Adiciona um pouco de padding ao redor */
+}
+
+.container.collapsed {
+    margin-left: auto; /* Mantém centralizado quando a sidebar está recolhida */
+}
+
+.imagem, .text {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+/* Garante que a imagem e o texto não fiquem muito largos */
+.header {
+    max-width: 400px; /* Ajuste conforme necessário */
+    margin: 0 auto 20px; /* Centraliza a imagem */
+}
+
+.summary {
+    max-width: 800px; /* Ajuste conforme necessário */
+    margin: 0 auto 20px; /* Centraliza o texto */
+}
+
+/* ... (seu CSS restante) ... */
+  
+  /* Vídeo de fundo */
+  .bg-video-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Garante que as partes sombreadas fora do viewport não causem barra de rolagem */
+    z-index: -1;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o wrapper mantendo a proporção */
+}
+
+.bg-video-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 70%, transparent 80%, rgba(0,0,0,0.7) 100%);
+    z-index: 1; /* Coloca a sombra acima do vídeo */
+    pointer-events: none; /* Permite interações com elementos abaixo */
+}
+
+.bg-video-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 70%, transparent 80%, rgba(0,0,0,0.7) 100%);
+    z-index: 2; /* Coloca essa sombra acima da anterior */
+    pointer-events: none;
+}
+  
+  /* Garante que todo o seu conteúdo fique acima do vídeo */
+ /* === Efeito Glassmorphism para Header e Summary === */
+.header,
+.summary {
+  /* fundo semitransparente branco */
+  background-color: rgba(255, 255, 255, 0.25);
+
+  /* borda levemente esbranquiçada */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  /* arredonda cantos */
+  border-radius: 10px;
+
+  /* desfoca o que está atrás */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* sombra suave para destacar */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* garante que o texto continue bem legível */
+.summary p {
+  color: var(--clr-font);
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 1.2rem;
+    padding: 2.4rem 2rem;
+    width: 100%;
+    max-width: 220px;
+    height: 180px; /* Altura igual para todos */
+    color: #111;
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+  
+    /* 🔒 Garante que nada vai fazer o card "esticar" */
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    background-color: #005fe0;
+    color: rgb(255, 255, 255);
+  
+    /* ❗ substitui a sombra ao invés de adicionar (não muda altura!) */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* remove contornos que quebram o layout */
+  .card:focus,
+  .card:active {
+    outline: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card i, .card svg {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+    color: #60aaff;
+    transition: color 0.3s ease;
+  }
+
+  .card:hover i,
+  .card:hover svg {
+    color: #fff;
+  }
+  
+  /* ... (seu CSS anterior) ... */
+
+/* ==========================================================================
+   1) Banner principal (modificado para se assemelhar aos cards da imagem)
+   ========================================================================== */
+.cards-container {
+    font-family: inter, switzer, neue-haas-unica, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.6rem; /* Ajuste o tamanho da fonte conforme necessário */
+    font-weight: 600;
+    letter-spacing: -0.084px;
+    line-height: 2.2rem; /* Ajuste a altura da linha conforme necessário */
+    color: var(--clr-font); /* Mantendo a cor do seu tema */
+
+    width: 100%;
+    max-width: 1200px; /* Largura máxima para centralizar e evitar que se estenda demais */
+    margin: 40px auto; /* Centraliza e adiciona margem superior */
+    padding: 20px;
+    background-color: transparent; /* Fundo transparente para destacar os cards */
+    box-shadow: none; /* Remove a sombra grande */
+    border-radius: 0; /* Remove a borda arredondada */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+/* ==========================================================================
+   2) Cards internos
+   ========================================================================== */
+.cards-container .status {
+    font-family: inherit; /* Herda a fonte do container */
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: center;
+    width: 100%;
+    max-width: 350px; /* Largura aproximada dos cards da imagem */
+    height: auto; /* Altura automática para se ajustar ao conteúdo */
+    padding: 24px 20px; /* Espaçamento interno similar */
+    background-color: rgba(255, 255, 255, 0.308); /* Cor de fundo dos seus cards */
+    backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);/* sombra suave para destacar */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--clr-card-shadow); /* Mantendo a sombra dos seus cards */
+    border: 1px solid var(--clr-card-border); /* Mantendo a borda dos seus cards */
+    border-radius: 10px; /* Mantendo a borda arredondada dos seus cards */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-container .status:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Sombra um pouco maior no hover */
+}
+
+.cards-container .status h2 {
+    font-size: 2rem; /* Tamanho do título */
+    margin-bottom: 10px;
+    color: var(--clr-highlight); /* Cor do título */
+}
+
+.cards-container .status p {
+    font-size: 1.4rem; /* Tamanho do texto */
+    line-height: 1.6;
+}
+
+.cards-container .status a {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Faz o link ocupar todo o card */
+    width: 100%;
+    height: 100%;
+}
+
+.cards-container .status button:hover {
+    background-color: var(--clr-sidebar-hover); /* Cor do hover do botão */
+}
+
+/* Oculta os cards antigos para mostrar o novo layout */
+.container > .card,
+.container > .card-g,
+.container > .card-e,
+.container > .card-ed,
+.container > .card-l {
+    display: none !important;
+}
+
+/* Ajustes no container principal para o novo layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: auto; /* Remove o posicionamento fixo */
+    margin-left: auto; /* Remove a margem esquerda */
+    margin-right: auto; /* Centraliza o container */
+    grid-template-columns: auto; /* Reseta o grid */
+    grid-gap: 0; /* Remove o gap do grid */
+    padding: 20px; /* Adiciona um pouco de padding ao redor */
+}
+
+.container.collapsed {
+    margin-left: auto; /* Mantém centralizado quando a sidebar está recolhida */
+}
+
+.imagem, .text {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+/* Garante que a imagem e o texto não fiquem muito largos */
+.header {
+    max-width: 400px; /* Ajuste conforme necessário */
+    margin: 0 auto 20px; /* Centraliza a imagem */
+}
+
+.summary {
+    max-width: 800px; /* Ajuste conforme necessário */
+    margin: 0 auto 20px; /* Centraliza o texto */
+}
+
+.top-sidebar {
+  --h: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--h);
+  padding: 0 2rem;
+  background-color: var(--clr-sidebar);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+/* ✅ NOVO: organiza o conteúdo interno da barra */
+.top-sidebar-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* espaço entre logo, menu e demais itens */
+  width: 100%;
+}
+
+/* Ícone circular com "+" */
+.top-sidebar .logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #0099CC, #33CC66);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Cruz branca no meio da logo */
+.cross {
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  clip-path: polygon(
+    35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%,
+    65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%
+  );
+}
+
+/* Menu de navegação */
+.top-sidebar .menu ul {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  margin-left: 5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.top-sidebar .menu ul li {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.top-sidebar .menu ul li:hover {
+  background-color: var(--clr-button);
+}
+
+.top-sidebar .menu ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--clr-card);
+  font-size: 1.6rem;
+}
+
+.top-sidebar .menu ul li i {
+  margin-right: 0.5rem;
+  font-size: 1.8rem;
+}
+
+/* Switch de tema + ícone de perfil */
+.top-switch-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.top-sidebar .switch {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+.top-sidebar .switch__track {
+  position: relative;
+  width: 3rem;
+  height: 1.5rem;
+  background-color: var(--clr-button);
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.top-sidebar .switch__track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--clr-font);
+  border-radius: 0.75rem;
+  transition: left 0.3s ease;
+}
+
+.top-sidebar .switch__track--dark::before {
+  left: 1.5rem;
+}
+
+.top-sidebar .profile-icon {
+  font-size: 5rem;
+  color: var(--clr-card);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.top-sidebar .profile-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Esconde botão hamburguer antigo */
+.top-sidebar .menu-toggle {
+  display: none !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .top-sidebar .menu {
+    display: none;
+  }
+
+  .top-toggle {
+    display: flex;
+  }
+}
+
+  
+  
