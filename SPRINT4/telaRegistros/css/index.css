@@ -357,6 +357,7 @@ body {
 .box {
     display: grid;
     grid-template-columns: auto;
+    justify-content: space-between;
     gap: 10px;
     background: var(--clr-card);
     padding: 20px;
@@ -873,5 +874,7 @@ select {
 .tabela-atividades tbody:hover {
     background-color: #eef6ff;
 }
+
+
 
 
