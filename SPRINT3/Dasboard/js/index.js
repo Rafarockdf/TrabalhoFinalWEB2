@@ -21,12 +21,12 @@ const _data = {
 }
 
 const menuToggle = document.querySelector('.menu-toggle');
-        const sidebar = document.querySelector('.sidebar');
-        const container = document.querySelector('.container');
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            menuToggle.classList.toggle('collapsed');
-            container.classList.toggle('collapsed');
+const sidebar = document.querySelector('.sidebar');
+const container = document.querySelector('.container');
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    menuToggle.classList.toggle('collapsed');
+    container.classList.toggle('collapsed');
 });
 
 
@@ -44,12 +44,12 @@ const _elements2 = {
 
 _elements.switch.addEventListener("click", () => {
     const isDark = _elements.switch.classList.toggle("switch__track--dark");
-    if(isDark == true){
-        document.documentElement.setAttribute("data-theme","dark");
-    } else{
-        document.documentElement.setAttribute("data-theme","modern");
+    if (isDark == true) {
+        document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+        document.documentElement.setAttribute("data-theme", "modern");
     }
-    
+
 });
 
 
@@ -88,14 +88,14 @@ document.querySelectorAll(".state-select, .state-select-2").forEach((selectBox) 
 const createBasicChart = (element, config) => {
     const options = {
         chart: {
-            background:"transparent"
+            background: "transparent"
         },
-        xaxis:{
-            type:"datetime"
+        xaxis: {
+            type: "datetime"
         },
         series: []
     }
-    const chart = new ApexCharts(document.querySelector(element),options);
+    const chart = new ApexCharts(document.querySelector(element), options);
     chart.render();
     return chart
 }
@@ -134,7 +134,7 @@ const createChartAtividades = (element, config) => {
             }
         }
     };
-    
+
     const chartAtividades = new ApexCharts(document.querySelector(element), optionsAtividades);
     chartAtividades.render();
     return chartAtividades;
@@ -156,7 +156,7 @@ const Executado_por_Plano = (element, config) => {
             height: 250
         },
         xaxis: {
-            categories: ["Dom","Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", ] // Dias da semana
+            categories: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb",] // Dias da semana
         },
         title: {
             text: "Atividades Executado | Plano",
@@ -190,7 +190,7 @@ const createChartHumorPorAtividade = (element, config) => {
             stacked: true // Desativa o empilhamento para agrupamento
         },
         xaxis: {
-            categories: ["Corrida", "Musculação","Yoga"] // Dias da semana
+            categories: ["Corrida", "Musculação", "Yoga"] // Dias da semana
         },
         title: {
             text: "Humor por tipo de atividade",
@@ -203,7 +203,7 @@ const createChartHumorPorAtividade = (element, config) => {
             }
         }
     };
-    
+
     const chartAtividades = new ApexCharts(document.querySelector(element), optionsAtividades);
     chartAtividades.render();
     return chartAtividades;
@@ -213,14 +213,14 @@ const createCharts = () => {
     _charts.AtividadesDate = createChartAtividades(".data-box--Atividades-Date .data-box__body");
     _charts.HumorAgrupado = createChartHumorPorAtividade(".data-box--HumorAgrupado .data-box__body");
     _charts.Alimentacao = Executado_por_Plano(".data-box--Alimentacao .data-box__body");
- 
+
 }
 
 const loadData = (id) => {
-    _data.atividade=  20;
-    _data.alimentacao =  5;
-    _data.atividadesPendentes=  9;
-    _data.humorGeral =  "Feliz";
+    _data.atividade = 20;
+    _data.alimentacao = 5;
+    _data.atividadesPendentes = 9;
+    _data.humorGeral = "Feliz";
 
 
     updateCards();

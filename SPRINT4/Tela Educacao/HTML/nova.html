@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="modern">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dietas e Treinos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/nova.css">
+</head>
+
+<body>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="cross"></div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><i class="fas fa-home"></i> <span class="menu-text">Início</span></li>
+                <li><i class="fas fa-chart-line"></i> <span class="menu-text">Progresso</span></li>
+                <li><i class="fas fa-clipboard"></i> <span class="menu-text">Meus Planos</span></li>
+                <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
+                <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
+            </ul>
+        </div>
+        <div class="switch">
+            <i class="fas fa-sun"></i>
+            <span class="switch__track"></span>
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="page-header">
+            <h1 class="title">Educação em Nutrição e Exercícios</h1>
+        </header>
+
+        <header class="page-header">
+            <h2 class="subtitle">Conheça diferentes abordagens de dietas e treinos</h2>
+        </header>
+
+        <div class="plan-grid">
+            <!-- Seção de Dietas -->
+            <section class="diet-plans">
+                <div class="section-header">
+                    <i class="fas fa-utensils"></i>
+                    <h2>Planos Alimentares</h2>
+                </div>
+
+                <div class="plan-card" onclick="toggleDetails('weight-loss')">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <div class="plan-title">
+                            <h3>Perda de Peso</h3>
+                            <p>Dieta balanceada para redução de gordura</p>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="plan-details" id="weight-loss-details">
+                        <div class="detail-content">
+                            <h4>Dieta Hipocalórica Balanceada</h4>
+                            <div class="meal-plan">
+                                <div class="meal">
+                                    <h5><i class="fas fa-coffee"></i> Café da manhã</h5>
+                                    <p>Omelete de claras com espinafre + 1 fatia de pão integral</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-apple-alt"></i> Lanche da manhã</h5>
+                                    <p>1 fruta + 10 castanhas</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-utensils"></i> Almoço</h5>
+                                    <p>100g de peito de frango + 2 colheres de arroz integral + salada à vontade</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-bread-slice"></i> Lanche da tarde</h5>
+                                    <p>Iogurte natural + 1 colher de chia</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-fish"></i> Jantar</h5>
+                                    <p>100g de peixe + legumes cozidos</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-mug-hot"></i> Ceia</h5>
+                                    <p>Chá sem açúcar + 1 fatia de queijo branco</p>
+                                </div>
+                            </div>
+                            <div class="macros">
+                                <div class="macro">
+                                    <span class="value">1.500</span>
+                                    <span class="label">kcal</span>
+                                </div>
+                                <div class="macro">
+                                    <span class="value">40%</span>
+                                    <span class="label">Proteínas</span>
+                                </div>
+                                <div class="macro">
+                                    <span class="value">30%</span>
+                                    <span class="label">Carboidratos</span>
+                                </div>
+                                <div class="macro">
+                                    <span class="value">30%</span>
+                                    <span class="label">Gorduras</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="like-container">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <i class="far fa-heart"></i>
+                                <span class="like-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-card" onclick="toggleDetails('weight-gain')">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="plan-title">
+                            <h3>Ganho de Massa</h3>
+                            <p>Dieta rica para construção muscular</p>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="plan-details" id="weight-gain-details">
+                        <div class="detail-content">
+                            <h4>Dieta Hipercalórica Proteica</h4>
+                            <div class="meal-plan">
+                                <div class="meal">
+                                    <h5><i class="fas fa-coffee"></i> Café da manhã</h5>
+                                    <p>3 ovos + 2 fatias de pão integral + 1 banana + pasta de amendoim</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-apple-alt"></i> Lanche da manhã</h5>
+                                    <p>Shake de whey protein com aveia e leite</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-utensils"></i> Almoço</h5>
+                                    <p>150g de carne vermelha + 3 colheres de arroz + feijão + batata doce</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-bread-slice"></i> Lanche da tarde</h5>
+                                    <p>Sanduíche de frango com queijo + suco natural</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-fish"></i> Jantar</h5>
+                                    <p>150g de salmão + purê de mandioquinha + brócolis</p>
+                                </div>
+                                <div class="meal">
+                                    <h5><i class="fas fa-mug-hot"></i> Ceia</h5>
+                                    <p>Caseína + 1 colher de pasta de amendoim</p>
+                                </div>
+                            </div>
+                            <div class="macros">
+                                <div class="macro">
+                                    <span class="value">3.000</span>
+                                    <span class="label">kcal</span>
+                                </div>
+                                <div class="macro">
+                                    <span class="value">35%</span>
+                                    <span class="label">Proteínas</span>
+                                </div>
+                                <div class="macro">
+                                    <span class="value">45%</span>
+                                    <span class="label">Carboidratos</span>
+                                </div>
+                                <div class="macro">
+                                    <span class="value">20%</span>
+                                    <span class="label">Gorduras</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="like-container">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <i class="far fa-heart"></i>
+                                <span class="like-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Treinos -->
+            <section class="workout-plans">
+                <div class="section-header">
+                    <i class="fas fa-dumbbell"></i>
+                    <h2>Planos de Treino</h2>
+                </div>
+
+                <div class="plan-card" onclick="toggleDetails('strength-training')">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="plan-title">
+                            <h3>Força Muscular</h3>
+                            <p>Treino ABC para hipertrofia</p>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="plan-details" id="strength-training-details">
+                        <div class="detail-content">
+                            <h4>Treino ABC - Foco em Hipertrofia</h4>
+                            <div class="workout-schedule">
+                                <div class="workout-day">
+                                    <div class="day-header">
+                                        <i class="fas fa-calendar-day"></i>
+                                        <h5>Dia A: Peito e Tríceps</h5>
+                                    </div>
+                                    <ul class="exercise-list">
+                                        <li><span class="exercise-name">Supino reto</span> <span
+                                                class="exercise-sets">4x8-10</span></li>
+                                        <li><span class="exercise-name">Supino inclinado c/ halteres</span> <span
+                                                class="exercise-sets">3x10</span></li>
+                                        <li><span class="exercise-name">Crucifixo</span> <span
+                                                class="exercise-sets">3x12</span></li>
+                                        <li><span class="exercise-name">Tríceps testa</span> <span
+                                                class="exercise-sets">4x10</span></li>
+                                        <li><span class="exercise-name">Tríceps corda</span> <span
+                                                class="exercise-sets">3x12</span></li>
+                                    </ul>
+                                </div>
+                                <div class="workout-day">
+                                    <div class="day-header">
+                                        <i class="fas fa-calendar-day"></i>
+                                        <h5>Dia B: Costas e Bíceps</h5>
+                                    </div>
+                                    <ul class="exercise-list">
+                                        <li><span class="exercise-name">Barra fixa</span> <span class="exercise-sets">4x
+                                                máx</span></li>
+                                        <li><span class="exercise-name">Remada curvada</span> <span
+                                                class="exercise-sets">4x8</span></li>
+                                        <li><span class="exercise-name">Puxada frontal</span> <span
+                                                class="exercise-sets">3x10</span></li>
+                                        <li><span class="exercise-name">Rosca direta</span> <span
+                                                class="exercise-sets">4x10</span></li>
+                                        <li><span class="exercise-name">Rosca martelo</span> <span
+                                                class="exercise-sets">3x12</span></li>
+                                    </ul>
+                                </div>
+                                <div class="workout-day">
+                                    <div class="day-header">
+                                        <i class="fas fa-calendar-day"></i>
+                                        <h5>Dia C: Pernas e Ombros</h5>
+                                    </div>
+                                    <ul class="exercise-list">
+                                        <li><span class="exercise-name">Agachamento livre</span> <span
+                                                class="exercise-sets">4x8</span></li>
+                                        <li><span class="exercise-name">Leg press</span> <span
+                                                class="exercise-sets">3x10</span></li>
+                                        <li><span class="exercise-name">Stiff</span> <span
+                                                class="exercise-sets">3x10</span></li>
+                                        <li><span class="exercise-name">Desenvolvimento militar</span> <span
+                                                class="exercise-sets">4x8</span></li>
+                                        <li><span class="exercise-name">Elevação lateral</span> <span
+                                                class="exercise-sets">3x12</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="workout-stats">
+                                <div class="stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duração: 60min</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-week"></i>
+                                    <span>Frequência: 5x/semana</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-burn"></i>
+                                    <span>Intensidade: Alta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="like-container">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <i class="far fa-heart"></i>
+                                <span class="like-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-card" onclick="toggleDetails('functional-training')">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="plan-title">
+                            <h3>Funcional</h3>
+                            <p>Circuito de alta intensidade</p>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="plan-details" id="functional-training-details">
+                        <div class="detail-content">
+                            <h4>Circuito de Alta Intensidade</h4>
+                            <div class="workout-schedule">
+                                <div class="workout-day">
+                                    <div class="day-header">
+                                        <i class="fas fa-calendar-day"></i>
+                                        <h5>Dia 1: Full Body</h5>
+                                    </div>
+                                    <ul class="circuit-list">
+                                        <li><span class="exercise-name">Burpee</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Agachamento com salto</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Flexão</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Prancha com deslocamento</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Corrida estacionária</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Descanso</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Repetir circuito</span> <span
+                                                class="exercise-sets">4x</span></li>
+                                    </ul>
+                                </div>
+                                <div class="workout-day">
+                                    <div class="day-header">
+                                        <i class="fas fa-calendar-day"></i>
+                                        <h5>Dia 2: Core e Mobilidade</h5>
+                                    </div>
+                                    <ul class="circuit-list">
+                                        <li><span class="exercise-name">Prancha abdominal</span> <span
+                                                class="exercise-sets">45s</span></li>
+                                        <li><span class="exercise-name">Russian twist</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Elevação de pernas</span> <span
+                                                class="exercise-sets">30s</span></li>
+                                        <li><span class="exercise-name">Alongamento dinâmico</span> <span
+                                                class="exercise-sets">10min</span></li>
+                                        <li><span class="exercise-name">Mobilidade articular</span> <span
+                                                class="exercise-sets">15min</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="workout-stats">
+                                <div class="stat">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Duração: 45min</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-week"></i>
+                                    <span>Frequência: 3x/semana</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-burn"></i>
+                                    <span>Intensidade: Moderada</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="like-container">
+                            <button class="btn-like" onclick="toggleLike(this)">
+                                <i class="far fa-heart"></i>
+                                <span class="like-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../JS/script.js"></script>
+    <script>
+        function toggleDetails(id) {
+            const details = document.getElementById(id + '-details');
+            details.classList.toggle('expanded');
+
+            const icon = document.querySelector(`#${id} .fa-chevron-down`);
+            icon.classList.toggle('rotate');
+
+            // Fecha outros cards abertos
+            document.querySelectorAll('.plan-details').forEach(item => {
+                if (item.id !== id + '-details' && item.classList.contains('expanded')) {
+                    item.classList.remove('expanded');
+                    const otherIcon = item.closest('.plan-card').querySelector('.fa-chevron-down');
+                    otherIcon.classList.remove('rotate');
+                }
+            });
+        }
+        function toggleLike(button) {
+            button.classList.toggle('liked');
+            const icon = button.querySelector('i');
+            const countElement = button.querySelector('.like-count');
+
+            if (button.classList.contains('liked')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                countElement.textContent = parseInt(countElement.textContent) + 1;
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                countElement.textContent = parseInt(countElement.textContent) - 1;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,761 @@
+/**********************************/
+/* Tema Moderno
+/**********************************/
+
+[data-theme="modern"] {
+    --clr-background: #F0F0F0;
+    /* Fundo principal cinza-claro */
+    --clr-font: #222222;
+    /* Texto principal preto */
+    /* --clr-card: #FFFFFF; Fundo dos cards branco */
+    --clr-sidebar: #0099CC;
+    /* Azul para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #FFFFFF;
+    /* Branco para o topo */
+    --clr-navbar-text: #0099CC;
+    /* Texto azul no topo */
+    --clr-button: #33CC66;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #0099CC;
+    /* Elementos de destaque em azul */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #0099CC;
+    /* Pontos dos gráficos em azul */
+    --clr-shadow: rgba(0, 0, 0, 0.3);
+    /* Sombra suave */
+    --clr-link: #3333FF;
+
+    --clr-card: #FFFFFF;
+    /* Fundo dos cards branco */
+    --clr-card-border: #E0E0E0;
+    /* Cor da borda do card - cinza claro */
+    --clr-card-shadow: rgba(0, 0, 0, 0.1);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #F9F9F9;
+    /* Cor de fundo dos cards ao passar o mouse */
+
+
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.3s ease-in-out;
+    --shadow-card: 6px 6px 24px var(--clr-shadow);
+}
+
+/**********************************/
+/* Tema Escuro
+/**********************************/
+
+[data-theme="dark"] {
+    --clr-background: #121212;
+    /* Fundo principal escuro */
+    --clr-font: #E0E0E0;
+    /* Texto principal claro */
+    /* --clr-card: #1E1E1E; Fundo dos cards escuro */
+    --clr-sidebar: #005577;
+    /* Azul escuro para a sidebar */
+    --clr-sidebar-hover: #33CC66;
+    /* Verde ao passar o mouse */
+    --clr-navbar: #1E1E1E;
+    /* Escuro para o topo */
+    --clr-navbar-text: #33CC66;
+    /* Texto verde no topo */
+    --clr-button: #1F8B4A;
+    /* Botões verdes */
+    --clr-button-text: #FFFFFF;
+    /* Texto dos botões em branco */
+    --clr-highlight: #33CC66;
+    /* Elementos de destaque em verde */
+    --clr-graph-lines: #33CC66;
+    /* Linhas de gráficos em verde */
+    --clr-graph-points: #33CC66;
+    /* Pontos dos gráficos em verde */
+    --clr-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra mais forte */
+    --clr-link: #C2C2FF;
+
+    --clr-card: #1E1E1E;
+    /* Fundo dos cards escuro */
+    --clr-card-border: #333333;
+    /* Cor da borda do card - cinza escuro */
+    --clr-card-shadow: rgba(255, 255, 255, 0.2);
+    /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #333333;
+    /* Cor de fundo dos cards ao passar o mouse */
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.3s ease-in-out;
+    --shadow-card: 4px 4px 20px var(--clr-shadow);
+}
+
+/**********************************/
+/* Configurações Gerais
+/**********************************/
+
+html {
+    font-size: 62.5%;
+    font-family: var(--ff);
+    color: var(--clr-font);
+    transition: var(--transition);
+}
+
+body {
+    background-color: var(--clr-background);
+    transition: var(--transition);
+}
+
+section {
+
+    /*background-color: var(--clr-sidebar);*/
+    background-color: var(--clr-card-shadow);
+    transition: var(--transition);
+    border: 1px solid var(--clr-card-border);
+    box-shadow: 0 4px 12px var(--clr-card-shadow);
+    padding: 1.6;
+    border-radius: 1rem;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/**********************************/
+/* Sidebar
+/**********************************/
+
+
+.sidebar {
+    background-color: var(--clr-sidebar);
+    transition: var(--transition);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 1.3rem;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    flex-shrink: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 20px;
+}
+
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 10px;
+    left: 200px;
+    cursor: pointer;
+    color: var(--clr-card);
+    font-size: 20px;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+
+.sidebar.collapsed+.menu-toggle {
+    left: 90px;
+}
+
+.menu-toggle.collapsed {
+    left: 90px;
+}
+
+.collapsed .menu ul li .menu-text {
+    display: none;
+}
+
+
+.sidebar.active {
+    transform: translateX(-100%);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+    width: 19rem;
+    height: 3rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--clr-background);
+}
+
+.sidebar ul li:hover {
+    background-color: var(--clr-button);
+    border-radius: 1rem;
+    border-color: var(--clr-font);
+    gap: 10px;
+}
+
+.switch {
+    position: fixed;
+    bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    left: 2rem;
+}
+
+
+.switch__track {
+    background-color: var(--clr-button);
+    display: block;
+    height: 2rem;
+    width: 4rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 0 .2rem;
+}
+
+.switch__track::before {
+    content: "";
+    background-color: var(--clr-font);
+    transition: var(--transition);
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    left: 0rem;
+}
+
+.switch__track--dark::before {
+    left: 2rem;
+}
+
+.logo {
+    position: absolute;
+    top: 1rem;
+    /* Distância do topo */
+    left: 1rem;
+    /* Distância da lateral */
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, #0099CC, #33CC66);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.cross {
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    position: absolute;
+    border-radius: 20rem;
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+}
+
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 50px 0;
+}
+
+.menu ul li {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.menu ul li i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: var(--clr-background);
+}
+
+.collapsed .menu ul li .menu-text {
+    display: none;
+}
+
+/**********************************/
+/* Container
+/**********************************/
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 30px;
+    margin: 3rem 1.6rem;
+    margin-left: 30rem;
+    transition: var(--transition);
+}
+
+.container.collapsed {
+    margin-left: 17rem;
+    transition: var(--transition);
+}
+
+@media screen and (min-width:960px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (min-width: 1170px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+}
+
+/**********************************/
+/* Estilos Gerais Atualizados
+/**********************************/
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    grid-column: 1 / -1;
+}
+
+.title {
+    font-size: 2.8rem;
+    color: var(--clr-highlight);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: var(--clr-highlight);
+    margin: 0;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--clr-highlight);
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--clr-highlight);
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+
+/**********************************/
+/* Estilos para Seções
+/**********************************/
+
+.diet-plans,
+.workout-plans {
+    background-color: var(--clr-card);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-card);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.section-header i {
+    font-size: 2.4rem;
+    color: var(--clr-highlight);
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--clr-highlight);
+}
+
+/**********************************/
+/* Estilos para Cards de Plano
+/**********************************/
+
+.plan-card {
+    background-color: var(--clr-card);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid var(--clr-card-border);
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.plan-header {
+    padding: 1.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--clr-button);
+    color: var(--clr-button-text);
+    transition: var(--transition);
+}
+
+.plan-header:hover {
+    background-color: var(--clr-sidebar-hover);
+}
+
+.plan-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+}
+
+.plan-icon i {
+    font-size: 1.8rem;
+}
+
+.plan-title {
+    flex: 1;
+}
+
+.plan-title h3 {
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem 0;
+}
+
+.plan-title p {
+    font-size: 1.4rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.plan-header i.fa-chevron-down {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.plan-header i.rotate {
+    transform: rotate(180deg);
+}
+
+.plan-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: var(--clr-card);
+}
+
+.plan-details.expanded {
+    max-height: 1500px;
+}
+
+.detail-content {
+    padding: 2rem;
+}
+
+.detail-content h4 {
+    font-size: 1.8rem;
+    color: var(--clr-highlight);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--clr-card-border);
+}
+
+/**********************************/
+/* Estilos para Planos Alimentares
+/**********************************/
+
+.meal-plan {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.meal {
+    background-color: var(--clr-card-hover);
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    border-left: 4px solid var(--clr-button);
+}
+
+.meal h5 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    margin: 0 0 0.8rem 0;
+    color: var(--clr-highlight);
+}
+
+.meal h5 i {
+    font-size: 1.4rem;
+}
+
+.meal p {
+    font-size: 1.4rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.macros {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.macro {
+    background-color: var(--clr-background);
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    text-align: center;
+}
+
+.macro .value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--clr-highlight);
+}
+
+.macro .label {
+    display: block;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/**********************************/
+/* Estilos para Planos de Treino
+/**********************************/
+
+.workout-schedule {
+    margin-bottom: 2rem;
+}
+
+.workout-day {
+    margin-bottom: 2.5rem;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.day-header h5 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--clr-highlight);
+}
+
+.day-header i {
+    color: var(--clr-button);
+}
+
+.exercise-list,
+.circuit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exercise-list li,
+.circuit-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px dashed var(--clr-card-border);
+    font-size: 1.4rem;
+}
+
+.exercise-list li:last-child,
+.circuit-list li:last-child {
+    border-bottom: none;
+}
+
+.exercise-name {
+    font-weight: 600;
+}
+
+.exercise-sets {
+    color: var(--clr-highlight);
+}
+
+.workout-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.stat {
+    background-color: var(--clr-background);
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    text-align: center;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.stat i {
+    color: var(--clr-highlight);
+}
+
+/**********************************/
+/* Botões
+/**********************************/
+
+.btn-select {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--clr-button);
+    color: var(--clr-button-text);
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 2rem;
+}
+
+.btn-select:hover {
+    background-color: var(--clr-sidebar-hover);
+    transform: translateY(-2px);
+}
+
+/**********************************/
+/* Responsividade
+/**********************************/
+
+@media screen and (min-width: 750px) {
+    .plan-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .meal-plan {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .plan-grid {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .plan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .diet-plans {
+        grid-column: span 2;
+    }
+
+    .workout-plans {
+        grid-column: span 2;
+    }
+}
+
+/**********************************/
+/* Botão de Curtir
+/**********************************/
+
+.like-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.btn-like {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--clr-font);
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+}
+
+.btn-like:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.btn-like i {
+    transition: var(--transition);
+}
+
+.btn-like.liked {
+    color: #ff4757;
+}
+
+.btn-like.liked i {
+    font-weight: 900;
+}
+
+.like-count {
+    font-size: 1.4rem;
+    min-width: 2rem;
+    text-align: center;
+}
