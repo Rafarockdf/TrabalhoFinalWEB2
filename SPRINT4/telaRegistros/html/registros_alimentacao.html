@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros de Atividades Físicas</title>
+    <title>Registro de Alimentação</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
         integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,54 +16,164 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" href="../css/index.css">
-    <style>
-        .container-registro-alimentos {
-            display: flex;
-            gap: 20px;
-        }
 
-        .box-alimentos {
-            flex: 1;
-        }
-
-        #lista-alimentos {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        #lista-alimentos li {
-            padding: 8px;
-            cursor: pointer;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid #eee;
-        }
-
-        #lista-alimentos li:hover {
-            background-color: #eee;
-        }
-
-        #tabela-refeicao {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        #tabela-refeicao th,
-        #tabela-refeicao td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        #tabela-refeicao th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
+<style>
+    .container-registro-alimentos {
+        display: flex;
+        width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: var(--clr-card);
+    }
+
+    .box-alimentos-busca {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-alimentos-selecionados {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-left: 1px solid var(--clr-card-border); /* Barra de separação */
+    }
+
+    #form-buscar-alimento {
+        display: flex;
+        gap: 10px;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #alimento {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid var(--clr-card-border);
+        border-radius: 0.5rem;
+        background-color: var(--clr-background);
+        color: var(--clr-font);
+        outline: none;
+    }
+
+    #form-buscar-alimento button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: var(--clr-button);
+        color: var(--clr-button-text);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #form-buscar-alimento button:hover {
+        background-color: #28a745;
+    }
+
+    #lista-alimentos {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+        width: 80%;
+        max-height: 250px;
+        overflow-y: auto;
+        border: 1px solid var(--clr-card-border);
+        border-radius: 0.5rem;
+        background-color: var(--clr-background);
+    }
+
+    #lista-alimentos li {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.2s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #lista-alimentos li:last-child {
+        border-bottom: none;
+    }
+
+    #lista-alimentos li:hover {
+        background-color: #f9f9f9;
+    }
+
+    .icone-selecionar {
+        color: var(--clr-highlight);
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    #tabela-refeicao {
+        width: 80%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    #tabela-refeicao th,
+    #tabela-refeicao td {
+        border: 1px solid var(--clr-card-border);
+        padding: 8px;
+        text-align: left;
+    }
+
+    #tabela-refeicao th {
+        background-color: #f2f2f2;
+        color: var(--clr-font);
+    }
+
+    #tabela-refeicao tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    #btn-registrar-refeicao {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: var(--clr-highlight);
+        color: var(--clr-button-text);
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    #btn-registrar-refeicao:hover {
+        background-color: #0077a3;
+    }
+
+    h3 {
+        color: var(--clr-font);
+        margin-bottom: 10px;
+    }
+
+    .quantidade-input {
+        width: 80px;
+        padding: 5px;
+        border: 1px solid var(--clr-card-border);
+        border-radius: 0.3rem;
+        text-align: center;
+        background-color: var(--clr-background);
+        color: var(--clr-font);
+        outline: none;
+    }
+
+    .remover-item {
+        background: none;
+        border: none;
+        color: #dc3545;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 1em;
+    }
+</style>
 
 <body>
     <div class="menu-toggle">
@@ -91,22 +201,24 @@
     <div class="container">
         <div class="box">
             <h2 class="title">Registro de Alimentação</h2>
+            <form id="form-buscar-alimento" class="form">
+                <label for="alimento" style="display: none;">Digite o nome de um alimento:</label>
+                <input type="text" name="alimento" id="alimento" placeholder="Digite o nome de um alimento" required>
+                <button type="submit">Buscar</button>
+            </form>
             <div class="container-registro-alimentos">
-                <div class="box-alimentos">
-                    <form id="form-buscar-alimento" class="form">
-                        <label for="alimento">Digite o nome de um alimento:</label><br>
-                        <input type="text" name="alimento" id="alimento" required> <br>
-                        <button type="submit">Buscar</button>
-                    </form>
+                <div class="box-alimentos-busca">
+                    <h3>Buscar Alimentos</h3>
                     <ul id="lista-alimentos">
                         </ul>
                 </div>
-                <div class="box-alimentos">
+                <div class="box-alimentos-selecionados">
                     <h3>Alimentos Selecionados</h3>
                     <table id="tabela-refeicao">
                         <thead>
                             <tr>
                                 <th>Nome do Alimento</th>
+                                <th>Quantidade (g)</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -117,7 +229,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="calculadoraSentimentos" style="display: none;" class="calculadoraSentimentos">
             <div class="container_calc">
                 <div class="header_calc">Como você se sentiu com essa atividade/alimentação?</div>
@@ -141,7 +253,7 @@
             </form>
         </div>
 
-        
+
     </div>
 
     <script src="../js/script.js"></script>
@@ -173,9 +285,9 @@
         const formBuscarAlimento = document.getElementById('form-buscar-alimento');
         const inputAlimento = document.getElementById('alimento');
         const listaAlimentos = document.getElementById('lista-alimentos');
-        const tabelaRefeicao = document.getElementById('tabela-refeicao').getElementsByTagName('tbody')[0];
+        const tabelaRefeicao = document.getElementById('tabela-refeicao').getElementsByTagName('tbody')[0]; // Agora é uma tabela
         const btnRegistrarRefeicao = document.getElementById('btn-registrar-refeicao');
-        const alimentosSelecionados = [];
+        const alimentosSelecionados = []; // Agora armazenará objetos { nome: string, quantidade: number }
 
         formBuscarAlimento.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -203,25 +315,22 @@
                     if (data.length > 0) {
                         data.forEach(alimento => {
                             const listItem = document.createElement('li');
-                            listItem.style.display = 'flex';
-                            listItem.style.justifyContent = 'space-between';
-                            listItem.style.alignItems = 'center';
-                            listItem.style.padding = '8px';
-                            listItem.style.borderBottom = '1px solid #eee';
-        
+                            listItem.className = 'item-alimento';
+
                             const nomeAlimentoSpan = document.createElement('span');
                             nomeAlimentoSpan.textContent = alimento.nome;
-        
-                            const selecionarButton = document.createElement('button');
-                            selecionarButton.textContent = 'Selecionar';
-                            selecionarButton.style.marginLeft = '10px';
-                            selecionarButton.addEventListener('click', function() {
-                                adicionarAlimentoSelecionado(alimento.nome); // Passa o nome para adicionar à tabela
+
+                            const selecionarIcone = document.createElement('i');
+                            selecionarIcone.className = 'fas fa-angle-double-right icone-selecionar';
+
+                            listItem.addEventListener('click', function () {
+                                adicionarAlimentoSelecionado(alimento.nome);
                             });
-        
+
                             listItem.appendChild(nomeAlimentoSpan);
-                            listItem.appendChild(selecionarButton);
+                            listItem.appendChild(selecionarIcone);
                             listaAlimentos.appendChild(listItem);
+
                         });
                     } else {
                         listaAlimentos.innerHTML = '<li style="color: gray;">Nenhum alimento encontrado.</li>';
@@ -233,19 +342,11 @@
                 });
         }
 
-        function adicionarListenersSelecao() {
-            const itensLista = listaAlimentos.querySelectorAll('li');
-            itensLista.forEach(item => {
-                item.addEventListener('click', function() {
-                    const nomeAlimento = this.textContent;
-                    adicionarAlimentoSelecionado(nomeAlimento);
-                });
-            });
-        }
 
         function adicionarAlimentoSelecionado(nome) {
-            if (!alimentosSelecionados.includes(nome)) {
-                alimentosSelecionados.push(nome);
+            const alimentoExistente = alimentosSelecionados.find(item => item.nome === nome);
+            if (!alimentoExistente) {
+                alimentosSelecionados.push({ nome: nome, quantidade: 1 }); // Inicializa com quantidade 1
                 atualizarTabelaRefeicao();
             }
         }
@@ -255,26 +356,48 @@
             atualizarTabelaRefeicao();
         }
 
+        function atualizarQuantidade(index, quantidade) {
+            alimentosSelecionados[index].quantidade = parseInt(quantidade);
+        }
+
         function atualizarTabelaRefeicao() {
             tabelaRefeicao.innerHTML = '';
-            alimentosSelecionados.forEach((alimento, index) => {
+            alimentosSelecionados.forEach((item, index) => {
                 const newRow = tabelaRefeicao.insertRow();
+
                 const cellNome = newRow.insertCell();
+                cellNome.textContent = item.nome;
+
+                const cellQuantidade = newRow.insertCell();
+                const quantidadeInput = document.createElement('input');
+                quantidadeInput.type = 'number';
+                quantidadeInput.className = 'quantidade-input';
+                quantidadeInput.value = item.quantidade;
+                quantidadeInput.min = 1;
+                quantidadeInput.addEventListener('change', (event) => {
+                    atualizarQuantidade(index, event.target.value);
+                });
+                cellQuantidade.appendChild(quantidadeInput);
+
                 const cellAcoes = newRow.insertCell();
-                cellNome.textContent = alimento;
-                const botaoRemover = document.createElement('button');
-                botaoRemover.textContent = 'Remover';
-                botaoRemover.addEventListener('click', () => removerAlimentoSelecionado(index));
-                cellAcoes.appendChild(botaoRemover);
+                const removerBotao = document.createElement('button');
+                removerBotao.className = 'remover-item';
+                removerBotao.innerHTML = '<i class="fas fa-trash-alt"></i>';
+                removerBotao.addEventListener('click', () => removerAlimentoSelecionado(index));
+                cellAcoes.appendChild(removerBotao);
             });
         }
 
         btnRegistrarRefeicao.addEventListener('click', function() {
             if (alimentosSelecionados.length > 0) {
                 console.log('Alimentos para registrar:', alimentosSelecionados);
-                // Aqui você fará a lógica para enviar os alimentos selecionados para o seu backend
+                // Aqui você fará a lógica para enviar os alimentos selecionados (com nome e quantidade) para o seu backend
                 // para registrar a refeição no banco de dados.
-                alert('Refeição registrada com sucesso (simulação): ' + alimentosSelecionados.join(', '));
+                const registro = alimentosSelecionados.map(item => ({
+                    nome: item.nome,
+                    quantidade_gramas: item.quantidade
+                }));
+                alert('Refeição registrada com sucesso (simulação):\n' + JSON.stringify(registro, null, 2));
                 alimentosSelecionados.length = 0; // Limpa a lista após o registro (simulação)
                 atualizarTabelaRefeicao();
             } else {
@@ -282,13 +405,6 @@
             }
         });
         </script>
+
 </body>
-
-
-
-
-
-
-
-
 </html>
