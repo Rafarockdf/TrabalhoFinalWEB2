@@ -147,6 +147,46 @@ CREATE TABLE conteudos (
   FOREIGN KEY (administrador_id) REFERENCES usuarios(id)
 );
 
+CREATE TABLE dieta(
+  id INT PRIMARY KEY,
+  tipo_dieta VARCHAR(20),
+  titulo_dieta VARCHAR(100),
+  ds_cafe VARCHAR(200),
+  ds_almoco VARCHAR(200),
+  ds_lanche VARCHAR(200),
+  ds_jantar VARCHAR(200),
+  ds_ceia VARCHAR(200),
+  qt_calorias INT,
+  perc_proteinas DECIMAL(4,2),
+  perc_carboidrato DECIMAL(4,2),
+  perc_gordura DECIMAL(4,2)
+);
+
+CREATE TABLE planos_treino (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nome_plano VARCHAR(100),        -- Ex: "Força Muscular"
+  descricao_plano VARCHAR(200),   -- Ex: "Treino ABC para hipertrofia"
+  duracao_min INT,
+  qt_frequencia_semana INT,
+  intensidade VARCHAR(20)         -- Ex: "Alta"
+);
+
+CREATE TABLE dias_treino (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  plano_id INT,
+  nome_dia VARCHAR(50),           -- Ex: "Dia A"
+  grupo_muscular VARCHAR(100),    -- Ex: "Peito e Tríceps"
+  FOREIGN KEY (plano_id) REFERENCES planos_treino(id)
+);
+
+CREATE TABLE exercicios (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  dia_id INT,
+  nome_exercicio VARCHAR(100),    -- Ex: "Supino reto"
+  series_reps VARCHAR(20),        -- Ex: "4x8-10"
+  FOREIGN KEY (dia_id) REFERENCES dias_treino(id)
+);
+
 CREATE TABLE interacoes_conteudo (
   id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT NOT NULL,

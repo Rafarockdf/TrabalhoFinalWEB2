@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/alimentacao.css">
 
 </head>
 <style>
@@ -23,8 +23,8 @@
         display: flex;
         width: 100%;
         border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow-y:auto;
+        box-shadow: 0 2px 5px var(--clr-card-shadow);
         background-color: var(--clr-card);
     }
 
@@ -173,28 +173,208 @@
         margin-left: 10px;
         font-size: 1em;
     }
+    .select-refeicao{
+        padding: 1px;
+        margin-top: 2rem;
+        font-size: 1.4rem;
+        text-align: center;
+        border: 1px solid var(--clr-card-border);
+        border-radius: 0.3rem;
+        background-color: var(--clr-background);
+        color: var(--clr-font);
+        transition: var(--transition);
+        width: 81%;
+        max-height: 3rem;
+
+
+    }
+    .select-refeicao:focus{
+        border-color: var(--clr-highlight);
+        background-color: var(--clr-card-hover);
+    }
+    .top-sidebar {
+        --h: 60px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--h);
+        padding: 0 2rem;
+        background-color: var(--clr-sidebar);
+        box-shadow: var(--shadow-card);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100;
+        box-sizing: border-box;
+      }
+      
+      /* ✅ NOVO: organiza o conteúdo interno da barra */
+      .top-sidebar-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem; /* espaço entre logo, menu e demais itens */
+        width: 100%;
+      }
+      
+      /* Ícone circular com "+" */
+      .top-sidebar .logo {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #0099CC, #33CC66);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      
+      /* Cruz branca no meio da logo */
+      .cross {
+        width: 24px;
+        height: 24px;
+        background-color: white;
+        border-radius: 50%;
+        clip-path: polygon(
+          35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%,
+          65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%
+        );
+      }
+      
+      /* Menu de navegação */
+      .top-sidebar .menu ul {
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        margin-left: 5rem;
+        padding: 0;
+        list-style: none;
+      }
+      
+      .top-sidebar .menu ul li {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0.75rem;
+        border-radius: 5px;
+        transition: background 0.2s;
+      }
+      
+      .top-sidebar .menu ul li:hover {
+        background-color: var(--clr-button);
+      }
+      
+      .top-sidebar .menu ul li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--clr-card);
+        font-size: 1.6rem;
+      }
+      
+      .top-sidebar .menu ul li i {
+        margin-right: 0.5rem;
+        font-size: 1.8rem;
+      }
+      
+      /* Switch de tema + ícone de perfil */
+      .top-switch-profile {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: auto;
+      }
+      
+      .top-sidebar .switch {
+        display: flex;
+        align-items: center;
+        font-size: 1.6rem;
+      }
+      
+      .top-sidebar .switch__track {
+        position: relative;
+        width: 3rem;
+        height: 1.5rem;
+        background-color: var(--clr-button);
+        border-radius: 0.75rem;
+        cursor: pointer;
+      }
+      
+      .top-sidebar .switch__track::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: var(--clr-font);
+        border-radius: 0.75rem;
+        transition: left 0.3s ease;
+      }
+      
+      .top-sidebar .switch__track--dark::before {
+        left: 1.5rem;
+      }
+      
+      .top-sidebar .profile-icon {
+        font-size: 5rem;
+        color: var(--clr-card);
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      
+      .top-sidebar .profile-icon:hover {
+        transform: scale(1.1);
+      }
+      
+      /* Esconde botão hamburguer antigo */
+      .top-sidebar .menu-toggle {
+        display: none !important;
+      }
+      
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .top-sidebar .menu {
+          display: none;
+        }
+      
+        .top-toggle {
+          display: flex;
+        }
+      }
+
 </style>
 
 <body>
     <div class="menu-toggle">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="sidebar">
-        <div class="logo">
-            <div class="cross"></div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
-                <li><a href="../../Login/html/login.html" style="text-decoration: none; color:inherit"><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></a></li>
-                <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color:inherit"><i class="fas fa-clipboard"></i> <span class="menu-text">Registros Atividades</span></a></li>
-                <li><a href="telaRegistros.html" style="text-decoration: none; color:inherit"><i class="fas fa-apple-alt"></i> <span class="menu-text">Regitros Alimentação</span></a></li>
-            </ul>
-        </div>
-        <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
+    <div class="top-sidebar">
+        <div class="top-sidebar-content">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
+                    <li><a href="../../telaRegistros/html/registros_alimentacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-apple-alt"></i> <span class="menu-text">Registros Alimentação</span></a></li>
+                    <li><a href="../../telaRegistros/html/telaRegistros.html" style="text-decoration: none; color: inherit;"><i class="fas fa-dumbbell"></i> <span class="menu-text">Registros Atividades Físicas</span></a></li>
+                </ul>
+            </div>
+            <div class="top-switch-profile">
+                <div class="switch">
+                    <i class="fas fa-sun"></i>
+                    <span class="switch__track"></span>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="profile-icon" onclick="window.location.href='../../Tela Intermediaria/html/telaLoginCadastro.html'">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="menu-toggle top-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
 
@@ -225,6 +405,15 @@
                         <tbody>
                             </tbody>
                     </table>
+                    <select id="refeicao" class="select-refeicao">
+                        <option value="nao_selecionado">--</option>
+                        <option value="cafe-manha">Café da manhã</option>
+                        <option value="lanche-manha">Lanche da manhã</option>
+                        <option value="almoco">Almoço</option>
+                        <option value="cafe-tarde">Café da tarde</option>
+                        <option value="janta">Janta</option>
+                        <option value="ceia">Ceia</option>
+                    </select>
                     <button id="btn-registrar-refeicao">Registrar Alimentação</button>
                 </div>
             </div>
@@ -316,21 +505,20 @@
                         data.forEach(alimento => {
                             const listItem = document.createElement('li');
                             listItem.className = 'item-alimento';
-
+        
                             const nomeAlimentoSpan = document.createElement('span');
                             nomeAlimentoSpan.textContent = alimento.nome;
-
+        
                             const selecionarIcone = document.createElement('i');
                             selecionarIcone.className = 'fas fa-angle-double-right icone-selecionar';
-
+        
                             listItem.addEventListener('click', function () {
-                                adicionarAlimentoSelecionado(alimento.nome);
+                                adicionarAlimentoSelecionado(alimento.id, alimento.nome);
                             });
-
+        
                             listItem.appendChild(nomeAlimentoSpan);
                             listItem.appendChild(selecionarIcone);
                             listaAlimentos.appendChild(listItem);
-
                         });
                     } else {
                         listaAlimentos.innerHTML = '<li style="color: gray;">Nenhum alimento encontrado.</li>';
@@ -341,15 +529,18 @@
                     listaAlimentos.innerHTML = `<li style="color: red;">${error.message}</li>`;
                 });
         }
+        
 
 
-        function adicionarAlimentoSelecionado(nome) {
-            const alimentoExistente = alimentosSelecionados.find(item => item.nome === nome);
+        function adicionarAlimentoSelecionado(id, nome) {
+            const alimentoExistente = alimentosSelecionados.find(item => item.id === id);
             if (!alimentoExistente) {
-                alimentosSelecionados.push({ nome: nome, quantidade: 1 }); // Inicializa com quantidade 1
+                alimentosSelecionados.push({ id: id, nome: nome, quantidade: 1 });
                 atualizarTabelaRefeicao();
             }
         }
+        
+        
 
         function removerAlimentoSelecionado(index) {
             alimentosSelecionados.splice(index, 1);
@@ -388,22 +579,50 @@
             });
         }
 
-        btnRegistrarRefeicao.addEventListener('click', function() {
-            if (alimentosSelecionados.length > 0) {
-                console.log('Alimentos para registrar:', alimentosSelecionados);
-                // Aqui você fará a lógica para enviar os alimentos selecionados (com nome e quantidade) para o seu backend
-                // para registrar a refeição no banco de dados.
-                const registro = alimentosSelecionados.map(item => ({
-                    nome: item.nome,
-                    quantidade_gramas: item.quantidade
-                }));
-                alert('Refeição registrada com sucesso (simulação):\n' + JSON.stringify(registro, null, 2));
-                alimentosSelecionados.length = 0; // Limpa a lista após o registro (simulação)
-                atualizarTabelaRefeicao();
-            } else {
-                alert('Por favor, selecione pelo menos um alimento para registrar.');
+        btnRegistrarRefeicao.addEventListener('click', function () {
+            if (alimentosSelecionados.length === 0) {
+                alert("Nenhum alimento selecionado.");
+                return;
             }
+        
+            const refeicaoSelecionada = document.getElementById('refeicao').value;
+            if (refeicaoSelecionada === "nao_selecionado") {
+                alert("Selecione uma refeição antes de registrar.");
+                return;
+            }
+        
+            const jsonAlimentos = {
+                refeicao: refeicaoSelecionada,
+                alimentos: alimentosSelecionados.map(item => ({
+                    id: item.id,
+                    nome: item.nome,
+                    quantidade: item.quantidade
+                }))
+            };
+        
+            console.log("JSON para envio:", JSON.stringify(jsonAlimentos));
+        
+            fetch('../php/buscar_nutrientes.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonAlimentos)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Resposta do servidor:', data);
+                alert('Informações nutricionais recebidas com sucesso!');
+            })
+            .catch(error => {
+                console.error('Erro ao buscar nutrientes:', error);
+                alert('Erro ao buscar informações nutricionais.');
+            });
         });
+        
+        
+
+            
         </script>
 
 </body>
