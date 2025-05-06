@@ -875,6 +875,157 @@ select {
     background-color: #eef6ff;
 }
 
+.top-sidebar {
+    --h: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--h);
+    padding: 0 2rem;
+    background-color: var(--clr-sidebar);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    box-sizing: border-box;
+  }
+  
+  /* ✅ NOVO: organiza o conteúdo interno da barra */
+  .top-sidebar-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* espaço entre logo, menu e demais itens */
+    width: 100%;
+  }
+  
+  /* Ícone circular com "+" */
+  .top-sidebar .logo {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #0099CC, #33CC66);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  /* Cruz branca no meio da logo */
+  .cross {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    clip-path: polygon(
+      35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%,
+      65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%
+    );
+  }
+  
+  /* Menu de navegação */
+  .top-sidebar .menu ul {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    margin-left: 5rem;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .top-sidebar .menu ul li {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    transition: background 0.2s;
+  }
+  
+  .top-sidebar .menu ul li:hover {
+    background-color: var(--clr-button);
+  }
+  
+  .top-sidebar .menu ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--clr-card);
+    font-size: 1.6rem;
+  }
+  
+  .top-sidebar .menu ul li i {
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+  }
+  
+  /* Switch de tema + ícone de perfil */
+  .top-switch-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+  }
+  
+  .top-sidebar .switch {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+  
+  .top-sidebar .switch__track {
+    position: relative;
+    width: 3rem;
+    height: 1.5rem;
+    background-color: var(--clr-button);
+    border-radius: 0.75rem;
+    cursor: pointer;
+  }
+  
+  .top-sidebar .switch__track::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--clr-font);
+    border-radius: 0.75rem;
+    transition: left 0.3s ease;
+  }
+  
+  .top-sidebar .switch__track--dark::before {
+    left: 1.5rem;
+  }
+  
+  .top-sidebar .profile-icon {
+    font-size: 5rem;
+    color: var(--clr-card);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .top-sidebar .profile-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Esconde botão hamburguer antigo */
+  .top-sidebar .menu-toggle {
+    display: none !important;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .top-sidebar .menu {
+      display: none;
+    }
+  
+    .top-toggle {
+      display: flex;
+    }
+  }
 
 
 

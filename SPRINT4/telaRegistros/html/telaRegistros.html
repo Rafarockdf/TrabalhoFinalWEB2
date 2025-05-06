@@ -15,29 +15,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../css/atividades.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
     <div class="menu-toggle">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="sidebar">
-        <div class="logo">
-            <div class="cross"></div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color:inherit"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
-                <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color:inherit"><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></a></li>
-                <li><a href="../html/telaRegistros.html" style="text-decoration: none; color:inherit"><i class="fas fa-clipboard"></i> <span class="menu-text">Registros Atividades</span></a></li>
-                <li><a href="../html/registros_alimentacao.html" style="text-decoration: none; color:inherit"><i class="fas fa-apple-alt"></i> <span class="menu-text">Regitros Alimentação</span></a></li>
-            </ul>
-        </div>
-        <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
+    <div class="top-sidebar">
+        <div class="top-sidebar-content">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
+                    <li><a href="../../telaRegistros/html/registros_alimentacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-apple-alt"></i> <span class="menu-text">Registros Alimentação</span></a></li>
+                    <li><a href="../../telaRegistros/html/telaRegistros.html" style="text-decoration: none; color: inherit;"><i class="fas fa-dumbbell"></i> <span class="menu-text">Registros Atividades Físicas</span></a></li>
+                </ul>
+            </div>
+            <div class="top-switch-profile">
+                <div class="switch">
+                    <i class="fas fa-sun"></i>
+                    <span class="switch__track"></span>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="profile-icon" onclick="window.location.href='../../Tela Intermediaria/html/telaLoginCadastro.html'">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="menu-toggle top-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
 
