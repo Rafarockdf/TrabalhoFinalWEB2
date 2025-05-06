@@ -100,7 +100,6 @@ foreach ($data['alimentos'] as $alimento) {
     : 100; // fallback se não houver informação
 
     $fator = $quantidade / $peso_por_serving;
-
     // Corrige os campos nutricionais multiplicando pelo fator
     $calorias = round(((float) $serving['calories']) * $fator, 2);
     $proteinas = round(((float) $serving['protein']) * $fator, 2);

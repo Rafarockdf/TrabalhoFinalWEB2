@@ -369,6 +369,8 @@ body {
     transition: var(--transition);
     overflow: hidden;
     margin-top: 25rem;
+    margin-right: auto;
+    margin-left: auto;
 
 }
 
@@ -444,6 +446,7 @@ body {
         width: 75rem;
         grid-column: 1/-1;
         height: 45rem;
+        
     }
     .tabela-atividades{
         width: 75rem;
@@ -878,3 +881,7 @@ select {
 
 
 
+    
+    
+    
+    
