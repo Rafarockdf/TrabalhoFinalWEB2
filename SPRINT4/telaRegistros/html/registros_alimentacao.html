@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/alimentacao.css">
 
 </head>
 <style>
@@ -23,8 +23,8 @@
         display: flex;
         width: 100%;
         border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow-y:auto;
+        box-shadow: 0 2px 5px var(--clr-card-shadow);
         background-color: var(--clr-card);
     }
 
@@ -173,6 +173,25 @@
         margin-left: 10px;
         font-size: 1em;
     }
+    .select-refeicao{
+        padding: 1px;
+        margin-top: 2rem;
+        font-size: 1.4rem;
+        text-align: center;
+        border: 1px solid var(--clr-card-border);
+        border-radius: 0.3rem;
+        background-color: var(--clr-background);
+        color: var(--clr-font);
+        transition: var(--transition);
+        width: 81%;
+        max-height: 3rem;
+
+
+    }
+    .select-refeicao:focus{
+        border-color: var(--clr-highlight);
+        background-color: var(--clr-card-hover);
+    }
 </style>
 
 <body>
@@ -225,6 +244,15 @@
                         <tbody>
                             </tbody>
                     </table>
+                    <select id="refeicao" class="select-refeicao">
+                        <option value="nao_selecionado">--</option>
+                        <option value="cafe-manha">Café da manhã</option>
+                        <option value="lanche-manha">Lanche da manhã</option>
+                        <option value="almoco">Almoço</option>
+                        <option value="cafe-tarde">Café da tarde</option>
+                        <option value="janta">Janta</option>
+                        <option value="ceia">Ceia</option>
+                    </select>
                     <button id="btn-registrar-refeicao">Registrar Alimentação</button>
                 </div>
             </div>
@@ -316,21 +344,20 @@
                         data.forEach(alimento => {
                             const listItem = document.createElement('li');
                             listItem.className = 'item-alimento';
-
+        
                             const nomeAlimentoSpan = document.createElement('span');
                             nomeAlimentoSpan.textContent = alimento.nome;
-
+        
                             const selecionarIcone = document.createElement('i');
                             selecionarIcone.className = 'fas fa-angle-double-right icone-selecionar';
-
+        
                             listItem.addEventListener('click', function () {
-                                adicionarAlimentoSelecionado(alimento.nome);
+                                adicionarAlimentoSelecionado(alimento.id, alimento.nome);
                             });
-
+        
                             listItem.appendChild(nomeAlimentoSpan);
                             listItem.appendChild(selecionarIcone);
                             listaAlimentos.appendChild(listItem);
-
                         });
                     } else {
                         listaAlimentos.innerHTML = '<li style="color: gray;">Nenhum alimento encontrado.</li>';
@@ -341,15 +368,18 @@
                     listaAlimentos.innerHTML = `<li style="color: red;">${error.message}</li>`;
                 });
         }
+        
 
 
-        function adicionarAlimentoSelecionado(nome) {
-            const alimentoExistente = alimentosSelecionados.find(item => item.nome === nome);
+        function adicionarAlimentoSelecionado(id, nome) {
+            const alimentoExistente = alimentosSelecionados.find(item => item.id === id);
             if (!alimentoExistente) {
-                alimentosSelecionados.push({ nome: nome, quantidade: 1 }); // Inicializa com quantidade 1
+                alimentosSelecionados.push({ id: id, nome: nome, quantidade: 1 });
                 atualizarTabelaRefeicao();
             }
         }
+        
+        
 
         function removerAlimentoSelecionado(index) {
             alimentosSelecionados.splice(index, 1);
@@ -388,22 +418,50 @@
             });
         }
 
-        btnRegistrarRefeicao.addEventListener('click', function() {
-            if (alimentosSelecionados.length > 0) {
-                console.log('Alimentos para registrar:', alimentosSelecionados);
-                // Aqui você fará a lógica para enviar os alimentos selecionados (com nome e quantidade) para o seu backend
-                // para registrar a refeição no banco de dados.
-                const registro = alimentosSelecionados.map(item => ({
-                    nome: item.nome,
-                    quantidade_gramas: item.quantidade
-                }));
-                alert('Refeição registrada com sucesso (simulação):\n' + JSON.stringify(registro, null, 2));
-                alimentosSelecionados.length = 0; // Limpa a lista após o registro (simulação)
-                atualizarTabelaRefeicao();
-            } else {
-                alert('Por favor, selecione pelo menos um alimento para registrar.');
+        btnRegistrarRefeicao.addEventListener('click', function () {
+            if (alimentosSelecionados.length === 0) {
+                alert("Nenhum alimento selecionado.");
+                return;
             }
+        
+            const refeicaoSelecionada = document.getElementById('refeicao').value;
+            if (refeicaoSelecionada === "nao_selecionado") {
+                alert("Selecione uma refeição antes de registrar.");
+                return;
+            }
+        
+            const jsonAlimentos = {
+                refeicao: refeicaoSelecionada,
+                alimentos: alimentosSelecionados.map(item => ({
+                    id: item.id,
+                    nome: item.nome,
+                    quantidade: item.quantidade
+                }))
+            };
+        
+            console.log("JSON para envio:", JSON.stringify(jsonAlimentos));
+        
+            fetch('../php/buscar_nutrientes.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonAlimentos)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Resposta do servidor:', data);
+                alert('Informações nutricionais recebidas com sucesso!');
+            })
+            .catch(error => {
+                console.error('Erro ao buscar nutrientes:', error);
+                alert('Erro ao buscar informações nutricionais.');
+            });
         });
+        
+        
+
+            
         </script>
 
 </body>
