@@ -152,7 +152,7 @@ if ($rowUser = $resultUser->fetch_assoc()) {
         'grafico2' => $grafico2
     ];
 
-    $response['graficoPlanoVsExecutado'] = $graficoPlanoVsExecutado;
+
 } else {
     // Usuário não encontrado
     $response = [
