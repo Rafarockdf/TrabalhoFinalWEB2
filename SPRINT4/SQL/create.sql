@@ -4,6 +4,8 @@ DROP TABLE IF EXISTS atividades_fisicas;
 DROP TABLE IF EXISTS tipos_atividades_fisicas;
 DROP TABLE IF EXISTS usuarios;
 DROP TABLE IF EXISTS alimentacao;
+DROP TABLE IF EXISTS alimentos;
+DROP TABLE IF EXISTS alimentacao_alimentos;
 
 /* Criar nova coluna de 
 A classificação do Índice de Massa Corporal (IMC) é feita de acordo com os seguintes valores: 
@@ -77,15 +79,6 @@ CREATE TABLE tipos_atividades_fisicas(
   ds_atividade VARCHAR(100) NOT NULL -- Nessa tabela terá todos os tipos de atividades fisicas registradas
 );
 
-
-CREATE TABLE alimentos (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  ds_alimento VARCHAR(100) NOT NULL,
-  calorias_por_100g FLOAT,        -- valor preenchido com a API
-  origem_api VARCHAR(100),        -- ex: 'USDA', 'FatSecret'
-  codigo_externo VARCHAR(50)      -- ID do alimento na API externa (facilita atualizações futuras)
-);
-
 -- Tabela alimentação
 CREATE TABLE alimentacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -95,14 +88,44 @@ CREATE TABLE alimentacao (
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
+CREATE TABLE alimentos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ds_alimento VARCHAR(100) NOT NULL,
+  calorias_por_100g FLOAT,        -- valor preenchido com a API
+  origem_api VARCHAR(100) DEFAULT 'FatSecret',        -- ex: 'USDA', 'FatSecret'
+  codigo_externo VARCHAR(50)      -- ID do alimento na API externa (facilita atualizações futuras)
+);
+
+ALTER TABLE alimentacao
+ADD COLUMN ds_refeicao VARCHAR(50);
+
+ALTER TABLE alimentacao
+ADD COLUMN qt_calorias_gr INT;
+
+ALTER TABLE alimentacao
+ADD COLUMN qt_carboidratos_gr INT;
+
+ALTER TABLE alimentacao
+ADD COLUMN qt_proteinas_gr INT;
+
+ALTER TABLE alimentacao
+ADD COLUMN qt_gorduras_gr INT;
+
 CREATE TABLE alimentacao_alimentos (
   id INT AUTO_INCREMENT PRIMARY KEY,
   alimentacao_id INT NOT NULL,
   alimento_id INT NOT NULL,
-  quantidade_g FLOAT NOT NULL,     -- peso em gramas informado pelo usuário
+  quantidade_g FLOAT NOT NULL,
+  qt_calorias_gr INT,
+  qt_carboidratos_gr INT,
+  qt_proteinas_gr INT,
+  qt_gorduras_gr INT,     -- peso em gramas informado pelo usuário
   FOREIGN KEY (alimentacao_id) REFERENCES alimentacao(id),
   FOREIGN KEY (alimento_id) REFERENCES alimentos(id)
 );
+
+
+
 
 
 

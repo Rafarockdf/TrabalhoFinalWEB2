@@ -112,6 +112,7 @@ foreach ($data['alimentos'] as $alimento) {
         'descricao' => $info['food_description'] ?? 'Sem descrição',
         'id' => $food_id,
         'marca' => $info['brand_name'] ?? 'Genérico',
+        'refeicao' => $data['refeicao'],
         'nutrientes' => [
             'calorias' => $calorias,
             'proteinas' => $proteinas,

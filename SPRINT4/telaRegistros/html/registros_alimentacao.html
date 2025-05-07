@@ -614,6 +614,30 @@
             .then(data => {
                 console.log('Resposta do servidor:', data);
                 alert('Informações nutricionais recebidas com sucesso!');
+                fetch('../php/registrar_alimentacao.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(async response => {
+                    const texto = await response.text();
+                    try {
+                        const json = JSON.parse(texto);
+                        console.log('Resposta do servidor:', json);
+                        alert(json.mensagem || json.erro || 'Requisição completa.');
+                    } catch (e) {
+                        console.error('Resposta inválida (não-JSON):', texto);
+                        alert('Erro inesperado: resposta não é JSON');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao inserir no banco:', error);
+                    alert('Erro ao inserir no banco.');
+                });
+                
+                
             })
             .catch(error => {
                 console.error('Erro ao buscar nutrientes:', error);

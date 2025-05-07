@@ -166,7 +166,7 @@ const updateChartAtividades = (dados) => {
     const series = tipos.map(tipo => ({
         name: tipo,
         data: meses.map(mes => {
-            const match = dados.find(d => d.Atividade === tipo && parseInt(d.Mes) === parseInt(mes));
+            const match = dados.find(d => d.Atividade === tipo && d.Mes === mes);
             return match ? parseInt(match.Contagem) : 0;
         })
     }));
