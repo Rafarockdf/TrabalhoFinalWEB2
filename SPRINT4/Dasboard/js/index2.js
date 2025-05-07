@@ -104,25 +104,28 @@ const Executado_por_Plano = (element) => {
 
     const options = {
         series: [
-            { name: "Plano", data: [0, 2, 2, 2, 2, 2, 0] },
-            { name: "Executado", data: [1, 0, 0, 1, 0, 1, 0] }
+            { name: "Planejado", data: [] },
+            { name: "Executado", data: [] }
         ],
         chart: {
             type: "line",
-            height: 250
+            height: 250,
+            background: "transparent"
         },
         xaxis: {
-            categories: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"]
+            categories: []
         },
         title: {
-            text: "Atividades Executado | Plano",
+            text: "Atividades Planejadas vs Executadas por Dia",
             align: "left"
         }
     };
+
     const chart = new ApexCharts(container, options);
     chart.render();
     return chart;
 };
+
 
 const createChartHumorPorAtividade = (element) => {
     const container = document.querySelector(element);
@@ -156,6 +159,21 @@ const createChartHumorPorAtividade = (element) => {
     const chart = new ApexCharts(container, options);
     chart.render();
     return chart;
+};
+const updateChartPlanoVsExecutado = (dados) => {
+    if (!_charts.Alimentacao) return;
+
+    const categorias = dados.map(d => d.data);
+    const planejado = dados.map(d => d.planejado);
+    const executado = dados.map(d => d.executado);
+
+    _charts.Alimentacao.updateOptions({
+        xaxis: { categories: categorias },
+        series: [
+            { name: "Planejado", data: planejado },
+            { name: "Executado", data: executado }
+        ]
+    });
 };
 
 const updateChartAtividades = (dados) => {
@@ -219,6 +237,10 @@ const loadData = async (id) => {
 
         if (Array.isArray(data.grafico1)) updateChartAtividades(data.grafico1);
         if (Array.isArray(data.grafico2)) updateChartHumor(data.grafico2);
+        if (Array.isArray(data.graficoPlanoVsExecutado)) {
+            updateChartPlanoVsExecutado(data.graficoPlanoVsExecutado);
+        }
+        
 
     } catch (error) {
         console.error("Erro ao carregar dados:", error);

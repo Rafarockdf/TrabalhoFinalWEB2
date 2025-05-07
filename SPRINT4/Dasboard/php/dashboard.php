@@ -80,17 +80,79 @@ if ($rowUser = $resultUser->fetch_assoc()) {
     while ($row = $resultGrafico2->fetch_assoc()) {
         $grafico2[] = $row;
     }
+    // ----------------------------------------------------------------------
+    // 4.1. Consulta para o Gráfico 3: Planejado vs Realizado por Dia
+    // ----------------------------------------------------------------------
+
+    // ----------------------------------------------------------------------
+// 5. Consulta para o Gráfico 3: Atividades Planejadas vs Executadas por Dia
+// ----------------------------------------------------------------------
+
+        // Planejadas
+        $sql_plano = "SELECT 
+        DATE(A.dt_plano_treino) AS data,
+        COUNT(A.id) AS total_planejado
+        FROM atividades_fisicas AS A
+        WHERE A.usuario_id = ?
+        GROUP BY DATE(A.dt_plano_treino)
+        ORDER BY DATE(A.dt_plano_treino)";
+        $stmtPlano = $conn->prepare($sql_plano);
+        $stmtPlano->bind_param("i", $usuario_id);
+        $stmtPlano->execute();
+        $resultPlano = $stmtPlano->get_result();
+        $planejadas = [];
+        while ($row = $resultPlano->fetch_assoc()) {
+        $planejadas[$row['data']] = (int)$row['total_planejado'];
+        }
+
+        // Executadas
+        $sql_exec = "SELECT 
+        DATE(A.registrado_executado_em) AS data,
+        COUNT(A.id) AS total_executado
+        FROM atividades_fisicas AS A
+        WHERE A.concluida = TRUE 
+        AND A.usuario_id = ? 
+        AND A.registrado_executado_em IS NOT NULL
+        GROUP BY DATE(A.registrado_executado_em)
+        ORDER BY DATE(A.registrado_executado_em)";
+        $stmtExec = $conn->prepare($sql_exec);
+        $stmtExec->bind_param("i", $usuario_id);
+        $stmtExec->execute();
+        $resultExec = $stmtExec->get_result();
+        $executadas = [];
+        while ($row = $resultExec->fetch_assoc()) {
+        $executadas[$row['data']] = (int)$row['total_executado'];
+        }
+
+        // Mesclar datas
+        $datas = array_unique(array_merge(array_keys($planejadas), array_keys($executadas)));
+        sort($datas);
+
+        // Preparar dados finais para o gráfico
+        $graficoPlanoVsExecutado = [];
+        foreach ($datas as $data) {
+        $graficoPlanoVsExecutado[] = [
+        'data' => $data,
+        'planejado' => $planejadas[$data] ?? 0,
+        'executado' => $executadas[$data] ?? 0
+        ];
+        }
+
+        // Adicionar ao JSON de resposta
+        $response['graficoPlanoVsExecutado'] = $graficoPlanoVsExecutado;
+
 
     // ----------------------------------------------------------------------
     // 5. Preparar a resposta JSON
     // ----------------------------------------------------------------------
     $response = [
-        'success' => true, // Indica que a requisição foi bem-sucedida
+        'success' => true,
         'card1' => $card1,
         'grafico1' => $grafico1,
-        'grafico2' => $grafico2,
+        'grafico2' => $grafico2
     ];
 
+    $response['graficoPlanoVsExecutado'] = $graficoPlanoVsExecutado;
 } else {
     // Usuário não encontrado
     $response = [
