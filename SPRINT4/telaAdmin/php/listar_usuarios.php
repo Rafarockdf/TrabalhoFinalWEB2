@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 include '../../Conexao/php/conexao.php';
 
-$sql = "SELECT id, nome, email, genero, IMC FROM usuarios";
+$sql = "SELECT id, nome, email, genero FROM usuarios";
 $result = $conn->query($sql);
 
 $usuarios = [];

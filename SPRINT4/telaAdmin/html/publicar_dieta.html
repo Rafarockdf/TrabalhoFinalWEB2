@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="modern">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar Dieta - HealthPal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../../telaAdmin/css/admin.css">
+  <style>
+    .admin-container {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 600px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="top-sidebar">
+    <div class="top-sidebar-content">
+        <div class="logo">
+            <div class="cross"></div>
+        </div>
+        <div class="menu">
+            <ul>
+              <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
+              <li><i class="fas fa-users-cog"></i> <span class="menu-text">Gerenciar Usuários</span></li>
+              <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
+              <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
+              <li onclick="mostrarSessao('sair')"><i class="fas fa-times-circle"></i> <span class="menu-text">Sair</span></li>
+            </ul>
+        </div>
+        <div class="top-switch-profile">
+            <div class="switch">
+                <i class="fas fa-sun"></i>
+                <span class="switch__track"></span>
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="profile-icon" onclick="window.location.href='../../Tela Intermediaria/html/telaLoginCadastro.html'">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+          <div class="menu-toggle top-toggle">
+              <i class="fas fa-bars"></i>
+          </div>
+      </div>
+  </div>
+
+  <div class="admin-container">
+    <h1>Publicar Nova Dieta</h1>
+    <form action="../../telaAdmin/php/publicar_dieta.php" method="POST">
+      <label for="titulo">Título da Dieta</label>
+      <input type="text" id="titulo" name="titulo" required>
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" name="descricao" rows="6" required></textarea>
+
+      <label for="categoria">Categoria</label>
+      <input type="text" id="categoria" name="categoria" placeholder="Ex: Low Carb, Vegana, Mediterrânea" required>
+
+      <button type="submit">Publicar Dieta</button>
+    </form>
+  </div>
+
+  <script src="../js/dietas.js"></script>
+
+
+</body>
+</html>

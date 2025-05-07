@@ -17,6 +17,25 @@ Obesidade grau III: IMC maior que 40
 
 
 
+
+CREATE TABLE publiArtigos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255),
+    conteudo TEXT,
+    data_publicacao DATETIME
+);
+
+CREATE TABLE publiDietas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    descricao TEXT,
+    tipo VARCHAR(100),
+    data_publicacao DATETIME
+);
+
+
+
+
 CREATE TABLE usuarios ( 
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL, 

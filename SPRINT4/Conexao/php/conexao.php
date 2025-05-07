@@ -2,7 +2,7 @@
 $servername = "localhost";
 $usuario = "root";             
 $senha = "";                   
-$database = "healthpal2";       
+$database = "healthpal";       
 
 
 $conn = new mysqli($servername, $usuario, $senha, $database);

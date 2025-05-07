@@ -8,36 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/Dashboard.css">
 </head>
 <body>
         <div class="loading loading--hide">
             <i class="fa fa-spinner loading__spinner"></i>
         </div>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="sidebar">
-            <div class="logo">
-                <div class="cross"></div>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
-                    <li><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></li>
-                    <li><i class="fas fa-clipboard"></i> <span class="menu-text">Registros</span></li>
-                    <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
-                    <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
-                </ul>
-            </div>
-            <div class="switch">
-                <i class="fas fa-sun"></i>
-                <span class="switch__track"></span>
-                <i class="fas fa-moon"></i>
+
+        <div class="top-sidebar">
+            <div class="top-sidebar-content">
+                <div class="logo">
+                    <div class="cross"></div>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
+                        <li><a href="../../telaRegistros/html/registros_alimentacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-apple-alt"></i> <span class="menu-text">Registros Alimentação</span></a></li>
+                        <li><a href="../../telaRegistros/html/telaRegistros.html" style="text-decoration: none; color: inherit;"><i class="fas fa-dumbbell"></i> <span class="menu-text">Registros Atividades Físicas</span></a></li>
+                        <li><a href="../../Dasboard/html/dashboard.html" style="text-decoration: none; color: inherit;"><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></a></li>
+                    </ul>
+                </div>
+                <div class="top-switch-profile">
+                    <div class="switch">
+                        <i class="fas fa-sun"></i>
+                        <span class="switch__track"></span>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="profile-icon" onclick="window.location.href='../../Tela Intermediaria/html/telaLoginCadastro.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+                <div class="menu-toggle top-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     <div class="container">
-        <div class="state-select state-select-1">
+        <div class="state-select state-select-1 status-leftrem">
             <div class="state-select-toggle">
                 <span class="state-select-toggle__state-selected">Todos</span>
                 <i class="fas fa-chevron-down state-select-toggle__icon"></i>
@@ -69,7 +76,7 @@
             </div>
         </div>
 
-        <div class="state-select state-select-3">
+        <div class="state-select state-select-3 status-rightrem">
             <div class="state-select-toggle">
                 <span class="state-select-toggle__state-selected">Todos</span>
                 <i class="fas fa-chevron-down state-select-toggle__icon"></i>
@@ -88,7 +95,7 @@
                 </ul>
             </div>
         </div>
-        <section class="status">
+        <section class="status status-leftrem">
             <div class="status__icon status__icon--Metas">
                 <i class="fa fa-dumbbell"></i>
 
@@ -122,7 +129,7 @@
             </div>
         </section>
         
-        <section class="status">
+        <section class="status status-rightrem">
             <div class="status__icon status__icon--atividades">
                 <i class="fa fa-list"></i>
 
@@ -135,21 +142,21 @@
         <!--
             Analisando a possibilidade de criar um switch que alterne a visão dos gráficos de Atividades Físicas / Alimentação
         -->
-        <section class="data-box data-box--Atividades-Date">
+        <section class="data-box data-box--Atividades-Date status-leftrem">
             <h2 class="data-box__header">
                 Atividades por Dia Por tipo de exercicio
             </h2>
             <div class="data-box__body"></div>
         </section>
 
-        <section class="data-box data-box--HumorAgrupado">
+        <section class="data-box data-box--HumorAgrupado status-rightrem">
             <h2 class="data-box__header">
                 Humor por tipo de atividade
             </h2>
             <div class="data-box__body"></div>
         </section>
 
-        <section class="data-box data-box--Alimentacao">
+        <section class="data-box data-box--Alimentacao status-leftrem status-rightrem">
             <h2 class="data-box__header">
                 Atividades Executado | Plano
                 <!--
