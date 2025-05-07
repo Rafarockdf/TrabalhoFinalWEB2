@@ -1,0 +1,577 @@
+/**********************************/
+/* Tema Moderno
+/**********************************/
+
+[data-theme="modern"] {
+    --clr-background: #F0F0F0; /* Fundo principal cinza-claro */
+    --clr-font: #222222; /* Texto principal preto */
+    /* --clr-card: #FFFFFF; Fundo dos cards branco */
+    --clr-sidebar: #0099CC; /* Azul para a sidebar */
+    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
+    --clr-navbar: #FFFFFF; /* Branco para o topo */
+    --clr-navbar-text: #0099CC; /* Texto azul no topo */
+    --clr-button: #33CC66; /* Botões verdes */
+    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
+    --clr-highlight: #0099CC; /* Elementos de destaque em azul */
+    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
+    --clr-graph-points: #0099CC; /* Pontos dos gráficos em azul */
+    --clr-shadow: rgba(0, 0, 0, 0.3);/* Sombra suave */
+    --clr-link:#3333FF;
+
+    --clr-card: #FFFFFF; /* Fundo dos cards branco */
+    --clr-card-border: #E0E0E0; /* Cor da borda do card - cinza claro */
+    --clr-card-shadow: rgba(0, 0, 0, 0.1); /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #F9F9F9; /* Cor de fundo dos cards ao passar o mouse */
+
+
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.3s ease-in-out;
+    --shadow-card: 6px 6px 24px var(--clr-shadow);
+}
+
+/**********************************/
+/* Tema Escuro
+/**********************************/
+
+[data-theme="dark"] {
+    --clr-background: #121212; /* Fundo principal escuro */
+    --clr-font: #E0E0E0; /* Texto principal claro */
+    /* --clr-card: #1E1E1E; Fundo dos cards escuro */
+    --clr-sidebar: #005577; /* Azul escuro para a sidebar */
+    --clr-sidebar-hover: #33CC66; /* Verde ao passar o mouse */
+    --clr-navbar: #1E1E1E; /* Escuro para o topo */
+    --clr-navbar-text: #33CC66; /* Texto verde no topo */
+    --clr-button: #33CC66; /* Botões verdes */
+    --clr-button-text: #FFFFFF; /* Texto dos botões em branco */
+    --clr-highlight: #33CC66; /* Elementos de destaque em verde */
+    --clr-graph-lines: #33CC66; /* Linhas de gráficos em verde */
+    --clr-graph-points: #33CC66; /* Pontos dos gráficos em verde */
+    --clr-shadow: rgba(255, 255, 255, 0.2); /* Sombra mais forte */
+    --clr-link:#C2C2FF;
+
+    --clr-card: #1E1E1E; /* Fundo dos cards escuro */
+    --clr-card-border: #333333; /* Cor da borda do card - cinza escuro */
+    --clr-card-shadow: rgba(255, 255, 255, 0.2); /* Sombra suave e discreta para os cards */
+    --clr-card-hover: #333333; /* Cor de fundo dos cards ao passar o mouse */
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.3s ease-in-out;
+    --shadow-card: 4px 4px 20px var(--clr-shadow);
+}
+
+/**********************************/
+/* Configurações Gerais
+/**********************************/
+
+html {
+    font-size: 62.5%; /* Garante que 1rem = 10px para facilitar o dimensionamento */
+    font-family: var(--ff);
+    color: var(--clr-font);
+    transition: var(--transition);
+}
+
+body {
+    background-color: var(--clr-background);
+    transition: var(--transition);
+    margin: 0; /* Reset da margem padrão do body */
+    padding-top: 50px; /* Considerar a altura da sidebar fixa */
+    box-sizing: border-box; /* Inclui padding e border na largura e altura total do elemento */
+}
+
+section {
+    background-color: var(--clr-card); /* Usar a cor de fundo do card */
+    transition: var(--transition);
+    border: 1px solid var(--clr-card-border);
+    box-shadow: var(--shadow-card);
+    padding: 1.6rem; /* Unidade de padding consistente */
+    border-radius: 0.5rem; /* Cantos ligeiramente menos arredondados para um visual moderno */
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--clr-highlight); /* Usar a cor de destaque para os títulos */
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--clr-link);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--clr-link); /* Manter a mesma cor no hover, ou defina outra se desejar */
+}
+
+/**********************************/
+/* Top Sidebar (Ajustada para melhor layout)
+/**********************************/
+
+.top-sidebar {
+    --h: 50px; /* Altura ligeiramente menor */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--h);
+    padding: 0 1.6rem; /* Padding horizontal consistente */
+    background-color: var(--clr-sidebar);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.top-sidebar-content {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem; /* Espaçamento consistente */
+    width: 100%;
+}
+
+.top-sidebar .logo {
+    width: 36px; /* Logo menor */
+    height: 36px;
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary)); /* Usar cores primária e secundária se definidas, senão manter as originais */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.cross {
+    width: 18px; /* Cruz menor */
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    clip-path: polygon(
+        35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%,
+        65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%
+    );
+}
+
+.top-sidebar .menu ul {
+    display: flex;
+    gap: 1rem; /* Menor espaçamento no menu */
+    margin: 0;
+    margin-left: 2rem; /* Ajustar margem esquerda */
+    padding: 0;
+    list-style: none;
+}
+
+.top-sidebar .menu ul li {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.6rem; /* Padding menor */
+    border-radius: 0.3rem; /* Menos arredondado */
+    transition: background 0.2s;
+}
+
+.top-sidebar .menu ul li:hover {
+    background-color: var(--clr-button);
+}
+
+.top-sidebar .menu ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white; /* Texto branco no menu */
+    font-size: 1.4rem; /* Fonte menor */
+}
+
+.top-sidebar .menu ul li i {
+    margin-right: 0.4rem; /* Menor margem */
+    font-size: 1.6rem;
+    color: white; /* Ícones brancos */
+}
+
+.top-switch-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espaçamento consistente */
+    margin-left: auto;
+}
+
+.top-sidebar .switch {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.top-sidebar .switch__track {
+    position: relative;
+    width: 2.5rem; /* Switch menor */
+    height: 1.3rem;
+    background-color: var(--clr-button);
+    border-radius: 0.65rem;
+    cursor: pointer;
+}
+
+.top-sidebar .switch__track::before {
+    content: "";
+    position: absolute;
+    top: 0.1rem;
+    left: 0.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: var(--clr-font);
+    border-radius: 0.55rem;
+    transition: left 0.3s ease;
+}
+
+.top-sidebar .switch__track--dark::before {
+    left: 1.3rem;
+}
+
+.top-sidebar .profile-icon {
+    font-size: 3rem; /* Ícone de perfil menor */
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.top-sidebar .profile-icon:hover {
+    transform: scale(1.05); /* Efeito hover sutil */
+}
+
+.top-sidebar .menu-toggle {
+    display: none !important; /* Manter escondido por enquanto, ajustar para mobile depois */
+}
+
+/* Responsividade da Top Sidebar */
+@media (max-width: 768px) {
+    .top-sidebar .menu {
+        display: none;
+    }
+
+    .top-toggle {
+        display: flex; /* Mostrar botão de toggle se necessário */
+    }
+}
+
+/**********************************/
+/* Status Boxes (Ajustados para melhor hierarquia visual)
+/**********************************/
+
+.status {
+    min-height: auto; /* Ajustar altura com base no conteúdo */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; /* Empilhar ícone e texto */
+    align-items: center; /* Centralizar conteúdo */
+    justify-content: center; /* Centralizar conteúdo verticalmente */
+    text-align: center;
+}
+
+.status__icon {
+    font-size: 2.4rem; /* Ícone menor */
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: white;
+}
+
+.info {
+    font: var(--ts-normal-semibold); /* Usar semibold para o total */
+    text-transform: uppercase;
+}
+
+.info__label {
+    font: var(--ts-normal-text); /* Usar texto normal para o rótulo */
+    display: block; /* Tornar o rótulo um elemento de bloco */
+    margin-top: 0.2rem;
+    text-transform: none; /* Não colocar o rótulo em maiúsculas */
+    color: var(--clr-font); /* Usar a cor da fonte principal */
+}
+
+.status__icon--metas {
+    background-color: #64B5F6; /* Azul claro */
+}
+
+.info__total--metas {
+    color: #64B5F6;
+}
+
+.status__icon--alimentar {
+    background-color: #4CAF50; /* Verde */
+}
+
+.info__total--alimentar {
+    color: #4CAF50;
+}
+
+.status__icon--humor {
+    background-color: #FFCA28; /* Amarelo */
+}
+
+.info__total--humor {
+    color: #FFCA28;
+}
+
+.status__icon--atividades {
+    background-color: #F44336; /* Vermelho */
+}
+
+.info__total--atividades {
+    color: #F44336;
+}
+
+@media screen and (min-width: 1170px){
+    .status:nth-of-type(1){
+        grid-column: 1;
+    }
+}
+
+/**********************************/
+/* Layout da Página (Ajuste de Margens)
+/**********************************/
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1.6rem; /* Espaçamento consistente */
+    margin: 1.6rem; /* Margem consistente */
+    margin-top: 10rem; /* Considerar a altura da sidebar fixa */
+    padding-left: 1.6rem; /* Padding inicial à esquerda */
+    transition: margin-left var(--transition);
+}
+
+.container.collapsed{
+    padding-left: 1.6rem; /* Ajustar se a sidebar colapsar sobre o conteúdo */
+    transition: margin-left var(--transition);
+}
+
+@media screen and (min-width:960px){
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 1.6rem; /* Reset para telas maiores */
+        margin-left: 1.6rem; /* Reset para telas maiores */
+    }
+
+}
+
+@media screen and (min-width: 1170px){
+    .container{
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: 1.6rem; /* Reset */
+        margin-left: 1.6rem; /* Reset */
+    }
+}
+
+/**********************************/
+/* State Select (Pequenos Ajustes)
+/**********************************/
+.state-select, .state-select-2 {
+    font: var(--ts-normal-semibold);
+    background-color: var(--clr-card);
+    transition: var(--transition);
+    box-shadow: var(--shadow-card);
+    border-radius: 0.5rem; /* Border-radius consistente */
+    position: relative;
+}
+
+.state-select-toggle {
+    padding: 1rem; /* Padding menor */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.state-select-toggle__icon {
+    transition: transform var(--transition);
+}
+
+.state-select-toggle__icon--rotate {
+    transform: rotate(-180deg);
+}
+
+.state-select-list {
+    max-height: 20rem; /* Altura máxima menor */
+    overflow-y: auto;
+    border-radius: 0.5rem; /* Border-radius consistente */
+    padding: 0.8rem; /* Padding menor */
+    position: absolute;
+    width: 100%;
+    background-color: var(--clr-card);
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out; /* Transição mais rápida */
+    box-shadow: var(--shadow-card);
+    top: calc(100% + 0.5rem); /* Menor espaçamento */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-0.5rem); /* Efeito sutil de slide-up */
+    z-index: 10;
+}
+
+.state-select-list--show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.state-select-list__search {
+    background-color: var(--clr-background);
+    transition: var(--transition);
+    color: var(--clr-font);
+    padding: 0.8rem; /* Padding menor */
+    border-radius: 0.5rem; /* Border-radius consistente */
+    border: 1px solid var(--clr-card-border); /* Adicionar borda */
+    outline: none;
+    width: calc(100% - 1.6rem); /* Ajustar largura para o padding */
+    margin-bottom: 0.5rem;
+    box-sizing: border-box; /* Garantir que o padding esteja dentro da largura */
+}
+
+.state-select-list__search::placeholder {
+    color: var(--clr-font);
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+.state-select-list__item {
+    padding: 0.8rem; /* Padding menor */
+    color: var(--clr-link);
+    cursor: pointer;
+    border-radius: 0.3rem; /* Itens da lista ligeiramente arredondados */
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.state-select-list__item:hover {
+    color: var(--clr-card);
+    background-color: var(--clr-link);
+}
+
+.state-select-list__item--hide {
+    display: none;
+}
+
+@media screen and (min-width: 960px){
+    .state-select{
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (min-width: 1170px){
+    .state-select{
+        grid-column: span 2;
+    }
+    .state-select-2{
+        grid-column: span 1;
+    }
+    .state-select-3{
+        grid-column: span 1;
+    }
+}
+
+/**********************************/
+/* Data Box (Ajuste de Padding e Margens)
+/**********************************/
+
+.data-box__header{
+    font: var(--ts-caption);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem; /* Margem menor */
+    min-height: auto; /* Ajustar altura com base no conteúdo */
+    transition: var(--transition);
+    color: var(--clr-highlight); /* Usar a cor de destaque para o cabeçalho */
+}
+
+.data-box__description{
+    font: var(--ts-normal-text);
+    transition: var(--transition);
+    color: var(--clr-font); /* Garantir que o texto da descrição seja legível */
+}
+
+
+@media screen and (min-width: 960px){
+    .data-box--Atividades-Date{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+}
+
+@media screen and (min-width: 960px){
+    .data-box--HumorAgrupado{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+}
+
+@media screen and (min-width: 960px){
+    .data-box--Alimentacao{
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+@media screen and (min-width: 1170px){
+    .data-box--Alimentacao{
+        grid-column: span 4;
+        grid-row: span 3; /* Ajustar o rowspan para melhor encaixe */
+    }
+    .data-box--Atividades-Date, .data-box--HumorAgrupado{
+        grid-column: span 2;
+        grid-row: span 3; /* Ajustar o rowspan para melhor encaixe */
+    }
+}
+
+/* Estilo específico para gráficos dentro dos data boxes */
+.data-box > div { /* Alvo da div filha imediata que provavelmente contém o gráfico */
+    min-height: 200px; /* Garantir que os gráficos tenham uma altura mínima */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centralizar indicadores de carregamento ou estados vazios */
+}
+
+/**********************************/
+/* Loading (Pequenos Ajustes)
+/**********************************/
+
+.loading{
+    position: fixed;
+    background-color: var(--clr-background);
+    transition: var(--transition);
+    width: 100vw;
+    height: 100vh;
+    font-size: 3.2rem; /* Texto de carregamento ligeiramente menor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Garantir que esteja no topo */
+}
+.loading__spinner{
+    border: 0.4em solid rgba(0, 0, 0, 0.1);
+    border-top: 0.4em solid var(--clr-highlight);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    animation: spin 1s infinite linear; /* Spin mais rápido */
+    margin-right: 1rem;
+}
+
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.loading--hide{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out, visibility 0s 0.3s; /* Fade out e depois esconde */
+}
