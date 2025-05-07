@@ -554,3 +554,20 @@ section {
 .save-btn:hover {
   background-color: var(--clr-sidebar-hover);
 }
+
+
+button.logout-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;    
+  border: none;                  
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;               
+  transition: background-color 0.2s ease;
+}
+
+button.logout-btn:hover {
+  background-color: #c0392b;      
+}
