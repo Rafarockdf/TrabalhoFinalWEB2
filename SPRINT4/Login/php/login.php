@@ -22,7 +22,7 @@ if ($resultado->num_rows === 1) {
     if ($senha_digitada === $usuario['senha_hash']) {
         $_SESSION['usuario'] = $usuario['nome'];
         $_SESSION['email'] = $usuario['email'];
-        header("Location: ../../telaRegistros/html/telaRegistros.html");
+        header("Location: ../../Perfil/html/perfil.html");
         exit;
     } else {
         echo "Senha incorreta.";
