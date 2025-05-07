@@ -1,51 +1,65 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Troca de tema
-    const switchTrack = document.querySelector(".switch__track");
-    switchTrack.addEventListener("click", () => {
-        const isDark = switchTrack.classList.toggle("switch__track--dark");
-        document.documentElement.setAttribute("data-theme", isDark ? "dark" : "modern");
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form-artigo");
 
-    // Menu toggle
-    const menuToggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
-    const container = document.querySelector(".container");
-    menuToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("collapsed");
-        menuToggle.classList.toggle("collapsed");
-        container.classList.toggle("collapsed");
-    });
+  form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    document.getElementById("formDieta").addEventListener("submit", function(e) {
-        e.preventDefault();
-      
-        const titulo = document.getElementById("titulo").value.trim();
-        const conteudo = document.querySelector(".ql-editor").innerHTML.trim();
-      
-        if (!titulo || !conteudo || conteudo === "<p><br></p>") {
+      const titulo = document.getElementById("titulo").value.trim();
+      const conteudo = document.getElementById("conteudo").value.trim();
+      const autor = document.getElementById("autor").value.trim();
+
+      if (!titulo || !conteudo || !autor) {
           alert("Preencha todos os campos!");
           return;
-        }
-      
-        fetch("publicar_artigos.php", {
+      }
+
+      const formData = new FormData();
+      formData.append("titulo", titulo);
+      formData.append("conteudo", conteudo);
+      formData.append("autor", autor);
+
+      fetch("../php/publicar_artigos.php", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ titulo, conteudo }),
-        })
-        .then(res => res.json())
-        .then(data => {
+          body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
           if (data.sucesso) {
-            alert("Dieta publicada com sucesso!");
-            document.getElementById("formDieta").reset();
-            document.querySelector(".ql-editor").innerHTML = "";
+              alert("Artigo publicado com sucesso!");
+              form.reset();
           } else {
-            alert("Erro: " + data.mensagem);
+              alert("Erro: " + data.mensagem);
           }
-        });
+      })
+      .catch(err => {
+          alert("Erro de conexão com o servidor.");
+          console.error(err);
       });
-      
-    
+  });
 });
 
+document.getElementById('formArtigo').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+      const response = await fetch('php/publicar_artigos.php', {
+          method: 'POST',
+          body: formData
+      });
+
+      const resultado = await response.json();
+
+      if (resultado.sucesso) {
+          alert("Artigo publicado com sucesso!");
+          form.reset(); // limpa o formulário após sucesso
+      } else {
+          alert("Erro: " + resultado.mensagem);
+      }
+  } catch (error) {
+      console.error("Erro na requisição:", error);
+      alert("Erro inesperado ao tentar publicar o artigo.");
+  }
+});
