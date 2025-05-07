@@ -287,8 +287,8 @@ const loadData = async (id) => {
         _data.alimentacao = data.card2['media_calorias'];
 
 
-        _data.atividadesPendentes = data.card3;
-        _data.humorGeral = data.card4;
+        _data.atividadesPendentes = data.card4['total_pendentes'];
+        _data.humorGeral = data.card3['media_calorias'];
         updateCards();
 
         if (Array.isArray(data.grafico1)) updateChartAtividades(data.grafico1);
