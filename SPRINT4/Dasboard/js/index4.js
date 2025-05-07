@@ -273,14 +273,19 @@ const updateChartHumor = (dados) => {
 };
 
 const loadData = async (id) => {
+    const response = await fetch("../php/dashboard.php");
+        const data = await response.json();
+
+        console.log("Dados recebidos:", data);
     try {
         const response = await fetch("../php/dashboard.php");
         const data = await response.json();
 
         console.log("Dados recebidos:", data);
 
-        _data.atividade = data.card1;
-        _data.alimentacao = data.card2?.media_calorias?.toFixed(2) ?? "–";
+        _data.atividade = data.card1['total_pendentes'];
+        _data.alimentacao = data.card2['media_calorias'];
+
 
         _data.atividadesPendentes = data.card3;
         _data.humorGeral = data.card4;
@@ -295,12 +300,13 @@ const loadData = async (id) => {
 
     } catch (error) {
         console.error("Erro ao carregar dados:", error);
+        console.log("Dados recebidos:", data);
     }
 };
 
 const updateCards = () => {
     _elements.atividade.innerText = _data.atividade ?? "–";
-    _elements.alimentacao.innerText = _data.alimentacao ?? "-";
+    _elements.alimentacao.innerText = _data.alimentacao ?? "-"; 
     _elements.atividadesPendentes.innerText = _data.atividadesPendentes ?? "–";
     _elements.humorGeral.innerText = _data.humorGeral ?? "–";
 };
