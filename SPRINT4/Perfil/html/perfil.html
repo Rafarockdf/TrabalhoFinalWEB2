@@ -12,81 +12,97 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-    <div class="sidebar">
-        <div class="logo">
-            <div class="cross"></div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></li>
-                <li><i class="fas fa-chart-line"></i> <span class="menu-text">Dashboard</span></li>
-                <li><i class="fas fa-clipboard"></i> <span class="menu-text">Registros</span></li>
-                <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
-                <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
-            </ul>
-        </div>
-        <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
+    <div class="top-sidebar">
+        <div class="top-sidebar-content">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a></li>
+                    <li><a href="../../Tela Educacao/HTML/educacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></a></li>
+                    <li><a href="../../Tela Educacao/HTML/educacao.html" style="text-decoration: none; color: inherit;"><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></a></li>
+                </ul>
+            </div>
+            <div class="top-switch-profile">
+                <div class="switch">
+                    <i class="fas fa-sun"></i>
+                    <span class="switch__track"></span>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="profile-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="menu-toggle top-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
 
     <!-- Conteúdo do perfil -->
-    <div class="container">
-        <div class="profile-header">
-            <img src="https://via.placeholder.com/150" alt="Foto de perfil">
-            <h1>João da Silva</h1>
-            <p>🏋️‍♂️ Nível: Intermediário</p>
-        </div>
-
-        <div class="profile-stats">
-            <div class="stat">
-                <h3>Idade</h3>
-                <p>28 anos</p>
-            </div>
-            <div class="stat">
-                <h3>Peso</h3>
-                <p>75 kg</p>
-            </div>
-            <div class="stat">
-                <h3>Altura</h3>
-                <p>1,75 m</p>
-            </div>
-            <div class="stat">
-                <h3>IMC</h3>
-                <p>24,5</p>
-            </div>
-        </div>
-
-        <div class="health-stats">
-            <div class="stat">
-                <h3>Passos Hoje</h3>
-                <p>8.540 👟</p>
-            </div>
-            <div class="stat">
-                <h3>Calorias Queimadas</h3>
-                <p>540 kcal 🔥</p>
-            </div>
-            <div class="stat">
-                <h3>Frequência Cardíaca</h3>
-                <p>72 bpm ❤️</p>
-            </div>
-        </div>
-
-        <div class="profile-goals">
-            <h2>🎯 Objetivos</h2>
-            <ul>
-                <li>🏃‍♂️ Correr 5km por semana</li>
-                <li>🥗 Manter uma dieta equilibrada</li>
-                <li>💪 Aumentar a massa muscular</li>
-            </ul>
-        </div>
+   <!-- Adiciona esta seção abaixo de .top-sidebar -->
+   <div class="container profile-cards">
+    <div class="profile-card editable">
+      <i class="fas fa-user"></i>
+      <input type="text" id="nome" name="nome" placeholder="Nome" required>
     </div>
+  
+    <div class="profile-card editable">
+      <i class="fas fa-envelope"></i>
+      <input type="email" id="email" name="email" placeholder="E-mail" required>
+    </div>
+  
+    <div class="profile-card editable">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="senha" name="senha" placeholder="Nova senha">
+    </div>
+  
+    <div class="profile-card editable">
+      <i class="fas fa-calendar-alt"></i>
+      <input type="date" id="data_nascimento" name="data_nascimento" required>
+    </div>
+  
+    <div class="profile-card editable">
+      <i class="fas fa-venus-mars"></i>
+      <select id="sexo" name="sexo" required>
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </div>
+  
+    <div class="profile-card editable">
+      <i class="fas fa-ruler-vertical"></i>
+      <input type="number" step="0.01" id="altura" name="altura" placeholder="Altura (m)" required>
+    </div>
+  
+    <div class="profile-card editable">
+      <i class="fas fa-weight"></i>
+      <input type="number" step="0.1" id="peso" name="peso" placeholder="Peso (kg)" required>
+    </div>
+  
+    <div class="profile-card readonly">
+      <i class="fas fa-hourglass-half"></i>
+      <span id="idade">-</span>
+      <label>Idade</label>
+    </div>
+  
+    <div class="profile-card readonly">
+      <i class="fas fa-heartbeat"></i>
+      <span id="imc">-</span>
+      <label>IMC</label>
+    </div>
+  
+    <div class="profile-card readonly">
+      <i class="fas fa-clock"></i>
+      <span id="criado_em">-</span>
+      <label>Cadastro</label>
+    </div>
+  
+    <button class="save-btn">Salvar Alterações</button>
+  </div>
+  
     <script src="../js/script.js"></script>
 </body>
 
