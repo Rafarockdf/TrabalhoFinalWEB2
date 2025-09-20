@@ -23,6 +23,7 @@ if (_elements.menuToggle && _elements.sidebar && _elements.container) {
     });
 } else {
     console.warn("Elementos do menu/sidebar não encontrados. O toggle não será configurado.");
+
 }
 
 // Alternância de tema
@@ -40,6 +41,7 @@ if (_elements.switch) {
 function configurarEventoIconePerfil() {
     const profileIcon = document.querySelector('.profile-icon');
     console.log('Ícone de perfil encontrado:', profileIcon);
+
 
     if (profileIcon) {
         profileIcon.addEventListener('click', (event) => {
@@ -88,3 +90,4 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM totalmente carregado. Inicializando...");
     configurarEventoIconePerfil();
 });
+

@@ -141,51 +141,16 @@ if ($rowUser = $resultUser->fetch_assoc()) {
         // Adicionar ao JSON de resposta
         
 
-        $sql_card2 = "SELECT AVG(qt_calorias_gr) AS media_calorias
-                 FROM alimentacao
-                 WHERE usuario_id = ?";
-        $stmtCard2 = $conn->prepare($sql_card2);
-        $stmtCard2->bind_param("i", $usuario_id);
-        $stmtCard2->execute();
-        $resultCard2 = $stmtCard2->get_result();
-        $card2 = $resultCard2->fetch_assoc();
-
-        $sql_card4 = "SELECT COUNT(id) AS total_pendentes 
-                  FROM atividades_fisicas
-                  WHERE
-                  usuario_id = ?";
-        $stmtCard4 = $conn->prepare($sql_card4);
-        $stmtCard4->bind_param("i", $usuario_id);
-        $stmtCard4->execute();
-        $resultCard4 = $stmtCard4->get_result();
-        $card4 = $resultCard4->fetch_assoc();
-
-        $sql_card3 = "SELECT AVG(qt_proteinas_gr) AS media_calorias
-                 FROM alimentacao
-                 WHERE usuario_id = ?";
-        $stmtCard3 = $conn->prepare($sql_card3);
-        $stmtCard3->bind_param("i", $usuario_id);
-        $stmtCard3->execute();
-        $resultCard3 = $stmtCard3->get_result();
-        $card3 = $resultCard3->fetch_assoc();
+        
 
     // ----------------------------------------------------------------------
     // 5. Preparar a resposta JSON
     // ----------------------------------------------------------------------
     $response = [
         'success' => true,
-        'card1' => $card4,
-        'card2' => [
-            'media_calorias' => $card2['media_calorias'] !== null 
-                ? number_format($card2['media_calorias'], 2, ',', '') . ' cal' 
-                : null
-        ],
-        'card3' => [
-                    'media_calorias' => $card3['media_calorias'] !== null 
-                        ? number_format($card3['media_calorias'], 2, ',', '') . ' pr' 
-                        : null
-                ],
-        'card4' => $card1,
+        'card1' => $card1,
+
+        'card3' => $card1,
         'grafico1' => $grafico1,
         'grafico2' => $grafico2,
         'graficoPlanoVsExecutado' =>$graficoPlanoVsExecutado
@@ -211,7 +176,5 @@ $stmtCard1->close();
 $stmtGrafico1->close();
 $stmtGrafico2->close();
 $stmtCard2->close();
-$stmtCard3->close();
-$stmtCard4->close();
 $conn->close();
 ?>

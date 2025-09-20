@@ -14,15 +14,6 @@
     <style>
         .checkpoint-list {
             list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            position: sticky;
-            top: 80px; /* Ajuste conforme a altura do seu cabeçalho/navegação */
-            background-color: var(--clr-background); /* Para não ficar transparente ao scroll */
-            z-index: 100; /* Para ficar acima do conteúdo */
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .checkpoint-list li {
@@ -33,7 +24,9 @@
         }
 
         .checkpoint-list li::before {
-            content: '\f058'; /* Checkmark icon */
+            content: "✔";
+            color: green;
+            margin-right: 0.5em;
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             position: absolute;
@@ -52,34 +45,24 @@
         }
 
         .checkpoint-list li a:hover {
-            color: var(--clr-highlight-dark);
-        }
-
-        .content-section {
-            padding: 30px;
-            margin-bottom: 40px;
-            background: var(--clr-card);
-            border-radius: 10px;
-            box-shadow: var(--clr-shadow);
-            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-            margin-right: 15rem;
-        }
-
-        .content-section:hover {
-            box-shadow: 4px 4px 30px var(--clr-shadow);
-            transform: scale(1.01);
+            color: var(--clr-highlight);
         }
 
         .content-section h2 {
             font-size: 2rem;
             color: var(--clr-highlight);
-            margin-bottom: 15px;
+            margin-top: 20px;
+            /* Espaçamento acima dos títulos */
+            margin-bottom: 10px;
+            /* Espaçamento abaixo dos títulos */
         }
 
         .content-section p {
             font-size: 1.6rem;
             color: var(--clr-font);
             line-height: 1.7;
+            margin-bottom: 15px;
+            /* Espaçamento abaixo dos parágrafos */
         }
 
         /* Estilo específico para o link ativo */
@@ -91,48 +74,54 @@
             color: var(--clr-button);
         }
 
-        /* Estilos para o container principal para permitir scroll */
-        .container {
-            position: relative; /* Para posicionar a lista sticky corretamente */
-            padding-bottom: 60px; /* Espaço extra no final para o último texto */
-        }
-
         .summary {
             padding: 20px;
-            margin-right: 15rem;
         }
     </style>
 </head>
 
 <body>
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-    <div class="sidebar">
-        <div class="logo">
-            <div class="cross"></div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="../../Tela Inicial/html/TelaInicial.html" style="text-decoration: none; color: inherit;"><i
-                            class="fas fa-home"></i> <span class="menu-text">Página Inicial</span></a>
-                </li>
-            </ul>
-        </div>
-        <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
+    <div class="top-sidebar">
+        <div class="top-sidebar-content">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../../Tela Inicial/html/TelaInicial.html"
+                            style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span
+                                class="menu-text">Página Inicial</span></a></li>
+                    <li><a href="../../Tela Educacao/HTML/nova.html" style="text-decoration: none; color: inherit;"><i
+                                class="fas fa-book"></i> <span class="menu-text">Educação</span></a></li>
+                </ul>
+            </div>
+            <div class="top-switch-profile" onclick="">
+
+                <div class="switch">
+                    <i class="fas fa-sun"></i>
+                    <span class="switch__track"></span>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="profile-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="menu-toggle top-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
 
     <div class="container">
         <div class="summary">
             <h1>Conheça o HealthPal: Seu Parceiro de Bem-Estar</h1>
-            <p>O HealthPal é mais do que uma plataforma; é o seu companheiro dedicado na jornada rumo a uma vida mais saudável e equilibrada. Inspirado pela necessidade de simplificar o cuidado com a saúde, nosso projeto oferece um conjunto de ferramentas intuitivas para monitorar e melhorar seus hábitos diários.</p>
+            <p>O HealthPal é mais do que uma plataforma; é o seu companheiro dedicado na jornada rumo a uma vida mais
+                saudável e equilibrada. Inspirado pela necessidade de simplificar o cuidado com a saúde, nosso projeto
+                oferece um conjunto de ferramentas intuitivas para monitorar e melhorar seus hábitos diários.</p>
 
             <ul class="checkpoint-list">
-                <li data-target="graficos-section" class="active"><a href="#graficos-section">Visualização com Gráficos</a></li>
+                <li data-target="graficos-section" class="active"><a href="#graficos-section">Visualização com
+                        Gráficos</a></li>
                 <li data-target="esporte-section"><a href="#esporte-section">Atividades Esportivas</a></li>
                 <li data-target="educacao-section"><a href="#educacao-section">Conteúdo Educacional</a></li>
                 <li data-target="alimentacao-section"><a href="#alimentacao-section">Registro de Alimentação</a></li>
@@ -145,150 +134,161 @@
 
         <section id="graficos-section" class="content-section">
             <h2>Visualização com Gráficos Interativos</h2>
-            <p>Acompanhe sua evolução de forma clara e intuitiva com nossos gráficos interativos. Visualize seus registros de atividades físicas, alimentação, hidratação e humor ao longo do tempo. Identifique padrões, celebre seus progressos e ajuste suas metas com base em dados concretos. Nossos gráficos são projetados para serem fáceis de entender, transformando informações complexas em insights acionáveis para o seu bem-estar.</p>
-            <p>Explore as diferentes visualizações para entender melhor seus hábitos e tendências. Interaja com os gráficos para ver detalhes específicos e períodos de tempo. Utilize essas informações para tomar decisões mais conscientes sobre sua saúde.</p>
+            <p>Acompanhe sua evolução de forma clara e intuitiva com nossos gráficos interativos. Visualize seus
+                registros de atividades físicas, alimentação, hidratação e humor ao longo do tempo. Identifique padrões,
+                celebre seus progressos e ajuste suas metas com base em dados concretos. Nossos gráficos são projetados
+                para serem fáceis de entender, transformando informações complexas em insights acionáveis para o seu
+                bem-estar.</p>
+            <p>Explore as diferentes visualizações para entender melhor seus hábitos e tendências. Interaja com os
+                gráficos para ver detalhes específicos e períodos de tempo. Utilize essas informações para tomar
+                decisões mais conscientes sobre sua saúde.</p>
         </section>
 
         <section id="esporte-section" class="content-section">
             <h2>Foco em Atividades Esportivas</h2>
-            <p>Incentivamos um estilo de vida ativo! Registre suas atividades físicas, desde caminhadas leves até treinos intensos. Monitore a frequência, duração e tipo de exercício. Explore dicas de treino personalizadas e descubra os inúmeros benefícios que a prática regular de esportes traz para a sua saúde física e mental. O HealthPal te ajuda a manter a motivação e a alcançar seus objetivos de fitness.</p>
-            <p>Descubra novas modalidades esportivas e encontre recursos para planejar seus treinos. Acompanhe seu gasto calórico e a intensidade de suas atividades. Celebre suas conquistas e mantenha-se motivado para superar seus limites.</p>
+            <p>Incentivamos um estilo de vida ativo! Registre suas atividades físicas, desde caminhadas leves até
+                treinos intensos. Monitore a frequência, duração e tipo de exercício. Explore dicas de treino
+                personalizadas e descubra os inúmeros benefícios que a prática regular de esportes traz para a sua saúde
+                física e mental. O HealthPal te ajuda a manter a motivação e a alcançar seus objetivos de fitness.</p>
+            <p>Descubra novas modalidades esportivas e encontre recursos para planejar seus treinos. Acompanhe seu gasto
+                calórico e a intensidade de suas atividades. Celebre suas conquistas e mantenha-se motivado para superar
+                seus limites.</p>
         </section>
 
         <section id="educacao-section" class="content-section">
             <h2>Conteúdo Educacional para Saúde</h2>
-            <p>Acreditamos que o conhecimento é fundamental para tomar decisões saudáveis. Em nossa seção de educação, você encontrará artigos informativos, vídeos explicativos e dicas práticas sobre bem-estar, nutrição, exercícios físicos e saúde mental. Aprenda no seu ritmo, desmistifique conceitos e adote hábitos mais saudáveis com o apoio de conteúdo confiável e acessível.</p>
-            <p>Explore nossos artigos sobre alimentação balanceada, dicas para melhorar seu sono, estratégias para gerenciar o estresse e muito mais. Nosso objetivo é fornecer informações relevantes e baseadas em evidências para empoderar você no cuidado com a sua saúde.</p>
+            <p>Acreditamos que o conhecimento é fundamental para tomar decisões saudáveis. Em nossa seção de educação,
+                você encontrará artigos informativos, vídeos explicativos e dicas práticas sobre bem-estar, nutrição,
+                exercícios físicos e saúde mental. Aprenda no seu ritmo, desmistifique conceitos e adote hábitos mais
+                saudáveis com o apoio de conteúdo confiável e acessível.</p>
+            <p>Explore nossos artigos sobre alimentação balanceada, dicas para melhorar seu sono, estratégias para
+                gerenciar o estresse e muito mais. Nosso objetivo é fornecer informações relevantes e baseadas em
+                evidências para empoderar você no cuidado com a sua saúde.</p>
         </section>
 
         <section id="alimentacao-section" class="content-section">
             <h2>Registro Detalhado de Alimentação</h2>
-            <p>Monitore sua dieta de forma fácil e eficiente. Registre suas refeições, incluindo os alimentos consumidos e as porções. Acompanhe sua ingestão calórica, macronutrientes e micronutrientes para garantir uma alimentação equilibrada. Receba insights sobre seus hábitos alimentares e dicas para fazer escolhas mais saudáveis.</p>
-            <p>Utilize nossa ferramenta de busca de alimentos para registrar rapidamente suas refeições. Analise seus relatórios de alimentação para identificar áreas de melhoria e alcançar seus objetivos nutricionais.</p>
+            <p>Monitore sua dieta de forma fácil e eficiente. Registre suas refeições, incluindo os alimentos consumidos
+                e as porções. Acompanhe sua ingestão calórica, macronutrientes e micronutrientes para garantir uma
+                alimentação equilibrada. Receba insights sobre seus hábitos alimentares e dicas para fazer escolhas mais
+                saudáveis.</p>
+            <p>Utilize nossa ferramenta de busca de alimentos para registrar rapidamente suas refeições. Analise seus
+                relatórios de alimentação para identificar áreas de melhoria e alcançar seus objetivos nutricionais.</p>
         </section>
 
         <section id="hidratacao-section" class="content-section">
             <h2>Controle Inteligente de Hidratação</h2>
-            <p>Mantenha-se hidratado ao longo do dia! Registre seu consumo de água e receba lembretes personalizados para garantir que você atinja suas metas de hidratação. Acompanhe seu histórico de consumo e visualize seu progresso ao longo do tempo.</p>
-            <p>Defina suas metas de ingestão de água com base em suas necessidades individuais. Receba alertas suaves para te lembrar de beber água, ajudando a criar um hábito saudável.</p>
+            <p>Mantenha-se hidratado ao longo do dia! Registre seu consumo de água e receba lembretes personalizados
+                para garantir que você atinja suas metas de hidratação. Acompanhe seu histórico de consumo e visualize
+                seu progresso ao longo do tempo.</p>
+            <p>Defina suas metas de ingestão de água com base em suas necessidades individuais. Receba alertas suaves
+                para te lembrar de beber água, ajudando a criar um hábito saudável.</p>
         </section>
 
         <section id="humor-section" class="content-section">
             <h2>Registro e Análise do seu Humor</h2>
-            <p>Entenda suas emoções e padrões de humor. Registre como você está se sentindo ao longo do dia e acompanhe as variações em seu humor. Identifique fatores que podem influenciar seu bem-estar emocional e obtenha insights para melhorar sua saúde mental.</p>
-            <p>Utilize nossa escala de humor intuitiva para registrar suas emoções. Visualize seu histórico de humor em gráficos para identificar tendências e padrões ao longo do tempo.</p>
+            <p>Entenda suas emoções e padrões de humor. Registre como você está se sentindo ao longo do dia e acompanhe
+                as variações em seu humor. Identifique fatores que podem influenciar seu bem-estar emocional e obtenha
+                insights para melhorar sua saúde mental.</p>
+            <p>Utilize nossa escala de humor intuitiva para registrar suas emoções. Visualize seu histórico de humor em
+                gráficos para identificar tendências e padrões ao longo do tempo.</p>
         </section>
 
         <section id="metas-section" class="content-section">
             <h2>Definição e Acompanhamento de Metas</h2>
-            <p>Estabeleça objetivos de bem-estar personalizados, como beber mais água, se exercitar com mais frequência ou melhorar sua alimentação. Acompanhe seu progresso em relação a essas metas e receba incentivos para se manter motivado. Visualize seu avanço e celebre suas conquistas.</p>
-            <p>Defina metas SMART (Específicas, Mensuráveis, Alcançáveis, Relevantes e com Prazos Definidos) para aumentar suas chances de sucesso. Monitore seu progresso e ajuste suas metas conforme necessário.</p>
+            <p>Estabeleça objetivos de bem-estar personalizados, como beber mais água, se exercitar com mais frequência
+                ou melhorar sua alimentação. Acompanhe seu progresso em relação a essas metas e receba incentivos para
+                se manter motivado. Visualize seu avanço e celebre suas conquistas.</p>
+            <p>Defina metas SMART (Específicas, Mensuráveis, Alcançáveis, Relevantes e com Prazos Definidos) para
+                aumentar suas chances de sucesso. Monitore seu progresso e ajuste suas metas conforme necessário.</p>
         </section>
 
         <section id="alertas-section" class="content-section">
             <h2>Alertas Personalizados para um Estilo de Vida Saudável</h2>
-            <p>Mantenha-se no caminho certo com nossos alertas inteligentes. Receba lembretes para beber água, praticar exercícios, registrar seu humor e muito mais. Personalize seus alertas de acordo com sua rotina e preferências para garantir que você não perca o foco em seus objetivos de bem-estar.</p>
-            <p>Configure a frequência e os horários dos seus alertas. Escolha os tipos de lembretes que são mais importantes para você, ajudando a criar hábitos saudáveis de forma consistente.</p>
+            <p>Mantenha-se no caminho certo com nossos alertas inteligentes. Receba lembretes para beber água, praticar
+                exercícios, registrar seu humor e muito mais. Personalize seus alertas de acordo com sua rotina e
+                preferências para garantir que você não perca o foco em seus objetivos de bem-estar.</p>
+            <p>Configure a frequência e os horários dos seus alertas. Escolha os tipos de lembretes que são mais
+                importantes para você, ajudando a criar hábitos saudáveis de forma consistente.</p>
         </section>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkpointList = document.querySelector('.checkpoint-list');
-            const contentSections = document.querySelectorAll('.content-section');
-            const urlHash = window.location.hash;
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkpointListItems = document.querySelectorAll('.checkpoint-list li');
 
-            function scrollToSection(targetId) {
-                const targetElement = document.getElementById(targetId.substring(1));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setActiveCheckpoint(targetId);
-                }
-            }
+            checkpointListItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    checkpointListItems.forEach(li => li.classList.remove('active'));
+                    this.classList.add('active');
 
-            function setActiveCheckpoint(targetId) {
-                document.querySelectorAll('.checkpoint-list li').forEach(li => {
-                    li.classList.remove('active');
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
-                const activeCheckpoint = document.querySelector(`.checkpoint-list li[data-target="${targetId.substring(1)}"]`);
-                if (activeCheckpoint) {
-                    activeCheckpoint.classList.add('active');
-                }
-            }
-
-            if (urlHash) {
-                scrollToSection(urlHash);
-            } else if (contentSections.length > 0) {
-                setActiveCheckpoint('#' + contentSections[0].id);
-            }
-
-            checkpointList.addEventListener('click', function(event) {
-                if (event.target.tagName === 'A') {
-                    event.preventDefault();
-                    const targetId = event.target.getAttribute('href');
-                    scrollToSection(targetId);
-                    window.location.hash = targetId;
-                }
             });
 
-            // Simulação de links dos cards da página inicial
-            const graficoCardLink = document.querySelector('a[href="#grafico"]');
-            const esporteCardLink = document.querySelector('a[href="#esporte"]');
-            const educacaoCardLink = document.querySelector('a[href="#educacao"]');
-            const alimentacaoCardLink = document.querySelector('a[href="#alimentacao"]');
-            const hidratacaoCardLink = document.querySelector('a[href="#hidratacao"]');
-            const humorCardLink = document.querySelector('a[href="#humor"]');
-            const metasCardLink = document.querySelector('a[href="#metas"]');
-            const alertasCardLink = document.querySelector('a[href="#alertas"]');
-
-            if (graficoCardLink) {
-                graficoCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#graficos-section';
-                });
-            }
-            if (esporteCardLink) {
-                esporteCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#esporte-section';
-                });
-            }
-            if (educacaoCardLink) {
-                educacaoCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#educacao-section';
-                });
-            }
-            if (alimentacaoCardLink) {
-                alimentacaoCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#alimentacao-section';
-                });
-            }
-            if (hidratacaoCardLink) {
-                hidratacaoCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#hidratacao-section';
-                });
-            }
-            if (humorCardLink) {
-                humorCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#humor-section';
-                });
-            }
-            if (metasCardLink) {
-                metasCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#metas-section';
-                });
-            }
-            if (alertasCardLink) {
-                alertasCardLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    window.location.href = 'sobre.html#alertas-section';
-                });
-            }
+            // Adiciona classe 'active' ao primeiro item por padrão
+            checkpointListItems[0].classList.add('active');
         });
+        // Configura o clique do ícone de perfil
+function configurarEventoIconePerfil() {
+    const profileIcon = document.querySelector('.profile-icon');
+    console.log('Ícone de perfil encontrado:', profileIcon);
+
+    if (profileIcon) {
+        profileIcon.addEventListener('click', (event) => {
+            console.log('Ícone de perfil clicado', event.target);
+
+            if (_elements.loading) {
+                _elements.loading.classList.remove('loading--hide');
+            }
+
+            // Verifica a sessão do usuário
+            fetch('../../Verificar/verificar_sessao.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (_elements.loading) {
+                        _elements.loading.classList.add('loading--hide');
+                    }
+
+                    if (data.logado) {
+                        console.log('Usuário logado. Redirecionando para perfil...');
+                        window.location.href = '../../Perfil/html/perfil.html';
+                    } else {
+                        console.log('Usuário não logado. Redirecionando para tela intermediária...');
+                        window.location.href = '../../Tela Intermediaria/html/telaLoginCadastro.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao verificar sessão:', error);
+                    if (_elements.loading) {
+                        _elements.loading.classList.add('loading--hide');
+                    }
+                    alert('Não foi possível verificar o status da sessão. Tente novamente.');
+                });
+        });
+    } else {
+        console.warn("Elemento '.profile-icon' não encontrado.");
+    }
+}
+
+// Aguarda o carregamento do DOM
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM totalmente carregado. Inicializando...");
+    configurarEventoIconePerfil();
+});
     </script>
     <script src="../js/sobre.js"></script>
 </body>

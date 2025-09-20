@@ -1,54 +1,40 @@
+// script.js (usado em TelaInicial.html)
+
+console.log("SCRIPT CARREGADO");
+
+// Seleciona elementos globais
 const _elements = {
     loading: document.querySelector(".loading"),
     switch: document.querySelector(".switch__track"),
     menuToggle: document.querySelector('.menu-toggle'),
     sidebar: document.querySelector('.sidebar'),
     container: document.querySelector('.container')
+};
+
+console.log('_elements encontrados:', _elements);
+
+// Toggle do menu lateral
+if (_elements.menuToggle && _elements.sidebar && _elements.container) {
+    _elements.menuToggle.addEventListener('click', () => {
+        console.log('Menu toggle clicado');
+        _elements.sidebar.classList.toggle('collapsed');
+        _elements.menuToggle.classList.toggle('collapsed');
+        _elements.container.classList.toggle('collapsed');
+    });
+} else {
+    console.warn("Elementos do menu/sidebar não encontrados. O toggle não será configurado.");
 }
 
-_elements.switch.addEventListener("click", () => {
-    const isDark = _elements.switch.classList.toggle("switch__track--dark");
-    if (isDark == true) {
-        document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-        document.documentElement.setAttribute("data-theme", "modern");
-    }
-
-});
-
-_elements.menuToggle.addEventListener('click', () => {
-    _elements.sidebar.classList.toggle('collapsed');
-    _elements.menuToggle.classList.toggle('collapsed');
-    _elements.container.classList.toggle('collapsed');
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const checkpointListItems = document.querySelectorAll('.checkpoint-list li');
-    const topOffset = 80;  // Ajuste este valor conforme necessário
-
-    checkpointListItems.forEach(item => {
-        item.addEventListener('click', function (e) {
-            e.preventDefault(); // Impede o comportamento padrão do link (salto)
-            checkpointListItems.forEach(li => li.classList.remove('active'));
-            this.classList.add('active');
-
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                const targetPosition = targetElement.offsetTop - topOffset;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+// Alternância de tema
+if (_elements.switch) {
+    _elements.switch.addEventListener("click", () => {
+        console.log('Switch de tema clicado');
+        const isDark = _elements.switch.classList.toggle("switch__track--dark");
+        document.documentElement.setAttribute("data-theme", isDark ? "dark" : "modern");
     });
-
-    // Adiciona classe 'active' ao primeiro item por padrão
-    checkpointListItems[0].classList.add('active');
-});
+} else {
+    console.warn("Elemento do switch de tema não encontrado.");
+}
 
 // Configura o clique do ícone de perfil
 function configurarEventoIconePerfil() {

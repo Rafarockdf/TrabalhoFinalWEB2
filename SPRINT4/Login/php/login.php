@@ -31,11 +31,8 @@ if ($resultado->num_rows === 1) {
         // Autenticação bem-sucedida
         $_SESSION['usuario'] = $usuario['nome'];
         $_SESSION['email'] = $usuario['email'];
-        $_SESSION['usuario_id'] = $usuario['id']; // <--- ESTA LINHA É FUNDAMENTAL
-
-        // Redireciona para a página de perfil
         header("Location: ../../Perfil/html/perfil.html");
-        exit; // Garante que o script pare de executar após o redirecionamento
+        exit;
     } else {
         // Senha incorreta
         echo "Senha incorreta.";

@@ -9,30 +9,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/nova.css">
+    <link rel="stylesheet" href="../CSS/nova2.css">
 </head>
 
 <body>
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-    <div class="sidebar">
-        <div class="logo">
-            <div class="cross"></div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><i class="fas fa-home"></i> <span class="menu-text">Início</span></li>
-                <li><i class="fas fa-chart-line"></i> <span class="menu-text">Progresso</span></li>
-                <li><i class="fas fa-clipboard"></i> <span class="menu-text">Meus Planos</span></li>
-                <li><i class="fas fa-apple-alt"></i> <span class="menu-text">Dietas</span></li>
-                <li><i class="fas fa-dumbbell"></i> <span class="menu-text">Treinos</span></li>
-            </ul>
-        </div>
-        <div class="switch">
-            <i class="fas fa-sun"></i>
-            <span class="switch__track"></span>
-            <i class="fas fa-moon"></i>
+    <div class="top-sidebar">
+        <div class="top-sidebar-content">
+            <div class="logo">
+                <div class="cross"></div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../../Tela Inicial/html/TelaInicial.html"
+                        style="text-decoration: none; color: inherit;"><i class="fas fa-home"></i> <span
+                            class="menu-text">Página Inicial</span></a></li>
+                <li><a href="../../Tela Educacao/HTML/nova.html" style="text-decoration: none; color: inherit;"><i
+                            class="fas fa-book"></i> <span class="menu-text">Educação</span></a></li>
+                </ul>
+            </div>
+            <div class="top-switch-profile">
+                <div class="switch">
+                    <i class="fas fa-sun"></i>
+                    <span class="switch__track"></span>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="profile-icon" onclick="">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="menu-toggle top-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
 
@@ -407,6 +414,60 @@
                 countElement.textContent = parseInt(countElement.textContent) - 1;
             }
         }
+// Configura o clique do ícone de perfil
+function configurarEventoIconePerfil() {
+    const profileIcon = document.querySelector('.profile-icon');
+    console.log('Ícone de perfil encontrado:', profileIcon);
+
+    if (profileIcon) {
+        profileIcon.addEventListener('click', (event) => {
+            console.log('Ícone de perfil clicado', event.target);
+
+            if (_elements.loading) {
+                _elements.loading.classList.remove('loading--hide');
+            }
+
+            // Verifica a sessão do usuário
+            fetch('../../Verificar/verificar_sessao.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (_elements.loading) {
+                        _elements.loading.classList.add('loading--hide');
+                    }
+
+                    if (data.logado) {
+                        console.log('Usuário logado. Redirecionando para perfil...');
+                        window.location.href = '../../Perfil/html/perfil.html';
+                    } else {
+                        console.log('Usuário não logado. Redirecionando para tela intermediária...');
+                        window.location.href = '../../Tela Intermediaria/html/telaLoginCadastro.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao verificar sessão:', error);
+                    if (_elements.loading) {
+                        _elements.loading.classList.add('loading--hide');
+                    }
+                    alert('Não foi possível verificar o status da sessão. Tente novamente.');
+                });
+        });
+    } else {
+        console.warn("Elemento '.profile-icon' não encontrado.");
+    }
+}
+
+// Aguarda o carregamento do DOM
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM totalmente carregado. Inicializando...");
+    configurarEventoIconePerfil();
+});
+
+
     </script>
 </body>
 

@@ -18,11 +18,13 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
 // ──────────────────────────────────────────────────────────────────────────
 // 3) Inclui a conexão (ajuste o caminho caso necessário)
-include("../../Conexao/conexao.php");
+
+include("../../Conexao/php/conexao.php");
 
 // ──────────────────────────────────────────────────────────────────────────
 // 4) Verifica se está logado
-$usuarioId = $_SESSION['usuario_id'] ?? null;
+$usuarioId = $_SESSION['email'] ?? null;
+
 if (!$usuarioId) {
     echo json_encode(["erro" => "Usuário não autenticado"]);
     exit;
@@ -32,7 +34,9 @@ if (!$usuarioId) {
 // 5) Busca dados do usuário
 $sql = "SELECT nome, email, data_nascimento, sexo, altura, peso, IMC, criado_em
         FROM usuarios
-        WHERE id = ?";
+
+        WHERE email = ?";
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuarioId);
 $stmt->execute();
@@ -48,4 +52,4 @@ echo json_encode($user);
 // 7) Libera recursos
 $stmt->close();
 $conn->close();
-?>
+
