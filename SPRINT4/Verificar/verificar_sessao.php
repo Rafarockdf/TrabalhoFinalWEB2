@@ -5,8 +5,9 @@ session_start();
 // Define o cabeçalho para retornar JSON
 header('Content-Type: application/json; charset=utf-8');
 
-// Verifica se a variável de sessão 'usuario_id' está definida
+
 if (isset($_SESSION['email']) && $_SESSION['email'] !== null) {
+
     // Usuário está logado
     echo json_encode(["logado" => true]);
 } else {

@@ -36,11 +36,14 @@ if ($conn->connect_error) {
 
 // ──────────────────────────────────────────────────────────────────────────
 // 4) Verifica sessão
+
 $usuarioId = $_SESSION['email'] ?? null;
+
 if (!$usuarioId) {
     echo json_encode(["status" => "erro", "mensagem" => "Usuário não autenticado"]);
     exit;
 }
+
 // Busca ID do usuário
 $stmtUser = $conn->prepare("SELECT id FROM usuarios WHERE email = ?");
 $stmtUser->bind_param("s", $usuario_email);
@@ -50,6 +53,7 @@ $resultUser = $stmtUser->get_result();
 if ($rowUser = $resultUser->fetch_assoc()) {
     $usuario_id = $rowUser['id'];
 }
+
 
 // ──────────────────────────────────────────────────────────────────────────
 // 5) Lê dado JSON do corpo
@@ -95,6 +99,7 @@ if (!empty($senha)) {
 
 // Adiciona o ID do usuário ao final dos parâmetros
 $bind_types .= "i";
+
 $bind_params[] = $usuario_id;
 
 

@@ -162,4 +162,6 @@ function configurarEventoIconePerfil() {
     } else {
         console.warn("Elemento com classe 'profile-icon' não encontrado.");
     }
+
 }
+
